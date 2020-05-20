@@ -2,7 +2,7 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -35,8 +35,7 @@ public class Customer implements Serializable {
 	@Column(name = "telefono", length = 9, nullable = false)
 	private String telefono;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
-	private User user;
+
 
 	public int getId() {
 		return id;
@@ -78,12 +77,6 @@ public class Customer implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }
