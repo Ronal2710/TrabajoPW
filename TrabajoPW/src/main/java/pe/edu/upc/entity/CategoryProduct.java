@@ -2,6 +2,7 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,17 +19,18 @@ public class CategoryProduct implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCategoryProduct;
+	@Column(name = "nameCategoryProduct", length = 80, nullable = false)
 	private String nameCategoryProduct;
-	private String descriptionCategoryProduct;
+
 
 	
 	
 	
-	public CategoryProduct(int idCategoryProduct, String nameCategoryProduct, String descriptionCategoryProduct) {
+	public CategoryProduct(int idCategoryProduct, String nameCategoryProduct) {
 		super();
 		this.idCategoryProduct = idCategoryProduct;
 		this.nameCategoryProduct = nameCategoryProduct;
-		this.descriptionCategoryProduct = descriptionCategoryProduct;
+		
 	}
 	
 	public CategoryProduct() {
@@ -48,12 +50,5 @@ public class CategoryProduct implements Serializable {
 	public void setNameCategoryProduct(String nameCategoryProduct) {
 		this.nameCategoryProduct = nameCategoryProduct;
 	}
-	public String getDescriptionCategoryProduct() {
-		return descriptionCategoryProduct;
-	}
-	public void setDescriptionCategoryProduct(String descriptionCategoryProduct) {
-		this.descriptionCategoryProduct = descriptionCategoryProduct;
-	}
-	
-	
+
 }
