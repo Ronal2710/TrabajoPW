@@ -156,7 +156,7 @@
 
 
 
-<body  id="page-top">
+<body   id="page-top" >
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -185,16 +185,28 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-target="#collapseTwo" aria-expanded=true
-				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Men&uacute;</span>
-			</a>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+				<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-target="#collapseTwo" aria-expanded="false"
+				
+				aria-controls="collapseTwo"> </a>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/categoriesProduct/list}">Categor&iacute;as</a>
-					</div>
-				</div></li>
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a  style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Categories Product</a>
+					</div></div>
+					
+			
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div  class="bg-black py-2 collapse-inner rounded">
+						<a   style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Payment Method</a>
+					</div></div>
+					
+					
+					
+					
+					
+			
 
 
 
@@ -208,14 +220,14 @@
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
-		<div id="content-wrapper" class="d-flex flex-column">
+		<div style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg);background-size: cover ;background-repeat: no-repeat"id="content-wrapper" class="d-flex flex-column">
 
 			<!-- Main Content -->
 			<div id="content">
 
 				<!-- Topbar -->
-				<nav
-					class="navbar navbar-default" >
+				<nav style="background-color: black"
+					class="navbar navbar-expand  topbar mb-4 static-top shadow" >
 
 					<!-- Sidebar Toggle (Topbar) -->
 					<button id="sidebarToggleTop"
@@ -250,13 +262,13 @@
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+								<a style="color: black" class="dropdown-item" href="#"> <i 	
+									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="categoriesProduct/index"
+								<a  style="color: black" class="dropdown-item" href="categoriesProduct/index"
 									data-toggle="modal" data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
 									Cerrar sesión
 								</a>
 							</div></li>
@@ -266,27 +278,29 @@
 				</nav>
 				<!-- End of Topbar -->
 
-				<!-- Begin Page Content -->
-				<div class="container-fluid">
+				<!-- Begin  Page Content -->
+				<div  class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Categor&iacute;as</h1>
+					
+					<br></br>
+					<h1 style="color: black"class="h3 mb-4 ">Categor&iacute;as</h1>
 
 					<a th:href="@{/categoriesProduct/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 
-					<table class="table table-striped">
-						<thead class="thead-dark">
+					<table  class="table table-bordered">
+						<thead style="background-color: black; ">
 							<tr>
-								<th scope="col">Id</th>
-								<th scope="col">Nombre</th>
+								<th scope="col" style="color: white">Id</th>
+								<th scope="col"  style="color: white">Nombre</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody style="background-color: transparent;">
 							<tr th:each="cate: ${listCategories}">
-								<td th:text="${cate.idCategoryProduct}"></td>
-								<td th:text="${cate.nameCategoryProduct}"></td>
+								<td style="color:white; font-weight: bold "  th:text="${cate.idCategoryProduct}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.nameCategoryProduct}"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -300,13 +314,7 @@
 			<!-- End of Main Content -->
 
 			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Web 2020</span>
-					</div>
-				</div>
-			</footer>
+			
 			<!-- End of Footer -->
 
 		</div>

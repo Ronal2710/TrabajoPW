@@ -1527,11 +1527,11 @@ pre code {
 }
 
 .table-bordered {
-	border: 1px solid #dee2e6
+	border: 1px solid #000000
 }
 
 .table-bordered td, .table-bordered th {
-	border: 1px solid #dee2e6
+	border: 1px solid #000000
 }
 
 .table-bordered thead td, .table-bordered thead th {
@@ -1544,7 +1544,7 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-	background-color: rgba(0, 0, 0, .05)
+	background-color:#000000
 }
 
 .table-hover tbody tr:hover {
@@ -1565,16 +1565,16 @@ pre code {
 }
 
 .table-secondary, .table-secondary>td, .table-secondary>th {
-	background-color: #d6d8db
+	background-color: #000000
 }
 
 .table-hover .table-secondary:hover {
-	background-color: #c8cbcf
+	background-color: #000000
 }
 
 .table-hover .table-secondary:hover>td, .table-hover .table-secondary:hover>th
 	{
-	background-color: #c8cbcf
+	background-color: #000000
 }
 
 .table-success, .table-success>td, .table-success>th {
@@ -1645,11 +1645,11 @@ pre code {
 }
 
 .table-hover .table-dark:hover {
-	background-color: #b9bbbe
+	background-color: #000000
 }
 
 .table-hover .table-dark:hover>td, .table-hover .table-dark:hover>th {
-	background-color: #b9bbbe
+	background-color: #000000
 }
 
 .table-active, .table-active>td, .table-active>th {
@@ -1666,24 +1666,24 @@ pre code {
 }
 
 .table .thead-dark th {
-	color: #fff;
-	background-color: #212529;
-	border-color: #32383e
+	color: #000000;
+	background-color: #000000;
+	border-color: #000000
 }
 
 .table .thead-light th {
-	color: #495057;
-	background-color: #e9ecef;
-	border-color: #dee2e6
+	color: #000000;
+	background-color: #000000;
+	border-color: #000000
 }
 
 .table-dark {
-	color: #fff;
-	background-color: #212529
+	color: #000000;
+	background-color: #000000
 }
 
 .table-dark td, .table-dark th, .table-dark thead th {
-	border-color: #32383e
+	border-color: #000000
 }
 
 .table-dark.table-bordered {
@@ -1691,11 +1691,11 @@ pre code {
 }
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
-	background-color: rgba(255, 255, 255, .05)
+	background-color: #000000
 }
 
 .table-dark.table-hover tbody tr:hover {
-	background-color: rgba(255, 255, 255, .075)
+	background-color: #000000
 }
 
 @media ( max-width :575.98px) {
@@ -1769,7 +1769,7 @@ pre code {
 	padding: .375rem .75rem;
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #495057;
+	color: #000000;
 	background-color: #fff;
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
