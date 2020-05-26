@@ -17,7 +17,7 @@ import pe.edu.upc.serviceinterface.ITypeUserService;
 
 
 @Controller
-@RequestMapping("/typesUser")
+@RequestMapping("/typeUser")
 public class TypeUserController {
 	
 	
