@@ -216,11 +216,18 @@
 							th:href="@{/typePayment/list}">Payment Method</a>
 					</div>
 				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded" >
+						<a  style="color: white" class="collapse-item"  th:href="@{/typeUser/list}">User Type</a>
+					</div></div>
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Card Type</a>
+							th:href="@{/typeCard/list}">Card Type</a>
 					</div>
 				</div>
 				
@@ -228,7 +235,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeMoney/list}">Money Type</a>
+							th:href="@{/typeMoney/list}">Money Type</a>
 					</div>
 				</div></li>
 
@@ -306,7 +313,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Tipos de Tarjeta</h1>
+					<h1 style="color: black" class="h3 mb-4 ">Tipo de Tarjeta</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${typeCard}" th:remove="tag">
@@ -320,7 +327,7 @@
 						th:object="${typeCard}" method="post">
 						<div class="form-group row">
 							<label style="color: black" for="name"
-								class="col-sm-2 col-form-label">Tipos de Tarjeta	</label>
+								class="col-sm-2 col-form-label">Tipo de Tarjeta</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{nameTypeCard}"
 									class="form-control"

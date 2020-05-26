@@ -221,15 +221,23 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Card Type</a>
+							th:href="@{/typeUser/list}">User Type</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeMoney/list}">Money Type</a>
+							th:href="@{/typeCard/list}">Card Type</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeMoney/list}">Money Type</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -305,7 +313,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Tipo Moneda</h1>
+					<h1 style="color: black" class="h3 mb-4 ">Tipo de Moneda</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${typeMoney}" th:remove="tag">
@@ -319,13 +327,13 @@
 						method="post">
 						<div class="form-group row">
 							<label style="color: black" for="name"
-								class="col-sm-2 col-form-label">Tipo Moneda</label>
+								class="col-sm-2 col-form-label">Tipo de Moneda</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{nameTypeMoney}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-								    th:if="${#fields.hasErrors('nameTypeMoney')}"
+									th:if="${#fields.hasErrors('nameTypeMoney')}"
 									th:errors="*{nameTypeMoney}"></small>
 							</div>
 						</div>
