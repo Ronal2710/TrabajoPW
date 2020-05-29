@@ -9,54 +9,45 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pe.edu.upc.entity.TypeUser;
-import pe.edu.upc.serviceinterface.ITypeUserService;
-
-
-
-
+import pe.edu.upc.entity.TypePayment;
+import pe.edu.upc.serviceinterface.ITypePaymentService;
 
 @Controller
-@RequestMapping("/typeUser")
-public class TypeUserController {
-	
+@RequestMapping("/typePayment")
+public class TypePaymentController {
 	
 	@Autowired
-	private ITypeUserService cS;
+	private ITypePaymentService pS;
 	
 	@GetMapping("/new")
-	public String newTypeUser(Model model)
+	public String newTypePayment(Model model)
 	{
-		model.addAttribute("typeUser",new TypeUser());
-		return "typeUser/typeUser";
+		model.addAttribute("typePayment",new TypePayment());
+		return "typePayment/typePayment";
 		
 	};
 	
 	@PostMapping("/save")
-	public String saveCategory(@Validated TypeUser typeUser, BindingResult result, Model model)
+	public String saveTypePayment(@Validated TypePayment typePayment, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
-			return "typeUser/typeUser";
+			return "typePayment/typePayment";
 		else {
-			cS.insert(typeUser);
-			model.addAttribute("listTypeUser", cS.list());
-			return "typeUser/listTypeUser";
+			pS.insert(typePayment);
+			model.addAttribute("listTypePayment", pS.list());
+			return "typePayment/listTypePayment";
 		}
 		
 	}
 	
 	@GetMapping("/list")
-	public String listCategory(Model model) {
+	public String listTypePayment(Model model) {
 		try {
-			model.addAttribute("listTypeUser",cS.list());
+			model.addAttribute("listTypePayment",pS.list());
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 		}
-		return "typeUser/listTypeUser";
-		
-		
+		return "typePayment/listTypePayment";
 	}
-
-
 }

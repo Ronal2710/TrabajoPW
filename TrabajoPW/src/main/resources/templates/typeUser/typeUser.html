@@ -192,10 +192,33 @@
 			
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typePayment/list}">Payment Method</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded" >
-						<a  style="color: white" class="collapse-item"  th:href="@{/typesUser/list}">Type User</a>
+						<a  style="color: white" class="collapse-item"  th:href="@{/typeUser/list}">User Type</a>
 					</div></div>
-					</li>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCard/list}">Card Type</a>
+					</div>
+				</div>	
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeMoney/list}">Money Type</a>
+					</div>
+				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
 
 
@@ -267,7 +290,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Type User</h1>
+					<h1 style="color: black" class="h3 mb-4 ">Tipo de Usuario</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${typeUser}" th:remove="tag">
@@ -277,10 +300,10 @@
 						</ul>
 					</div>
 
-					<form th:action="@{/typesUser/save}" th:object="${typeUser}"
+					<form th:action="@{/typeUser/save}" th:object="${typeUser}"
 						method="post">
 						<div class="form-group row">
-							<label style="color: black" for="name" class="col-sm-2 col-form-label">Type User</label>
+							<label style="color: black" for="name" class="col-sm-2 col-form-label">Tipo de Usuario</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{nameTypeUser}"
 									class="form-control"
@@ -296,7 +319,7 @@
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/typesUser/list" class="btn btn-danger">Cancelar</a>
+								<a href="/typeUser/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 
@@ -344,7 +367,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/categoriesProduct/index}">Cerrar
+					<a class="btn btn-primary" th:href="@{/typeUser/index}">Cerrar
 						Sesión</a>
 				</div>
 			</div>

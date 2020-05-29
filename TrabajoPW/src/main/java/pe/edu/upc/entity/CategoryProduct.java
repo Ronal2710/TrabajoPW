@@ -22,9 +22,6 @@ public class CategoryProduct implements Serializable {
 	@Column(name = "nameCategoryProduct", length = 80, nullable = false)
 	private String nameCategoryProduct;
 
-
-	
-	
 	
 	public CategoryProduct(int idCategoryProduct, String nameCategoryProduct) {
 		super();
