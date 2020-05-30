@@ -164,7 +164,7 @@
 			id="accordionSidebar">
 			<!-- Sidebar - Brand -->
 			<a class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/categoriesProduct/list}">
+				th:href="@{/products/list}">
 				<div >
 				<img th:src="@{/img/logo.png}" width="150" height="70"
 									align="middle">
@@ -297,36 +297,98 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Categoría</h1>
+						<h1 class="h3 mb-4 text-gray-800">Producto</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${categoryProduct}" th:remove="tag">
+					<div th:object="${product}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/categoriesProduct/save}" th:object="${categoryProduct}"
+					<form th:action="@{/products/save}" th:object="${product}"
 						method="post">
+						
 						<div class="form-group row">
-							<label style="color: black" for="name" class="col-sm-2 col-form-label">Categoría</label>
+							<label style="color: black" for="name" class="col-sm-2 col-form-label">Producto</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{nameCategoryProduct}"
+								<input type="text" th:field="*{nameProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameCategoryProduct')}"
-									th:errors="*{nameCategoryProduct}"></small>
+									th:if="${#fields.hasErrors('nameProduct')}"
+									th:errors="*{nameProduct}"></small>
 							</div>
 						</div>
 
+					<div class="form-group row">
 
-
+							<label style="color: black" for="quantity" class="col-sm-2 col-form-label">Cantidad</label>
+							<div class="col-sm-6">
+								<input type="number" pattern="[1-9]+"  th:field="*{quantityProduct}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('quantityProduct')}"
+									th:errors="*{quantityProduct}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">						
+							<label style="color: black" for="description" class="col-sm-2 col-form-label">Descripción</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{descriptionProduct}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('descriptionProduct')}"
+									th:errors="*{descriptionProduct}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">						
+							<label style="color: black" for="image" class="col-sm-2 col-form-label">Imagen</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{imageProduct}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('imageProduct')}"
+									th:errors="*{imageProduct}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label style="color: black" for="price" class="col-sm-2 col-form-label">Precio</label>
+							<div class="col-sm-6">
+								<input type="number" pattern="[1-9]+"  th:field="*{priceProduct}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('priceProduct')}"
+									th:errors="*{priceProduct}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label style="color: black" for="category" class="col-sm-2 col-form-label">Categoria</label>
+							<div class="col-sm-6">
+								<select class="form-control" th:field="*{category.idCategoryProduct}">
+									<option th:each="c: ${listCategories}"
+										th:value="${c.idCategoryProduct}" th:text="${c.nameCategoryProduct}"
+										th:selected="(${c.idCategoryProduct} == *{category.idCategoryProduct})"></option>
+								</select>
+							</div>
+						</div>
+						
+						</div>
+						
+						
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/categoriesProduct/list" class="btn btn-danger">Cancelar</a>
+								<a href="/products/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 
@@ -374,7 +436,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/categoriesProduct/index}">Cerrar
+					<a class="btn btn-primary" th:href="@{/products/index}">Cerrar
 						Sesión</a>
 				</div>
 			</div>
