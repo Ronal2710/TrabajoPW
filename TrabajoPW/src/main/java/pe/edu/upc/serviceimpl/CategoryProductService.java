@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.upc.entity.CategoryProduct;
 import pe.edu.upc.repository.ICategoryProductRepository;
-
 import pe.edu.upc.serviceinterface.ICategoryProductService;
 
 

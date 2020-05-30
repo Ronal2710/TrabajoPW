@@ -169,7 +169,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/categoriesProduct/list}">
+				th:href="@{/products/list}">
 				<div >
 				<img th:src="@{/img/logo.png}" width="150" height="70"
 									align="middle">
@@ -232,13 +232,6 @@
 							th:href="@{/typeCurrency/list}">Currency Type</a>
 					</div>
 				</div>	
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Person</a>
-					</div>
-				</div>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -296,7 +289,7 @@
 									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a  style="color: black" class="dropdown-item" href="categoriesProduct/index"
+								<a  style="color: black" class="dropdown-item" href="products/index"
 									data-toggle="modal" data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
 									Cerrar sesión
@@ -314,9 +307,9 @@
 					<!-- Page Heading -->
 					
 					<br></br>
-					<h1 style="color: black"class="h3 mb-4 ">Categor&iacute;as</h1>
+					<h1 style="color: black"class="h3 mb-4 ">Productos</h1>
 
-					<a th:href="@{/categoriesProduct/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+					<a th:href="@{/products/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 
@@ -324,13 +317,23 @@
 						<thead style="background-color: black; ">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col"  style="color: white">Nombre</th>
+								<th scope="col"  style="color: white">Producto</th>
+								<th scope="col"  style="color: white">Cantidad</th>
+								<th scope="col"  style="color: white">Descripción</th>
+								<th scope="col"  style="color: white">Imagen</th>
+								<th scope="col"  style="color: white">Precio</th>
+								<th scope="col"  style="color: white">Categor&iacute;a</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
-							<tr th:each="cate: ${listCategories}">
-								<td style="color:white; font-weight: bold "  th:text="${cate.idCategoryProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.nameCategoryProduct}"></td>
+							<tr th:each="cate: ${listProducts}">
+								<td style="color:white; font-weight: bold "  th:text="${cate.idProduct}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.nameProduct}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.quantityProduct}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.descriptionProduct}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.imageProduct}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.priceProduct}"></td>
+							    <td  style="color: white; font-weight: bold" th:text="${cate.category.nameCategoryProduct}"></td>		
 							</tr>
 						</tbody>
 					</table>
@@ -376,7 +379,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/categoriesProduct/index}">Cerrar
+					<a class="btn btn-primary" th:href="@{/products/index}">Cerrar
 						sesión</a>
 				</div>
 			</div>
