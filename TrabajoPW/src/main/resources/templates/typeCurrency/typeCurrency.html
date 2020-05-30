@@ -183,7 +183,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/typeMoney/list}">
+				th:href="@{/typeCurrency/list}">
 				<div>
 					<img th:src="@{/img/logo.png}" width="150" height="70"
 						align="middle"> </img>
@@ -207,7 +207,14 @@
 							th:href="@{/categoriesProduct/list}">Categories Product</a>
 					</div>
 				</div>
-
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+						data-parent="#accordionSidebar">
+						<div class="bg-black py-2 collapse-inner rounded">
+							<a style="color: white" class="collapse-item"
+								th:href="@{/products/list}">Productos</a>
+						</div>
+					</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -237,7 +244,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeMoney/list}">Money Type</a>
+							th:href="@{/typeCurrency/list}">Currency Type</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -316,25 +323,25 @@
 					<h1 style="color: black" class="h3 mb-4 ">Tipo de Moneda</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${typeMoney}" th:remove="tag">
+					<div th:object="${typeCurrency}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/typeMoney/save}" th:object="${typeMoney}"
+					<form th:action="@{/typeCurrency/save}" th:object="${typeCurrency}"
 						method="post">
 						<div class="form-group row">
 							<label style="color: black" for="name"
 								class="col-sm-2 col-form-label">Tipo de Moneda</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{nameTypeMoney}"
+								<input type="text" th:field="*{nameTypeCurrency}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameTypeMoney')}"
-									th:errors="*{nameTypeMoney}"></small>
+									th:if="${#fields.hasErrors('nameTypeCurrency')}"
+									th:errors="*{nameTypeCurrency}"></small>
 							</div>
 						</div>
 
@@ -343,7 +350,7 @@
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/typeMoney/list" class="btn btn-danger">Cancelar</a>
+								<a href="/typeCurrency/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 
@@ -391,7 +398,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/typeMoney/index}">Cerrar
+					<a class="btn btn-primary" th:href="@{/typeCurrency/index}">Cerrar
 						Sesión</a>
 				</div>
 			</div>
