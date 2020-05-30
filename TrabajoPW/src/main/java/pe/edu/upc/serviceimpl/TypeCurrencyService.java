@@ -7,26 +7,26 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pe.edu.upc.entity.TypeMoney;
-import pe.edu.upc.repository.ITypeMoneyRepository;
+import pe.edu.upc.entity.TypeCurrency;
+import pe.edu.upc.repository.ITypeCurrencyRepository;
 
-import pe.edu.upc.serviceinterface.ITypeMoneyService;
+import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 
 @Service
-public class TypeMoneyService implements ITypeMoneyService{
+public class TypeCurrencyService implements ITypeCurrencyService{
 
 	@Autowired
-	private ITypeMoneyRepository mR;
+	private ITypeCurrencyRepository mR;
 
 	@Transactional
 	@Override
-	public void insert(TypeMoney typeMoney) {
+	public void insert(TypeCurrency typecurrency) {
 		// TODO Auto-generated method stub
-		mR.save(typeMoney);	
+		mR.save(typecurrency);	
 	}
 
 	@Override
-	public List<TypeMoney> list() {
+	public List<TypeCurrency> list() {
 		// TODO Auto-generated method stub
 		return mR.findAll();
 	}
