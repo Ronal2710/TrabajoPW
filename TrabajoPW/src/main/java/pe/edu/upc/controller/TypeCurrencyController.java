@@ -9,43 +9,43 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pe.edu.upc.entity.TypeMoney;
-import pe.edu.upc.serviceinterface.ITypeMoneyService;
+import pe.edu.upc.entity.TypeCurrency;
+import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 
 @Controller
-@RequestMapping("/typeMoney")
-public class TypeMoneyController {
+@RequestMapping("/typeCurrency")
+public class TypeCurrencyController {
 	
 	@Autowired
-	private ITypeMoneyService cS;
+	private ITypeCurrencyService cS;
 	
 	@GetMapping("/new")
-	public String newTypeMoney(Model model)
+	public String newTypeCurrency(Model model)
 	{
-		model.addAttribute("typeMoney",new TypeMoney());
-		return "typeMoney/typeMoney";
+		model.addAttribute("typeCurrency",new TypeCurrency());
+		return "typeCurrency/typeCurrency";
 	};
 
 	@PostMapping("/save")
-	public String saveTypeMoney(@Validated TypeMoney type, BindingResult result, Model model)
+	public String saveTypeCurrency(@Validated TypeCurrency type, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
-			return "typeMoney/typeMoney";
+			return "typeCurrency/typeCurrency";
 		else {
 			cS.insert(type);
-			model.addAttribute("listTypeMoney", cS.list());
-			return "typeMoney/listTypeMoney";
+			model.addAttribute("listTypeCurrency", cS.list());
+			return "typeCurrency/listTypeCurrency";
 		}	
 	}
 
 	@GetMapping("/list")
-	public String listTypeMoney(Model model) {
+	public String listTypeCurrency(Model model) {
 		try {
-			model.addAttribute("listTypeMoney",cS.list());
+			model.addAttribute("listTypeCurrency",cS.list());
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 		}
-		return "typeMoney/listTypeMoney";		
+		return "typeCurrency/listTypeCurrency";		
 	}
 }
