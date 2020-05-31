@@ -104,7 +104,15 @@
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Person</a>
 					</div>
-				</div></li>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/bills/list}">Bill</a>
+					</div>
+				</div>
+				</li>
 			<!-- Sidebar Toggler (Sidebar) -->
 
 
@@ -215,7 +223,7 @@
 								<div  class="form-group row">
 							<label style="color: black" for="mail" class="col-sm-2 col-form-label">Mail</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{mailPerson}"
+								<input type="email" th:field="*{mailPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"

@@ -169,7 +169,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/products/list}">
+				th:href="@{/bills/list}">
 				<div >
 				<img th:src="@{/img/logo.png}" width="150" height="70"
 									align="middle">
@@ -192,14 +192,14 @@
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a  style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Categories Product</a>
+						<a  style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Category Product</a>
 					</div></div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 						data-parent="#accordionSidebar">
 						<div class="bg-black py-2 collapse-inner rounded">
 							<a style="color: white" class="collapse-item"
-								th:href="@{/products/list}">Productos</a>
+								th:href="@{/products/list}">Product</a>
 						</div>
 					</div>
 				
@@ -322,9 +322,9 @@
 					<!-- Page Heading -->
 					
 					<br></br>
-					<h1 style="color: black"class="h3 mb-4 ">Productos</h1>
+					<h1 style="color: black"class="h3 mb-4 ">Bills</h1>
 
-					<a th:href="@{/products/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+					<a th:href="@{/bills/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 
@@ -332,23 +332,28 @@
 						<thead style="background-color: black; ">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col"  style="color: white">Producto</th>
-								<th scope="col"  style="color: white">Cantidad</th>
-								<th scope="col"  style="color: white">Descripción</th>
-								<th scope="col"  style="color: white">Imagen</th>
-								<th scope="col"  style="color: white">Precio</th>
-								<th scope="col"  style="color: white">Categor&iacute;a</th>
+								<th scope="col"  style="color: white">Date</th>
+								<th scope="col"  style="color: white">Person</th>
+								<th scope="col"  style="color: white">Sale</th>
+								<th scope="col"  style="color: white">Rnt</th>
+								<th scope="col"  style="color: white">Type Payment</th>
+								<th scope="col"  style="color: white">Type Card</th>
+								<th scope="col"  style="color: white">Type Currency</th>
+								
+							
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
-							<tr th:each="cate: ${listProducts}">
-								<td style="color:white; font-weight: bold "  th:text="${cate.idProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.nameProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.quantityProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.descriptionProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.imageProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.priceProduct}"></td>
-							    <td  style="color: white; font-weight: bold" th:text="${cate.category.nameCategoryProduct}"></td>		
+							<tr th:each="cate: ${listBills}">
+								<td style="color:white; font-weight: bold "  th:text="${cate.idBill}"></td>
+								<td  style="color: white; font-weight: bold" th:text="${cate.dateBill}"></td>
+							    <td  style="color: white; font-weight: bold" th:text="${cate.person.namePerson}"></td>	
+							    <td  style="color: white; font-weight: bold" th:text="${cate.sale.amountSale}"></td>
+							    <td  style="color: white; font-weight: bold" th:text="${cate.rent.amountRent}"></td>
+							     <td  style="color: white; font-weight: bold" th:text="${cate.typePayment.nameTypePayment}"></td>
+							      <td  style="color: white; font-weight: bold" th:text="${cate.typeCard.nameTypeCard}"></td>
+							       <td  style="color: white; font-weight: bold" th:text="${cate.typeCurrency.nameTypeCurrency}"></td>
+							        	
 							</tr>
 						</tbody>
 					</table>
