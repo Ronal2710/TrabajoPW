@@ -35,7 +35,7 @@
 }
 
 .navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	 (.disabled ):focus {
+	(.disabled ):focus {
 	color: #ecdbff;
 }
 
@@ -183,7 +183,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/typeCard/list}">
+				th:href="@{/rents/list}">
 				<div>
 					<img th:src="@{/img/logo.png}" width="150" height="70"
 						align="middle"> </img>
@@ -223,6 +223,7 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
+
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -264,8 +265,6 @@
 							th:href="@{/persons/list}">Usuario</a>
 					</div>
 				</div></li>
-
-
 			<!-- Sidebar Toggler (Sidebar) -->
 
 
@@ -339,57 +338,114 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Tipo de Tarjeta</h1>
+					<h1 class="h3 mb-4 text-gray-800">Alquiler</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${typeCard}" th:remove="tag">
+					<div th:object="${rent}" th:remove="tag">
 						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
 							role="alert">
 							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 						</ul>
 					</div>
 
-					<form th:action="@{/typeCard/save}"
-						th:object="${typeCard}" method="post">
+					<form th:action="@{/rents/save}" th:object="${rent}" method="post">
+
 						<div class="form-group row">
 							<label style="color: black" for="name"
-								class="col-sm-2 col-form-label">Tipo de Tarjeta</label>
+								class="col-sm-2 col-form-label">Alquiler</label>
+							<div class="col-sm-6"></div>
+						</div>
+						
+						<div class="form-group row">
+							<label style="color: black" for="registerdate"
+								class="col-sm-2 col-form-label">Fecha de Registro</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{nameTypeCard}"
-									class="form-control"
+								<input  pattern="dd-mm-yyyy"  type="date" 
+									th:field="*{registerdateRent}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameTypeCard')}"
-									th:errors="*{nameTypeCard}"></small>
+									th:if="${#fields.hasErrors('registerdateRent')}"
+									th:errors="*{registerdateRent}" ></small>
 							</div>
 						</div>
-
-
-
+						
 						<div class="form-group row">
+							<label style="color: black" for="startdate"
+								class="col-sm-2 col-form-label">Fecha de Inicio</label>
 							<div class="col-sm-6">
-								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/typeCard/list" class="btn btn-danger">Cancelar</a>
+								<input   pattern="dd-mm-yyyy"  type="date" 
+									th:field="*{startdateRent}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('startdateRent')}"
+									th:errors="*{startdateRent}"></small>
 							</div>
 						</div>
-
-					</form>
-
-
-
-
+						
+						<div class="form-group row">
+							<label style="color: black" for="endate"
+								class="col-sm-2 col-form-label">Fecha Final</label>
+							<div class="col-sm-6">
+								<input   pattern="dd-mm-yyyy"  type="date" 
+									th:field="*{enddateRent}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('enddateRent')}"
+									th:errors="*{enddateRent}" ></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label style="color: black" for="quantity"
+								class="col-sm-2 col-form-label">Cantidad</label>
+							<div class="col-sm-6">
+								<input type="number" pattern="[1-9]+"
+									th:field="*{quantityRent}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('quantityRent')}"
+									th:errors="*{quantityRent}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label style="color: black" for="product" class="col-sm-2 col-form-label">Producto</label>
+							<div class="col-sm-6">
+								<select class="form-control" th:field="*{product.idProduct}">
+									<option th:each="c: ${listProducts}"
+										th:value="${c.idProduct}" th:text="${c.nameProduct}"
+										th:selected="(${c.idProduct} == *{product.idProduct})"></option>
+								</select>
+							</div>
+						</div>
+						
 				</div>
-				<!-- /.container-fluid -->
+
+
+				<div class="form-group row">
+					<div class="col-sm-6">
+						<input type="submit" value="Guardar" class="btn btn-secondary"></input>
+						<a href="/rents/list" class="btn btn-danger">Cancelar</a>
+					</div>
+				</div>
+
+				</form>
+
+
+
 
 			</div>
-			<!-- End of Main Content -->
-
-			<!-- Footer -->
-
-			<!-- End of Footer -->
+			<!-- /.container-fluid -->
 
 		</div>
-		<!-- End of Content Wrapper -->
+		<!-- End of Main Content -->
+
+		<!-- Footer -->
+
+		<!-- End of Footer -->
+
+	</div>
+	<!-- End of Content Wrapper -->
 
 	</div>
 	<!-- End of Page Wrapper -->
@@ -417,7 +473,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/typeCard/index}">Cerrar
+					<a class="btn btn-primary" th:href="@{/rents/index}">Cerrar
 						Sesión</a>
 				</div>
 			</div>

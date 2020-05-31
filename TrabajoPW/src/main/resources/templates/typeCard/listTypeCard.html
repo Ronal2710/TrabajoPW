@@ -35,7 +35,7 @@
 }
 
 .navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	(.disabled ):focus {
+	 (.disabled ):focus {
 	color: #ecdbff;
 }
 
@@ -209,51 +209,65 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/categoriesProduct/list}">Categories Product</a>
+							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
-				
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-						data-parent="#accordionSidebar">
-						<div class="bg-black py-2 collapse-inner rounded">
-							<a style="color: white" class="collapse-item"
-								th:href="@{/products/list}">Productos</a>
-						</div>
-					</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typePayment/list}">Payment Method</a>
-					</div>
-				</div> 
-				
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div  class="bg-black py-2 collapse-inner rounded">
-						<a   style="color: white" class="collapse-item" th:href="@{/typeUser/list}">User Type</a>
-					</div></div>
-				
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCard/list}">Card Type</a>
+							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCurrency/list}">Currency Type</a>
+							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
-				<!-- Divider -->
-				<hr class="sidebar-divider"> 
-				<!-- Sidebar Toggler (Sidebar) -->
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeUser/list}">Tipo de Usuario</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/persons/list}">Usuario</a>
+					</div>
+				</div> <!-- Divider -->
+				<hr class="sidebar-divider"> <!-- Sidebar Toggler (Sidebar) -->
 		</ul>
 		<!-- End of Sidebar -->
 
@@ -327,8 +341,7 @@
 					<br></br>
 					<h1 style="color: black" class="h3 mb-4 ">Tipos de Tarjetas</h1>
 
-					<a th:href="@{/typeCard/new/}"
-						class="btn btn-secondary btn-xs">Nuevo</a>
+					<a th:href="@{/typeCard/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 

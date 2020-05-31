@@ -35,7 +35,7 @@
 }
 
 .navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	 (.disabled ):focus {
+	(.disabled ):focus {
 	color: #ecdbff;
 }
 
@@ -171,6 +171,9 @@
 
 </head>
 
+
+
+
 <body id="page-top">
 
 	<!-- Page Wrapper -->
@@ -180,20 +183,22 @@
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
+
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/typeCard/list}">
+				th:href="@{/rents/list}">
 				<div>
 					<img th:src="@{/img/logo.png}" width="150" height="70"
 						align="middle"> </img>
-
 				</div>
 
 			</a>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
+
+
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
@@ -244,10 +249,9 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
-
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -256,19 +260,14 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
-				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Usuario</a>
 					</div>
-				</div></li>
-
-
-			<!-- Sidebar Toggler (Sidebar) -->
-
-
+				</div> <!-- Divider -->
+				<hr class="sidebar-divider"> <!-- Sidebar Toggler (Sidebar) -->
 		</ul>
 		<!-- End of Sidebar -->
 
@@ -276,7 +275,6 @@
 		<div
 			style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg); background-size: cover; background-repeat: no-repeat"
 			id="content-wrapper" class="d-flex flex-column">
-
 
 			<!-- Main Content -->
 			<div id="content">
@@ -314,17 +312,17 @@
 								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
 									align="middle"></img></span>
-
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a style="color: black" class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2"></i> Perfil
+									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a style="color: black" class="dropdown-item" href="#"
-									data-toggle="modal" data-target="#logoutModal"> <i
+								<a style="color: black" class="dropdown-item"
+									href="rents/index" data-toggle="modal"
+									data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i> Cerrar
 									sesión
 								</a>
@@ -335,48 +333,48 @@
 				</nav>
 				<!-- End of Topbar -->
 
-				<!-- Begin Page Content -->
+				<!-- Begin  Page Content -->
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Tipo de Tarjeta</h1>
+
+					<br></br>
+					<h1 style="color: black" class="h3 mb-4 ">Productos en Alquiler</h1>
+
+					<a th:href="@{/rents/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
-					<div th:object="${typeCard}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
-					</div>
 
-					<form th:action="@{/typeCard/save}"
-						th:object="${typeCard}" method="post">
-						<div class="form-group row">
-							<label style="color: black" for="name"
-								class="col-sm-2 col-form-label">Tipo de Tarjeta</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{nameTypeCard}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('nameTypeCard')}"
-									th:errors="*{nameTypeCard}"></small>
-							</div>
-						</div>
+					<table class="table table-bordered">
+						<thead style="background-color: black;">
+							<tr>
+								<th scope="col" style="color: white">Id</th>
+								<th scope="col" style="color: white">Fecha de Registro</th>
+								<th scope="col" style="color: white">Fecha de Inicio</th>
+								<th scope="col" style="color: white">Fecha Final</th>
+								<th scope="col" style="color: white">Cantidad</th>
+								<th scope="col" style="color: white">Producto</th>
+							</tr>
+						</thead>
+						<tbody style="background-color: transparent;">
+							<tr th:each="cate: ${listRents}">
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.idRent}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.registerdateRent}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.startdateRent}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.enddateRent}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.quantityRent}"></td>								
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.product.nameProduct}"></td>
+							</tr>
+						</tbody>
+					</table>
 
-
-
-						<div class="form-group row">
-							<div class="col-sm-6">
-								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/typeCard/list" class="btn btn-danger">Cancelar</a>
-							</div>
-						</div>
-
-					</form>
-
-
-
+					<p th:text="${mensaje}" class="form-text text-success"></p>
 
 				</div>
 				<!-- /.container-fluid -->
@@ -413,12 +411,12 @@
 					</button>
 				</div>
 				<div class="modal-body">Seleccione "Cerrar sesión" a
-					continuación si está listo para finalizar su sesión actual</div>
+					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/typeCard/index}">Cerrar
-						Sesión</a>
+					<a class="btn btn-primary" th:href="@{/rents/index}">Cerrar
+						sesión</a>
 				</div>
 			</div>
 		</div>
