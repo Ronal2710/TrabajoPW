@@ -33,20 +33,29 @@ public class TypeUserController {
 	};
 	
 	@PostMapping("/save")
-	public String saveCategory(@Validated TypeUser typeUser, BindingResult result, Model model)
+	public String saveTypeUser(@Validated TypeUser typeUser, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
 			return "typeUser/typeUser";
 		else {
+			
+			int rpta=cS.insert(typeUser);
+			if(rpta>0) {
+				
+			model.addAttribute("mensaje","Ya existe la Categoria");
+			return "typeUser/listTypeUser";}
+			else {
+			
 			cS.insert(typeUser);
-			model.addAttribute("listTypeUser", cS.list());
+			model.addAttribute("listTypeUser",cS.list());
+			model.addAttribute("mensaje","Se registro Correctamente");
 			return "typeUser/listTypeUser";
-		}
-		
+				}
+			}
 	}
 	
 	@GetMapping("/list")
-	public String listCategory(Model model) {
+	public String listTypeUser(Model model) {
 		try {
 			model.addAttribute("listTypeUser",cS.list());
 		} catch (Exception e) {

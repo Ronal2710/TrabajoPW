@@ -7,6 +7,6 @@ import pe.edu.upc.entity.TypeUser;
 
 public interface ITypeUserService {
 
-	public void insert(TypeUser typeUser);
+	public int insert(TypeUser typeUser);
 	List<TypeUser> list();
 }

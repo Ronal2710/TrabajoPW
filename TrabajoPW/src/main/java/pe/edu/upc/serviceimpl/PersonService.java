@@ -21,9 +21,13 @@ public class PersonService implements IPersonService {
 
 	@Transactional
 	@Override
-	public void insert(Person person) {
-		// TODO Auto-generated method stub
-		pR.save(person);
+	public int insert(Person person) {
+		int rpta=pR.searchPerson(person.getDniPerson());
+		if(rpta==0)
+		{
+			pR.save(person);
+		}
+		return rpta;
 	}
 
 	@Override

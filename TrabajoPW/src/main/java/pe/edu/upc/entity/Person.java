@@ -22,7 +22,6 @@ public class Person implements Serializable{
 	private int idPerson;
 	
 	private String namePerson;
-	private String lastnamePerson;
 	private String mailPerson;
 	private int dniPerson;
 	private String directionPerson;
@@ -40,12 +39,12 @@ public class Person implements Serializable{
 	}
 
 
-	public Person(int idPerson, String namePerson, String lastnamePerson, String mailPerson, int dniPerson,
+	public Person(int idPerson, String namePerson, String mailPerson, int dniPerson,
 			String directionPerson, String userPerson, String passwordPerson, TypeUser typeUser) {
 		super();
 		this.idPerson = idPerson;
 		this.namePerson = namePerson;
-		this.lastnamePerson = lastnamePerson;
+	
 		this.mailPerson = mailPerson;
 		this.dniPerson = dniPerson;
 		this.directionPerson = directionPerson;
@@ -75,14 +74,7 @@ public class Person implements Serializable{
 	}
 
 
-	public String getLastnamePerson() {
-		return lastnamePerson;
-	}
 
-
-	public void setLastnamePerson(String lastnamePerson) {
-		this.lastnamePerson = lastnamePerson;
-	}
 
 
 	public String getMailPerson() {

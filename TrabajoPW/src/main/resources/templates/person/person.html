@@ -193,7 +193,7 @@
 						<div  class="form-group row">
 							<label  style="color: black;" for="name" class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-6" >
-								<input type="text" th:field="*{namePerson}"
+								<input pattern="[a-zA-Z]+" required="required" type="text" th:field="*{namePerson}"
 									class="form-control" align="middle"
 									th:errorclass="'form-control alert-danger'" /> <small
 									 class="form-text text-danger"
@@ -201,21 +201,11 @@
 									th:errors="*{namePerson}"></small>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label style="color: black" for="lastname" class="col-sm-2 col-form-label">Last Name</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{lastnamePerson}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('lastnamePerson')}"
-									th:errors="*{lastnamePerson}"></small>
-							</div>
-						</div>
+						
 								<div  class="form-group row">
 							<label style="color: black" for="mail" class="col-sm-2 col-form-label">Mail</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{mailPerson}"
+								<input required="required" type="email" th:field="*{mailPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -226,7 +216,7 @@
 								<div  class="form-group row">
 							<label style="color: black" for="dni" class="col-sm-2 col-form-label">DNI</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{dniPerson}"
+								<input pattern="[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]"  maxlength="8" required="required" type="text" th:field="*{dniPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -237,7 +227,7 @@
 						<div  class="form-group row">
 							<label style="color: black" for="direction" class="col-sm-2 col-form-label">Direction</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{directionPerson}"
+								<input  required="required" type="text" th:field="*{directionPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -248,7 +238,7 @@
 						<div  class="form-group row">
 							<label style="color: black" for="user" class="col-sm-2 col-form-label">User</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{userPerson}"
+								<input required="required" type="text" th:field="*{userPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -259,7 +249,7 @@
 						<div  class="form-group row">
 							<label style="color: black" for="password" class="col-sm-2 col-form-label">Password</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{passwordPerson}"
+								<input required="required" type="text" th:field="*{passwordPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -270,7 +260,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="typeUser" class="col-sm-2 col-form-label">Type User:</label>
 							<div  class="col-sm-6">
-								<select class="form-control" th:field="*{typeUser.idTypeUser}">
+								<select required="required" class="form-control" th:field="*{typeUser.idTypeUser}">
 									<option th:each="c: ${listTypeUser}"
 										th:value="${c.idTypeUser}" th:text="${c.nameTypeUser}"
 										th:selected="(${c.idTypeUser} == *{typeUser.idTypeUser})"></option>

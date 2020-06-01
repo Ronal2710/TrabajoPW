@@ -196,7 +196,7 @@
 							<tr>
 								<th scope="col" style="color: white">Id</th>
 								<th scope="col"  style="color: white">Name</th>
-								<th scope="col"  style="color: white">Last Name</th>
+								
 								<th scope="col"  style="color: white">Mail</th>
 								<th scope="col"  style="color: white">DNI</th>
 								<th scope="col"  style="color: white">Direction</th>
@@ -210,7 +210,7 @@
 							<tr th:each="cate: ${listPersons}">
 								<td style="color:white; font-weight: bold "  th:text="${cate.idPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.namePerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.lastnamePerson}"></td>
+								
 								<td  style="color: white; font-weight: bold" th:text="${cate.mailPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.dniPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.directionPerson}"></td>

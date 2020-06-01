@@ -9,6 +9,6 @@ import pe.edu.upc.entity.Person;
 
 public interface IPersonService {
 
-	public void insert(Person person);
+	public int insert(Person person);
 	List<Person> list();
 }

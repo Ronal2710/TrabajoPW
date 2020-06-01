@@ -39,10 +39,21 @@ public class PersonController {
 		if(result.hasErrors())
 			return "person/person";
 		else {
+			
+			int rpta= pS.insert(person);
+			if(rpta>0) 
+			{
+				
+			model.addAttribute("mensaje","Ya existe la Persona ");
+			return "person/listPersons";}
+			else {
+			
 			pS.insert(person);
-			model.addAttribute("listPersons", pS.list());
+			model.addAttribute("listPersons",pS.list());
+			model.addAttribute("mensaje","Se registro Correctamente");
 			return "person/listPersons";
-		}
+				}
+			}
 		
 	}
 	
