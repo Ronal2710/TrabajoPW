@@ -9,60 +9,52 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pe.edu.upc.entity.Product;
-import pe.edu.upc.serviceinterface.ICategoryProductService;
+import pe.edu.upc.entity.Sale;
 import pe.edu.upc.serviceinterface.IProductService;
-
+import pe.edu.upc.serviceinterface.ISaleService;
 
 @Controller
-@RequestMapping("/products")
-public class ProductController {
+@RequestMapping("/sales")
+public class SaleController {
 	
 	@Autowired
-	private IProductService pS;
+	private ISaleService sS;
 	@Autowired
-	private ICategoryProductService cS;
+	private IProductService pS;
 	
 	@GetMapping("/new")
 	public String newProduct(Model model)
 	{
-		model.addAttribute("listCategories", cS.list()); 
-		model.addAttribute("product",new Product());
+		model.addAttribute("listProducts", pS.list()); 
+		model.addAttribute("sale",new Sale());
 	
-		return "product/product";	
+		return "sale/sale";	
 	};
 	
 	@PostMapping("/save")
-	public String saveProduct(@Validated Product Product, BindingResult result, Model model)
+	public String saveProduct(@Validated Sale sale, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
-			return "product/product";
+			return "sale/sale";
 		else {
-			
-			int rpta=pS.insert(Product);
-			if(rpta>0) {
-				
-			model.addAttribute("mensaje","Product exist");
-			return "product/product";}
-			else {
-			
-			pS.insert(Product);
-			model.addAttribute("listProducts",pS.list());
+
+			sS.insert(sale);
+			model.addAttribute("listSales",sS.list());
 			model.addAttribute("mensaje","Registered Correctly");
-			return "product/listProducts";
-				}
+			return "sale/listSales";
+				
 			}
-		}
+	}
 
 	@GetMapping("/list")
 	public String listProduct(Model model) {
 		try {
-			model.addAttribute("listProducts",pS.list());
+			model.addAttribute("listSales",sS.list());
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 		}
-		return "product/listProducts";	
+		return "sale/listSales";	
 	}
 
 }
