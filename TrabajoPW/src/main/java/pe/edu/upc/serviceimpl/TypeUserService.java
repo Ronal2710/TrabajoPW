@@ -25,9 +25,13 @@ public class TypeUserService implements ITypeUserService {
 
 	@Transactional
 	@Override
-	public void insert(TypeUser TypeUser) {
-		// TODO Auto-generated method stub
-		cR.save(TypeUser);
+	public int insert(TypeUser TypeUser) {
+		int rpta=cR.searchTypeUser(TypeUser.getNameTypeUser());
+		if(rpta==0)
+		{
+			cR.save(TypeUser);
+		}
+		return rpta;
 	}
 
 	@Override
