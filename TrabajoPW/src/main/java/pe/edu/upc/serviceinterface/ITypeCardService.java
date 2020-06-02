@@ -6,7 +6,7 @@ import pe.edu.upc.entity.TypeCard;
 
 public interface ITypeCardService {
 	
-	public void insert(TypeCard typeCard);
+	public int insert(TypeCard typeCard);
 	List<TypeCard> list();
 	
 }
