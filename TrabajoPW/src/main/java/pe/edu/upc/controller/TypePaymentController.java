@@ -15,35 +15,43 @@ import pe.edu.upc.serviceinterface.ITypePaymentService;
 @Controller
 @RequestMapping("/typePayment")
 public class TypePaymentController {
-	
+
 	@Autowired
 	private ITypePaymentService pS;
-	
+
 	@GetMapping("/new")
-	public String newTypePayment(Model model)
-	{
-		model.addAttribute("typePayment",new TypePayment());
+	public String newTypePayment(Model model) {
+		model.addAttribute("typePayment", new TypePayment());
 		return "typePayment/typePayment";
-		
+
 	};
-	
+
 	@PostMapping("/save")
-	public String saveTypePayment(@Validated TypePayment typePayment, BindingResult result, Model model)
-	{
-		if(result.hasErrors())
+	public String saveTypePayment(@Validated TypePayment typePayment, BindingResult result, Model model) {
+		if (result.hasErrors())
 			return "typePayment/typePayment";
 		else {
-			pS.insert(typePayment);
-			model.addAttribute("listTypePayment", pS.list());
-			return "typePayment/listTypePayment";
+			int rpta = pS.insert(typePayment);
+			if (rpta > 0) {
+
+				model.addAttribute("mensaje", "Ya existe el metodo de pago");
+				return "typePayment/listTypePayment";
+			} else {
+
+				pS.insert(typePayment);
+				model.addAttribute("listTypePayment", pS.list());
+				model.addAttribute("mensaje", "Se registro Correctamente");
+				return "typePayment/listTypePayment";
+
+			}
 		}
-		
+
 	}
-	
+
 	@GetMapping("/list")
 	public String listTypePayment(Model model) {
 		try {
-			model.addAttribute("listTypePayment",pS.list());
+			model.addAttribute("listTypePayment", pS.list());
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
