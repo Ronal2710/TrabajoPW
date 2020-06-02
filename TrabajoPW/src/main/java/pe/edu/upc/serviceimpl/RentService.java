@@ -12,22 +12,21 @@ import pe.edu.upc.repository.IRentRepository;
 import pe.edu.upc.serviceinterface.IRentService;
 
 @Service
-public class RentService implements IRentService {
-	
+public class RentService implements IRentService{
+
 	@Autowired
-	private IRentRepository pR;
+	private IRentRepository rR;
 	
-	@Override
 	@Transactional
+	@Override
 	public void insert(Rent rent) {
 		// TODO Auto-generated method stub
-		pR.save(rent);
+		rR.save(rent);
 	}
 
 	@Override
 	public List<Rent> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return rR.findAll();
 	}
-
 }

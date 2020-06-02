@@ -35,7 +35,7 @@
 }
 
 .navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	(.disabled ):focus {
+	 (.disabled ):focus {
 	color: #ecdbff;
 }
 
@@ -229,6 +229,7 @@
 					</div>
 				</div>
 
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -266,8 +267,14 @@
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Usuario</a>
 					</div>
-				</div> <!-- Divider -->
-				<hr class="sidebar-divider"> <!-- Sidebar Toggler (Sidebar) -->
+				</div></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Sidebar Toggler (Sidebar) -->
+
+
 		</ul>
 		<!-- End of Sidebar -->
 
@@ -320,9 +327,8 @@
 									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a style="color: black" class="dropdown-item"
-									href="rents/index" data-toggle="modal"
-									data-target="#logoutModal"> <i
+								<a style="color: black" class="dropdown-item" href="rents/index"
+									data-toggle="modal" data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i> Cerrar
 									sesión
 								</a>
@@ -349,7 +355,8 @@
 						<thead style="background-color: black;">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col" style="color: white">Fecha de Registro</th>
+								<th scope="col" style="color: white">Monto</th>
+								<th scope="col" style="color: white">Fecha de Alquiler</th>
 								<th scope="col" style="color: white">Fecha de Inicio</th>
 								<th scope="col" style="color: white">Fecha Final</th>
 								<th scope="col" style="color: white">Cantidad</th>
@@ -361,13 +368,15 @@
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idRent}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.registerdateRent}"></td>
+									th:text="${cate.amountRent}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.registerRent}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.startdateRent}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.enddateRent}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.quantityRent}"></td>								
+									th:text="${cate.quantityRent}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.product.nameProduct}"></td>
 							</tr>

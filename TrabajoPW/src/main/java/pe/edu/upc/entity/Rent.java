@@ -1,6 +1,7 @@
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,30 +20,32 @@ public class Rent implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRent;
-	@Column(name = "registerdateRent", nullable = false)
-	private String registerdateRent;
+	@Column(name = "amountRent", nullable = false)
+	private float amountRent;
+	@Column(name = "registerRent", nullable = false)
+	private Date registerRent;
 	@Column(name = "startdateRent", nullable = false)
-	private String startdateRent;
+	private Date startdateRent;
 	@Column(name = "enddateRent", nullable = false)
-	private String enddateRent;
+	private Date enddateRent;
 	@Column(name = "quantityRent", nullable = false)
 	private int quantityRent;
 	
 	@ManyToOne
 	@JoinColumn(name="idProduct")
 	private Product product;
-	
-	
+
 	public Rent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Rent(int idRent, String registerdateRent, String startdateRent, String enddateRent, int quantityRent,
+
+	public Rent(int idRent, float amountRent, Date registerRent, Date startdateRent, Date enddateRent, int quantityRent,
 			Product product) {
 		super();
 		this.idRent = idRent;
-		this.registerdateRent = registerdateRent;
+		this.amountRent = amountRent;
+		this.registerRent = registerRent;
 		this.startdateRent = startdateRent;
 		this.enddateRent = enddateRent;
 		this.quantityRent = quantityRent;
@@ -57,27 +60,35 @@ public class Rent implements Serializable{
 		this.idRent = idRent;
 	}
 
-	public String getRegisterdateRent() {
-		return registerdateRent;
+	public float getAmountRent() {
+		return amountRent;
 	}
 
-	public void setRegisterdateRent(String registerdateRent) {
-		this.registerdateRent = registerdateRent;
+	public void setAmountRent(float amountRent) {
+		this.amountRent = amountRent;
 	}
 
-	public String getStartdateRent() {
+	public Date getRegisterRent() {
+		return registerRent;
+	}
+
+	public void setRegisterRent(Date registerRent) {
+		this.registerRent = registerRent;
+	}
+
+	public Date getStartdateRent() {
 		return startdateRent;
 	}
 
-	public void setStartdateRent(String startdateRent) {
+	public void setStartdateRent(Date startdateRent) {
 		this.startdateRent = startdateRent;
 	}
 
-	public String getEnddateRent() {
+	public Date getEnddateRent() {
 		return enddateRent;
 	}
 
-	public void setEnddateRent(String enddateRent) {
+	public void setEnddateRent(Date enddateRent) {
 		this.enddateRent = enddateRent;
 	}
 
@@ -96,5 +107,6 @@ public class Rent implements Serializable{
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+	
 	
 }

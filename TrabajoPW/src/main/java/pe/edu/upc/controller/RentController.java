@@ -36,13 +36,14 @@ public class RentController {
 	{
 		if(result.hasErrors())
 			return "rent/rent";
-		else {			
-			
+		else {
+
 			rS.insert(rent);
 			model.addAttribute("listRents",rS.list());
 			model.addAttribute("mensaje","Registered Correctly");
 			return "rent/listRents";
-		}
+				
+			}
 	}
 
 	@GetMapping("/list")
@@ -50,6 +51,7 @@ public class RentController {
 		try {
 			model.addAttribute("listRents",rS.list());
 		} catch (Exception e) {
+			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 		}
 		return "rent/listRents";	

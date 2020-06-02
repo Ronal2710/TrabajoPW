@@ -35,7 +35,7 @@
 }
 
 .navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	(.disabled ):focus {
+	 (.disabled ):focus {
 	color: #ecdbff;
 }
 
@@ -224,7 +224,6 @@
 					</div>
 				</div>
 
-
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -257,7 +256,7 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -338,7 +337,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Alquiler</h1>
+					<h1 style="color: black" class="h3 mb-4 ">Alquiler de Producto</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${rent}" th:remove="tag">
@@ -351,30 +350,39 @@
 					<form th:action="@{/rents/save}" th:object="${rent}" method="post">
 
 						<div class="form-group row">
-							<label style="color: black" for="name"
-								class="col-sm-2 col-form-label">Alquiler</label>
-							<div class="col-sm-6"></div>
-						</div>
-						
-						<div class="form-group row">
-							<label style="color: black" for="registerdate"
-								class="col-sm-2 col-form-label">Fecha de Registro</label>
+							<label style="color: black" for="amount"
+								class="col-sm-2 col-form-label">Monto</label>
 							<div class="col-sm-6">
-								<input  pattern="dd-mm-yyyy"  type="date" 
-									th:field="*{registerdateRent}" class="form-control"
+								<input type="number" pattern="[1-9]+" th:field="*{amountRent}"
+									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('registerdateRent')}"
-									th:errors="*{registerdateRent}" ></small>
+									th:if="${#fields.hasErrors('amountRent')}"
+									th:errors="*{amountRent}"></small>
+							</div>
+						</div>
+
+						<div class="form-group row">
+
+							<label style="color: black" for="date"
+								class="col-sm-2 col-form-label">Fecha de Registro</label>
+							<div class="col-sm-6">
+								<input type="date" pattern="dd-mm-yyyy" th:field="*{registerRent}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('registerRent')}"
+									th:errors="*{registerRent}"></small>
 							</div>
 						</div>
 						
 						<div class="form-group row">
-							<label style="color: black" for="startdate"
-								class="col-sm-2 col-form-label">Fecha de Inicio</label>
+
+							<label style="color: black" for="date"
+								class="col-sm-2 col-form-label">Fecha de venta</label>
 							<div class="col-sm-6">
-								<input   pattern="dd-mm-yyyy"  type="date" 
-									th:field="*{startdateRent}" class="form-control"
+								<input type="date" pattern="dd-mm-yyyy" th:field="*{startdateRent}"
+									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('startdateRent')}"
@@ -383,42 +391,44 @@
 						</div>
 						
 						<div class="form-group row">
-							<label style="color: black" for="endate"
-								class="col-sm-2 col-form-label">Fecha Final</label>
+
+							<label style="color: black" for="date"
+								class="col-sm-2 col-form-label">Fecha de venta</label>
 							<div class="col-sm-6">
-								<input   pattern="dd-mm-yyyy"  type="date" 
-									th:field="*{enddateRent}" class="form-control"
+								<input type="date" pattern="dd-mm-yyyy" th:field="*{enddateRent}"
+									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('enddateRent')}"
-									th:errors="*{enddateRent}" ></small>
+									th:errors="*{enddateRent}"></small>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
+
 							<label style="color: black" for="quantity"
 								class="col-sm-2 col-form-label">Cantidad</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+"
-									th:field="*{quantityRent}" class="form-control"
+								<input type="number" pattern="[1-9]+" th:field="*{quantityRent}"
+									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('quantityRent')}"
 									th:errors="*{quantityRent}"></small>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
-							<label style="color: black" for="product" class="col-sm-2 col-form-label">Producto</label>
+							<label style="color: black" for="product"
+								class="col-sm-2 col-form-label">Producto</label>
 							<div class="col-sm-6">
 								<select class="form-control" th:field="*{product.idProduct}">
-									<option th:each="c: ${listProducts}"
-										th:value="${c.idProduct}" th:text="${c.nameProduct}"
+									<option th:each="c: ${listProducts}" th:value="${c.idProduct}"
+										th:text="${c.nameProduct}"
 										th:selected="(${c.idProduct} == *{product.idProduct})"></option>
 								</select>
 							</div>
 						</div>
-						
 				</div>
 
 
