@@ -15,6 +15,7 @@ import pe.edu.upc.serviceinterface.ITypeCardService;
 @Controller
 @RequestMapping("/typeCard")
 public class TypeCardController {
+	
 	@Autowired
 	private ITypeCardService cS;
 
@@ -29,9 +30,18 @@ public class TypeCardController {
 		if (result.hasErrors())
 			return "typeCard/typeCard";
 		else {
+			int rpta=cS.insert(typeCard);
+			if(rpta>0) {
+				
+			model.addAttribute("mensaje","Ya existe el tipo de tarjeta");
+			return "typeCard/typeCard";}
+			else {
+			
 			cS.insert(typeCard);
-			model.addAttribute("listTypeCard", cS.list());
+			model.addAttribute("listTypeCard",cS.list());
+			model.addAttribute("mensaje","Se registro Correctamente");
 			return "typeCard/listTypeCard";
+				}
 		}
 	}
 
