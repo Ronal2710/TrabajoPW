@@ -7,5 +7,5 @@ import pe.edu.upc.entity.Sale;
 
 @Repository
 public interface ISaleRepository extends JpaRepository<Sale, Integer> {
-	
+
 }
