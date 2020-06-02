@@ -27,14 +27,23 @@ public class TypeCurrencyController {
 	};
 
 	@PostMapping("/save")
-	public String saveTypeCurrency(@Validated TypeCurrency type, BindingResult result, Model model)
+	public String saveTypeCurrency(@Validated TypeCurrency typeCurrency, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
 			return "typeCurrency/typeCurrency";
 		else {
-			cS.insert(type);
-			model.addAttribute("listTypeCurrency", cS.list());
+			int rpta=cS.insert(typeCurrency);
+			if(rpta>0) {
+				
+			model.addAttribute("mensaje","Ya existe el tipo de moneda");
+			return "typeCurrency/listTypeCurrency";}
+			else {
+			
+			cS.insert(typeCurrency);
+			model.addAttribute("listTypeCurrency",cS.list());
+			model.addAttribute("mensaje","Se registro Correctamente");
 			return "typeCurrency/listTypeCurrency";
+				}
 		}	
 	}
 

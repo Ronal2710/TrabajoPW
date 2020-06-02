@@ -16,19 +16,23 @@ import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 public class TypeCurrencyService implements ITypeCurrencyService{
 
 	@Autowired
-	private ITypeCurrencyRepository mR;
+	private ITypeCurrencyRepository cR;
 
 	@Transactional
 	@Override
-	public void insert(TypeCurrency typecurrency) {
-		// TODO Auto-generated method stub
-		mR.save(typecurrency);	
+	public int insert(TypeCurrency typecurrency) {
+		int rpta=cR.searchCategory(typecurrency.getNameTypeCurrency());
+		if(rpta==0)
+		{
+			cR.save(typecurrency);
+		}
+		return rpta;
 	}
 
 	@Override
 	public List<TypeCurrency> list() {
 		// TODO Auto-generated method stub
-		return mR.findAll();
+		return cR.findAll();
 	}
 
 }
