@@ -183,7 +183,7 @@
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo">
 			</a>
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				<div  id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a   style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Categories Product</a>
@@ -329,7 +329,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="date" class="col-sm-2 col-form-label">Date</label>
 							<div class="col-sm-6">
-								<input pattern="dd-mm-yyyy" type="date" th:field="*{dateBill}" 
+								<input required="required" pattern="dd-mm-yyyy" type="date" th:field="*{dateBill}" 
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -343,7 +343,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="person" class="col-sm-2 col-form-label">Person</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{person.idPerson}">
+								<select required="required" class="form-control" th:field="*{person.idPerson}">
 									<option th:each="c: ${listPersons}"
 										th:value="${c.idPerson}" th:text="${c.namePerson}"
 										th:selected="(${c.idPerson} == *{person.idPerson})"></option>
@@ -354,7 +354,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="sale" class="col-sm-2 col-form-label">Sales</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{sale.idSale}">
+								<select required="required" class="form-control" th:field="*{sale.idSale}">
 									<option th:each="s: ${listSales}"
 										th:value="${s.amountSale}" th:text="${s.amountSale}"
 										th:selected="(${s.amountSale} == *{sale.amountSale})"></option>
@@ -364,7 +364,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="rent" class="col-sm-2 col-form-label">Person</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{rent.idRent}">
+								<select required="required" class="form-control" th:field="*{rent.idRent}">
 									<option th:each="r: ${listRents}"
 										th:value="${r.amountRent}" th:text="${r.amountRent}"
 										th:selected="(${r.amountRent} == *{rent.amountRent})"></option>
@@ -375,7 +375,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="typePayment" class="col-sm-2 col-form-label">Type Payment</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{typePayment.idTypePayment}">
+								<select required="required" class="form-control" th:field="*{typePayment.idTypePayment}">
 									<option th:each="ca: ${listTypePayment}"
 										th:value="${ca.idTypePayment}" th:text="${ca.nameTypePayment}"
 										th:selected="(${ca.idTypePayment} == *{typePayment.idTypePayment})"></option>
@@ -387,7 +387,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="typeCard" class="col-sm-2 col-form-label">Type Card</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{typeCard.idTypeCard}">
+								<select required="required" class="form-control" th:field="*{typeCard.idTypeCard}">
 									<option th:each="ce: ${listTypeCard}"
 										th:value="${ce.idTypeCard}" th:text="${ce.nameTypeCard}"
 										th:selected="(${ce.idTypeCard} == *{typeCard.idTypeCard})"></option>
@@ -398,7 +398,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="typeCurrency" class="col-sm-2 col-form-label">Type Currency</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{typeCurrency.idTypeCurrency}">
+								<select required="required" class="form-control" th:field="*{typeCurrency.idTypeCurrency}">
 									<option th:each="ci: ${listTypeCurrency}"
 										th:value="${ci.idTypeCurrency}" th:text="${ci.nameTypeCurrency}"
 										th:selected="(${ci.idTypeCurrency} == *{typeCurrency.idTypeCurrency})"></option>

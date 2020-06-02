@@ -312,7 +312,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="name" class="col-sm-2 col-form-label">Categoría</label>
 							<div class="col-sm-6">
-								<input required="required" type="text" th:field="*{nameCategoryProduct}"
+								<input pattern="[a-zA-Z]+" required="required" type="text" th:field="*{nameCategoryProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
