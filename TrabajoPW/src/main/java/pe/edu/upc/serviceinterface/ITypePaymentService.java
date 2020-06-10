@@ -6,6 +6,6 @@ import pe.edu.upc.entity.TypePayment;
 
 public interface ITypePaymentService {
 	
-	public void insert(TypePayment typePayment);
+	public int insert(TypePayment typePayment);
 	List<TypePayment> list();
 }

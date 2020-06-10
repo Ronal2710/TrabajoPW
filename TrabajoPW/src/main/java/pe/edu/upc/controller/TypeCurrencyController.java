@@ -32,9 +32,18 @@ public class TypeCurrencyController {
 		if(result.hasErrors())
 			return "typeCurrency/typeCurrency";
 		else {
+			int rpta=cS.insert(type);
+			if(rpta>0) {
+				
+			model.addAttribute("mensaje","Ya existe el tipo de moneda");
+			return "typeCurrency/listTypeCurrency";}
+			else {
+			
 			cS.insert(type);
-			model.addAttribute("listTypeCurrency", cS.list());
+			model.addAttribute("listTypeCurrency",cS.list());
+			model.addAttribute("mensaje","Se registro Correctamente");
 			return "typeCurrency/listTypeCurrency";
+				}
 		}	
 	}
 

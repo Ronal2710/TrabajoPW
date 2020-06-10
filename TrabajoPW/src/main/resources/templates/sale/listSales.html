@@ -229,6 +229,21 @@
 					</div>
 				</div>
 
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/sales/list}">Venta</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/bills/list}">Factura</a>
+					</div>
+				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -267,15 +282,7 @@
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Usuario</a>
 					</div>
-				</div>
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/bills/list}">Bill</a>
-					</div>
-				</div>
-				</li>
+				</div></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -354,7 +361,8 @@
 					<!-- Page Heading -->
 
 					<br></br>
-					<h1 style="color: black" class="h3 mb-4 "></h1>
+					<h1 style="color: black" class="h3 mb-4 ">Productos en Venta</h1>
+
 
 					<a th:href="@{/sales/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
