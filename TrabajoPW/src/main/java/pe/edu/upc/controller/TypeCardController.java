@@ -34,7 +34,7 @@ public class TypeCardController {
 			if(rpta>0) {
 				
 			model.addAttribute("mensaje","Ya existe el tipo de tarjeta");
-			return "typeCard/typeCard";}
+			return "typeCard/listTypeCard";}
 			else {
 			
 			cS.insert(typeCard);

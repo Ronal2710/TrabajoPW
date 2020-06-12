@@ -1,56 +1,47 @@
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.MapsId;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
 
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-
-	//@MapsId
-	@Column(name = "username", nullable = false, length = 30)
+	@Column(length = 30, unique = true)
 	private String username;
 
-	@Column(name = "password", nullable = false, length = 80)
+	@Column(length = 200)
 	private String password;
 
-	@Column(name = "state", nullable = false, length = 1)
-	private String state;
+	private Boolean enabled;
 
-	
-	
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private List<Rol> roles;
 
-	public User(int id, String username, String password, String state) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.state = state;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -70,16 +61,20 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getState() {
-		return state;
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
-	
-	
+
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
+	}
 
 }
-
-

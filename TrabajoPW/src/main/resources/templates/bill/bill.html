@@ -179,68 +179,89 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li  class="nav-item"><a class="nav-link collapsed" href="#"
+			<li style="background-color: black" class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
-				aria-controls="collapseTwo">
-			</a>
-				<div  id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a   style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Categories Product</a>
-					</div></div>
-					
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				aria-controls="collapseTwo"> </a>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/products/list}">Productos</a>
-					</div></div>
-					
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typePayment/list}">Payment Method</a>
+							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded" >
-						<a  style="color: white" class="collapse-item"  th:href="@{/typeUser/list}">User Type</a>
-					</div></div>
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/products/list}">Producto</a>
+					</div>
+				</div>
 				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Card Type</a>
+							th:href="@{/sales/list}">Venta</a>
 					</div>
-				</div>	
+				</div>
 				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
 				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCurrency/list}">Currency Type</a>
+							th:href="@{/bills/list}">Factura</a>
 					</div>
 				</div>
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Person</a>
+							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
 					</div>
 				</div>
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/bills/list}">Bill</a>
+							th:href="@{/typeUser/list}">Tipo de Usuario</a>
 					</div>
 				</div>
-				</li>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+					</div>
+				</div>
+
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/persons/list}">Usuario</a>
+					</div>
+				</div></li>
 				
 			<!-- Sidebar Toggler (Sidebar) -->
 
@@ -356,8 +377,8 @@
 							<div class="col-sm-6">
 								<select required="required" class="form-control" th:field="*{sale.idSale}">
 									<option th:each="s: ${listSales}"
-										th:value="${s.amountSale}" th:text="${s.amountSale}"
-										th:selected="(${s.amountSale} == *{sale.amountSale})"></option>
+										th:value="${s.idSale}" th:text="${s.amountSale}"
+										th:selected="(${s.idSale} == *{s.idSale})"></option>
 								</select>
 							</div>
 						</div>
@@ -366,8 +387,8 @@
 							<div class="col-sm-6">
 								<select required="required" class="form-control" th:field="*{rent.idRent}">
 									<option th:each="r: ${listRents}"
-										th:value="${r.amountRent}" th:text="${r.amountRent}"
-										th:selected="(${r.amountRent} == *{rent.amountRent})"></option>
+										th:value="${r.idRent}" th:text="${r.amountRent}"
+										th:selected="(${r.idRent} == *{r.idRent})"></option>
 								</select>
 							</div>
 						</div>

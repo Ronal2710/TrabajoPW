@@ -9,26 +9,29 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.upc.entity.TypeCurrency;
 import pe.edu.upc.repository.ITypeCurrencyRepository;
-
 import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 
 @Service
 public class TypeCurrencyService implements ITypeCurrencyService{
 
 	@Autowired
-	private ITypeCurrencyRepository mR;
+	private ITypeCurrencyRepository cR;
 
 	@Transactional
 	@Override
-	public void insert(TypeCurrency typecurrency) {
-		// TODO Auto-generated method stub
-		mR.save(typecurrency);	
+	public int insert(TypeCurrency typecurrency) {
+		int rpta=cR.searchTypeCurrency(typecurrency.getNameTypeCurrency());
+		if(rpta==0)
+		{
+			cR.save(typecurrency);
+		}
+		return rpta;
 	}
 
 	@Override
 	public List<TypeCurrency> list() {
 		// TODO Auto-generated method stub
-		return mR.findAll();
+		return cR.findAll();
 	}
 
 }
