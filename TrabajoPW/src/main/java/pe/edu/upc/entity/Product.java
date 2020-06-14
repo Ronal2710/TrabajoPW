@@ -1,7 +1,5 @@
 package pe.edu.upc.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,12 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name = "products")
-public class Product implements Serializable {
+public class Product{
 
-	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProduct;
@@ -25,30 +24,31 @@ public class Product implements Serializable {
 	private int quantityProduct;
 	@Column(name = "descriptionProduct", nullable = false)
 	private String descriptionProduct;
-	@Column(name = "imageProduct", nullable = false)
-	private String imageProduct;
-	@Column(name = "priceProduct", nullable = false)
-	private float priceProduct;
+	@Positive
+	@Column(name = "priceProduct", columnDefinition = "Decimal(8,2)", nullable = false)
+	private Double priceProduct;
 	
 	@ManyToOne
 	@JoinColumn(name="idCategoryProduct")
 	private CategoryProduct category;
 	
+	private String foto;
+	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
-	}	
-	
+	}
+
 	public Product(int idProduct, String nameProduct, int quantityProduct, String descriptionProduct,
-			String imageProduct, float priceProduct, CategoryProduct category) {
+			@Positive Double priceProduct, CategoryProduct category, String foto) {
 		super();
 		this.idProduct = idProduct;
 		this.nameProduct = nameProduct;
 		this.quantityProduct = quantityProduct;
 		this.descriptionProduct = descriptionProduct;
-		this.imageProduct = imageProduct;
 		this.priceProduct = priceProduct;
 		this.category = category;
+		this.foto = foto;
 	}
 
 	public int getIdProduct() {
@@ -83,19 +83,11 @@ public class Product implements Serializable {
 		this.descriptionProduct = descriptionProduct;
 	}
 
-	public String getImageProduct() {
-		return imageProduct;
-	}
-
-	public void setImageProduct(String imageProduct) {
-		this.imageProduct = imageProduct;
-	}
-
-	public float getPriceProduct() {
+	public Double getPriceProduct() {
 		return priceProduct;
 	}
 
-	public void setPriceProduct(float priceProduct) {
+	public void setPriceProduct(Double priceProduct) {
 		this.priceProduct = priceProduct;
 	}
 
@@ -107,5 +99,14 @@ public class Product implements Serializable {
 		this.category = category;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	
 	
 }

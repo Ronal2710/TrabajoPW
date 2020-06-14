@@ -21,7 +21,7 @@ public class LoginController {
 
 		if (principal != null) {
 			
-			return "welcome";
+			return "redirect:/welcome";
 		}
 
 		if (error != null) {
