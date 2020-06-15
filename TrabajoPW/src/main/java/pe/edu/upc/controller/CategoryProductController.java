@@ -37,10 +37,20 @@ public class CategoryProductController {
 		if(result.hasErrors())
 			return "categoryProduct/categoryProduct";
 		else {
+			
+			int rpta=cS.insert(category);
+			if(rpta>0) {
+				
+			model.addAttribute("mensaje","categoryProduct exist");
+			return "categoryProduct/listCategories";}
+			else {
+			
 			cS.insert(category);
-			model.addAttribute("listCategories", cS.list());
+			model.addAttribute("listCategories",cS.list());
+			model.addAttribute("mensaje","Registered Correctly");
 			return "categoryProduct/listCategories";
-		}
+				}
+			}
 		
 	}
 	

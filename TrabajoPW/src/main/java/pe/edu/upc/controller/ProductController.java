@@ -43,7 +43,7 @@ public class ProductController {
 			if(rpta>0) {
 				
 			model.addAttribute("mensaje","Product exist");
-			return "product/product";}
+			return "product/listProducts";}
 			else {
 			
 			pS.insert(Product);
@@ -64,6 +64,5 @@ public class ProductController {
 		}
 		return "product/listProducts";	
 	}
-
 
 }

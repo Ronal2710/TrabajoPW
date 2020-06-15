@@ -179,58 +179,87 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li  class="nav-item"><a class="nav-link collapsed" href="#"
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
-				aria-controls="collapseTwo">
-			</a>
+				aria-controls="collapseTwo"> </a>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a   style="color: white" class="collapse-item" th:href="@{/categoriesProduct/list}">Categories Product</a>
-					</div></div>
-					
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/products/list}">Productos</a>
-					</div></div>
-					
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typePayment/list}">Payment Method</a>
+							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded" >
-						<a  style="color: white" class="collapse-item"  th:href="@{/typeUser/list}">User Type</a>
-					</div></div>
-				
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Card Type</a>
-					</div>
-				</div>	
-				
-				
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCurrency/list}">Currency Type</a>
+							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Person</a>
+							th:href="@{/sales/list}">Venta</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/bills/list}">Factura</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeUser/list}">Tipo de Usuario</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+					</div>
+				</div>
+
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/persons/list}">Usuario</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -320,7 +349,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="name" class="col-sm-2 col-form-label">Producto</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{nameProduct}"
+								<input type="text" required="required" th:field="*{nameProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -333,7 +362,7 @@
 
 							<label style="color: black" for="quantity" class="col-sm-2 col-form-label">Cantidad</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+"  th:field="*{quantityProduct}"
+								<input type="number" pattern="[1-9]+" required="required"  th:field="*{quantityProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -345,7 +374,7 @@
 						<div class="form-group row">						
 							<label style="color: black" for="description" class="col-sm-2 col-form-label">Descripción</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{descriptionProduct}"
+								<input type="text" required="required" th:field="*{descriptionProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -357,7 +386,7 @@
 						<div class="form-group row">						
 							<label style="color: black" for="image" class="col-sm-2 col-form-label">Imagen</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{imageProduct}"
+								<input type="text" required="required" th:field="*{imageProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -369,7 +398,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="price" class="col-sm-2 col-form-label">Precio</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+"  th:field="*{priceProduct}"
+								<input type="number" pattern="[1-9]+"  required="required" th:field="*{priceProduct}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -381,7 +410,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="category" class="col-sm-2 col-form-label">Categoria</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{category.idCategoryProduct}">
+								<select class="form-control"  required="required" th:field="*{category.idCategoryProduct}">
 									<option th:each="c: ${listCategories}"
 										th:value="${c.idCategoryProduct}" th:text="${c.nameCategoryProduct}"
 										th:selected="(${c.idCategoryProduct} == *{category.idCategoryProduct})"></option>

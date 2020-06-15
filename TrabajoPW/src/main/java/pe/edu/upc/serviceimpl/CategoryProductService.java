@@ -21,9 +21,13 @@ public class CategoryProductService implements ICategoryProductService {
 
 	@Transactional
 	@Override
-	public void insert(CategoryProduct categoryProduct) {
-		// TODO Auto-generated method stub
-		cR.save(categoryProduct);
+	public int insert(CategoryProduct categoryProduct) {
+		int rpta=cR.searchCategory(categoryProduct.getNameCategoryProduct());
+		if(rpta==0)
+		{
+			cR.save(categoryProduct);
+		}
+		return rpta;
 	}
 
 	@Override

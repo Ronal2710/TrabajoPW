@@ -6,6 +6,6 @@ import pe.edu.upc.entity.TypeCurrency;
 
 public interface ITypeCurrencyService {
 	
-	public void insert(TypeCurrency typecurrency);
+	public int insert(TypeCurrency typecurrency);
 	List<TypeCurrency> list();
 }

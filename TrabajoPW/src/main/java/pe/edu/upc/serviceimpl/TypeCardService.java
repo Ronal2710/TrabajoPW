@@ -20,9 +20,13 @@ public class TypeCardService implements ITypeCardService{
 
 	@Transactional
 	@Override
-	public void insert(TypeCard typeCard) {
-		// TODO Auto-generated method stub
+	public int insert(TypeCard typeCard) {
+		int rpta=cR.searchTypeCard(typeCard.getNameTypeCard());
+		if(rpta==0)
+		{
 		cR.save(typeCard);
+		}
+		return rpta;
 	}
 
 	@Override
