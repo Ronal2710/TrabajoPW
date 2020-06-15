@@ -89,7 +89,7 @@ public class ProductController {
 		return "redirect:/product/list";
 	}
 
-	@GetMapping("/lista")
+	@GetMapping("/list")
 	public String listProduct(Model model) {
 		try {
 			model.addAttribute("product", new Product());

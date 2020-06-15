@@ -365,6 +365,20 @@
 
 					<form th:action="@{/typeCurrency/save}" th:object="${typeCurrency}"
 						method="post">
+						
+						<div class="form-group row">
+							<label style="color: black" for="name"
+								class="col-sm-2 col-form-label">Código</label>
+							<div class="col-sm-6">
+								<input type="text" pattern="[1-9]+" required="required" th:field="*{idTypeCurrency}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('idTypeCurrency')}"
+									th:errors="*{idTypeCurrency}"></small>
+							</div>
+						</div>
+						
 						<div class="form-group row">
 							<label style="color: black" for="name"
 								class="col-sm-2 col-form-label">Tipo de Moneda</label>

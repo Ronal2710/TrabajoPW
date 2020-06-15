@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -33,5 +34,25 @@ public class TypeCurrencyService implements ITypeCurrencyService{
 		// TODO Auto-generated method stub
 		return cR.findAll();
 	}
+
+	@Override
+	public void delete(int idTypeCurrency) {
+		// TODO Auto-generated method stub
+		cR.deleteById(idTypeCurrency);
+	}
+
+	@Override
+	public Optional<TypeCurrency> searchId(int idtype) {
+		// TODO Auto-generated method stub
+		return cR.findById(idtype);
+	}
+
+	@Override
+	public List<TypeCurrency> search(String busqueda) {
+		// TODO Auto-generated method stub
+		return cR.search(busqueda);
+	}
+
+
 
 }

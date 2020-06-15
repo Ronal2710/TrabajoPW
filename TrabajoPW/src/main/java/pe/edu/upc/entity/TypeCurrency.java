@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "typecurrency")
@@ -17,6 +18,8 @@ public class TypeCurrency implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTypeCurrency;
+	@Pattern(regexp = "[^!\"#$%&'()*+,-./:;<=>?@^_`{|}~]+", message = "El nombre de la Categoría no puede contener un caracter especial")
+	@Pattern(regexp = "[^0-9]+", message = "El nombre de la Categoría no puede contener un número")
 	@Column(name = "nameTypeCurrency", length = 80, nullable = false)
 	private String nameTypeCurrency;
 	public TypeCurrency() {
