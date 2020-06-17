@@ -28,6 +28,7 @@
 
 
 <body   id="page-top" >
+<body id="page-top">
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -36,27 +37,24 @@
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
-
 			<!-- Sidebar - Brand -->
-			<a
-				class="sidebar-brand d-flex align-items-center justify-content-center"
+			<a class="sidebar-brand d-flex align-items-center justify-content-center"
 				th:href="@{/categoriesProduct/list}">
 				<div >
 				<img th:src="@{/img/logo.png}" width="150" height="70"
 									align="middle">
 				</img>
+	
 				</div>
-				
+		
 			</a>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 
-
-
 			<!-- Nav Item - Pages Collapse Menu -->
-				<li class="nav-item"><a class="nav-link collapsed" href="#"
+		<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> </a>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -74,15 +72,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/rents/list}">Alquiler</a>
-					</div>
-				</div>
-
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -90,7 +80,15 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -111,17 +109,10 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
-					</div>
-				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -130,32 +121,42 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/persons/list}">Persona</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					</div>
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
-
-			<!-- Divider -->
-			<hr class="sidebar-divider">
-
-			<!-- Sidebar Toggler (Sidebar) -->
+						<!-- Sidebar Toggler (Sidebar) -->
 
 
 		</ul>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
-		<div style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg);background-size: cover ;background-repeat: no-repeat"id="content-wrapper" class="d-flex flex-column">
+				<div style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg);background-size: cover ;background-repeat: no-repeat"id="content-wrapper" class="d-flex flex-column">
+
 
 			<!-- Main Content -->
 			<div id="content">
 
 				<!-- Topbar -->
 				<nav style="background-color: black"
-					class="navbar navbar-expand  topbar mb-4 static-top shadow" >
+					class="navbar navbar-expand  topbar mb-4 static-top shadow">
 
 					<!-- Sidebar Toggle (Topbar) -->
 					<button id="sidebarToggleTop"
@@ -167,11 +168,11 @@
 
 
 					<!-- Topbar Navbar -->
-					<ul  class="navbar-nav ml-auto">
+					<ul class="navbar-nav ml-auto">
 
 						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
 						<li class="nav-item dropdown no-arrow d-sm-none"><a
-							class="nav-link dropdown-toggle"  href="#" id="searchDropdown"
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
 						</a></li>
@@ -186,16 +187,17 @@
 								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
 									align="middle"></img></span>
+
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a style="color: black" class="dropdown-item" href="#"> <i 	
-									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
+									class="fas fa-user fa-sm fa-fw mr-2"></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a  style="color: black" class="dropdown-item" href="categoriesProduct/index"
-									data-toggle="modal" data-target="#logoutModal"> <i
+								<a style="color: black" class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i 	
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
 									Cerrar sesión
 								</a>
@@ -205,7 +207,6 @@
 
 				</nav>
 				<!-- End of Topbar -->
-
 				<!-- Begin  Page Content -->
 				<div  class="container-fluid">
 
