@@ -17,8 +17,8 @@ import pe.edu.upc.serviceinterface.IUserService;
 
 
 @Controller
-@Secured("ROLE_ADMIN")
 @RequestMapping("/roles")
+@Secured("ROLE_ADMIN")
 public class RolController {
 	@Autowired
 	private IRolService rS;
