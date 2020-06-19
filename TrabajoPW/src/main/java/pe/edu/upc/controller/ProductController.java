@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,7 +31,7 @@ import pe.edu.upc.serviceinterface.IUploadFileService;
 import pe.edu.upc.serviceinterface.ICategoryProductService;
 import pe.edu.upc.serviceinterface.IProductService;
 
-@Secured("ROLE_ADMI")
+//@Secured("ROLE_USER")
 @Controller
 @RequestMapping("/products")
 public class ProductController {
@@ -84,9 +84,9 @@ public class ProductController {
 				status.setComplete();
 			}
 		}
-		model.addAttribute("listaProductos", pS.list());
+		model.addAttribute("listProducts", pS.list());
 
-		return "redirect:/product/list";
+		return "redirect:/products/list";
 	}
 
 	@GetMapping("/list")
