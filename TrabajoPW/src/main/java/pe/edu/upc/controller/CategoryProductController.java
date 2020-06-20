@@ -41,7 +41,7 @@ public class CategoryProductController {
 			int rpta=cS.insert(category);
 			if(rpta>0) {
 				
-			model.addAttribute("mensaje","categoryProduct exist");
+			model.addAttribute("mensaje","Ya existe esta categoria");
 			return "categoryProduct/listCategories";}
 			else {
 			

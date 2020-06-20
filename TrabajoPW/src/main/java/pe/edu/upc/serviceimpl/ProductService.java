@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -16,15 +17,15 @@ import pe.edu.upc.serviceinterface.IProductService;
 public class ProductService implements IProductService {
 	
 	@Autowired
-	private IProductRepository cR;
+	private IProductRepository pR;
 
 	@Transactional
 	@Override
 	public int insert(Product Product) {
-		int rpta=cR.searchProduct(Product.getNameProduct());
+		int rpta=pR.searchProduct(Product.getNameProduct());
 		if(rpta==0)
 		{
-			cR.save(Product);
+			pR.save(Product);
 		}
 		return rpta;
 	}
@@ -32,7 +33,25 @@ public class ProductService implements IProductService {
 	@Override
 	public List<Product> list() {
 		// TODO Auto-generated method stub
-		return cR.findAll();
+		return pR.findAll();
+	}
+
+	@Override
+	public Optional<Product> searchId(int idProduct) {
+		// TODO Auto-generated method stub
+		return pR.findById(idProduct);
+	}
+
+	@Override
+	public List<Product> search(String busqueda) {
+		// TODO Auto-generated method stub
+		return pR.search(busqueda);
+	}
+
+	@Override
+	public void delete(int idProduct) {
+		// TODO Auto-generated method stub
+		pR.deleteById(idProduct);
 	}
 
 }
