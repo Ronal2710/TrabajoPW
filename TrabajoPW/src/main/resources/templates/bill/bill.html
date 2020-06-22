@@ -349,7 +349,17 @@
 
 					<form th:action="@{/bills/save}" th:object="${bill}"
 						method="post">
-						
+						<div class="form-group row">
+							<label for="id" class="col-sm-2 col-form-label">Código</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{idBill}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('idBill')}"
+									th:errors="*{idBill}"></small>
+							</div>
+						</div>
 						<div class="form-group row">
 							<label style="color: black" for="date" class="col-sm-2 col-form-label">Date</label>
 							<div class="col-sm-6">
