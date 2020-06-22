@@ -1,7 +1,7 @@
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
-
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -24,7 +28,9 @@ public class Bill implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idBill;
 	
-	private String dateBill;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateBill;
 	
 	@ManyToOne
 	@JoinColumn(name="idTypeCard")
@@ -59,7 +65,7 @@ public class Bill implements Serializable{
 
 
 
-	public Bill(int idBill, String dateBill, TypeCard typeCard, TypeCurrency typeCurrency, TypePayment typePayment,
+	public Bill(int idBill, Date dateBill, TypeCard typeCard, TypeCurrency typeCurrency, TypePayment typePayment,
 			Person person, Rent rent, Sale sale) {
 		super();
 		this.idBill = idBill;
@@ -86,13 +92,16 @@ public class Bill implements Serializable{
 
 
 
-	public String getDateBill() {
+
+
+
+	public Date getDateBill() {
 		return dateBill;
 	}
 
 
 
-	public void setDateBill(String dateBill) {
+	public void setDateBill(Date dateBill) {
 		this.dateBill = dateBill;
 	}
 

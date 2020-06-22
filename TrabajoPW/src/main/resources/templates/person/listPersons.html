@@ -238,13 +238,10 @@
 							<tr>
 								<th scope="col" style="color: white">Id</th>
 								<th scope="col"  style="color: white">Name</th>
-								
 								<th scope="col"  style="color: white">Mail</th>
 								<th scope="col"  style="color: white">DNI</th>
 								<th scope="col"  style="color: white">Direction</th>
-								<th scope="col"  style="color: white">user</th>
-								<th scope="col"  style="color: white">Password</th>
-								<th scope="col"  style="color: white">Type User</th>
+							
 								
 							</tr>
 						</thead>
@@ -252,13 +249,10 @@
 							<tr th:each="cate: ${listPersons}">
 								<td style="color:white; font-weight: bold "  th:text="${cate.idPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.namePerson}"></td>
-								
 								<td  style="color: white; font-weight: bold" th:text="${cate.mailPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.dniPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.directionPerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.userPerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.passwordPerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.typeUser.nameTypeUser}"></td>
+						
 							</tr>
 						</tbody>
 					</table>

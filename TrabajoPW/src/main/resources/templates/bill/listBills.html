@@ -386,9 +386,9 @@
 						<tbody style="background-color: transparent;">
 							<tr th:each="cate: ${listBills}">
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.idBill}"></td>
+									th:text="${cate.idBill}"></td>	
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.dateBill}"></td>
+										th:text="${#dates.format(cate.dateBill,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.person.namePerson}"></td>
 								<td style="color: white; font-weight: bold"

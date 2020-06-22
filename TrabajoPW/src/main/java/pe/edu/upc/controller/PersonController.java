@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.upc.entity.Person;
 import pe.edu.upc.serviceinterface.IPersonService;
-import pe.edu.upc.serviceinterface.ITypeUserService;
+
 
 
 @Controller
@@ -21,13 +21,12 @@ public class PersonController {
 	
 	@Autowired
 	private IPersonService pS;
-	@Autowired
-	private ITypeUserService tS;
+
 	
 	@GetMapping("/new")
 	public String newPerson(Model model)
 	{
-		model.addAttribute("listTypeUser", tS.list());
+
 		model.addAttribute("person",new Person());
 		return "person/person";
 		
