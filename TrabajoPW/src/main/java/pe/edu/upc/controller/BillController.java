@@ -1,5 +1,6 @@
 package pe.edu.upc.controller;
 
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,14 +62,17 @@ public class BillController {
 	@PostMapping("/save")
 	public String saveBill(@Validated Bill Bill, BindingResult result, Model model)
 	{
-		if(result.hasErrors())
-			return "bill/bill";
-		else {
+		Date dateBill = new Date();
+		try {
+			Bill.setDateBill(dateBill);
 			bS.insert(Bill);
-			model.addAttribute("listBills", bS.list());
-			return "redirect:/billS/list";
+			model.addAttribute("mensaje","SE INSERTO CORRECTAMENTE ");
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+			return "redirect: /bills/new";
 		}
-		
+
+		return "redirect:/bills/list";
 	}
 	
 	@GetMapping("/list")
@@ -89,12 +93,17 @@ public class BillController {
 		Optional<Bill> objAr = bS.searchId(id);
 		if (objAr == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrió un error");
-			return "redirect:/billS/list";
+			return "redirect:/bills/list";
 		} else {
-			
-			model.addAttribute("categoryProduct", objAr.get());
+			model.addAttribute("bill", objAr.get());
+			model.addAttribute("listTypeCard", tS.list());
+			model.addAttribute("listTypeCurrency", cuS.list());
+			model.addAttribute("listTypePayment", paS.list());
+			model.addAttribute("listPersons", pS.list());
+			model.addAttribute("listRents", rS.list());
+			model.addAttribute("listSales", sS.list());
 			model.addAttribute("mensaje", "Se Actualizo Correctamente");
-			return "";
+			return "bill/bill";
 		}
 	}
 
