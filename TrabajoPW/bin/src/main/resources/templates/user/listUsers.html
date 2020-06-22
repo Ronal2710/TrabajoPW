@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>PARAKEET</title>
+<title>2020</title>
 
 <!-- Custom fonts for this template-->
 <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -24,10 +24,6 @@
 
 </head>
 
-
-
-
-<body   id="page-top" >
 <body id="page-top">
 
 	<!-- Page Wrapper -->
@@ -54,7 +50,7 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-		<li class="nav-item"><a class="nav-link collapsed" href="#"
+						<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> </a>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -141,7 +137,8 @@
 						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
-						<!-- Sidebar Toggler (Sidebar) -->
+			
+							<!-- Sidebar Toggler (Sidebar) -->
 
 
 		</ul>
@@ -207,29 +204,30 @@
 
 				</nav>
 				<!-- End of Topbar -->
-				<!-- Begin  Page Content -->
-				<div  class="container-fluid">
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					
-					<br></br>
-					<h1 style="color: black"class="h3 mb-4 ">Categor&iacute;as</h1>
+					<h1 class="h3 mb-4 text-gray-800">Usuarios</h1>
 
-					<a th:href="@{/categoriesProduct/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+					<a th:href="@{/users/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 
 					<hr class="sidebar-divider">
 
 					<table  class="table table-bordered">
-						<thead style="background-color: black; ">
+						<thead class="thead-dark">
 							<tr>
-								<th scope="col" style="color: white">Id</th>
-								<th scope="col"  style="color: white">Nombre</th>
+								<th scope="col"style="color: white">Id</th>
+								<th scope="col"style="color: white">usuario</th>
+
+
 							</tr>
 						</thead>
-						<tbody style="background-color: transparent;">
-							<tr th:each="cate: ${listCategories}">
-								<td style="color:white; font-weight: bold "  th:text="${cate.idCategoryProduct}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.nameCategoryProduct}"></td>
+						<tbody>
+							<tr style="color:white; font-weight: bold " th:each="u: ${listUsers}">
+								<td style="color:white; font-weight: bold "th:text="${u.id}"></td>
+								<td style="color:white; font-weight: bold "th:text="${u.username}"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -273,10 +271,13 @@
 				<div class="modal-body">Seleccione "Cerrar sesión" a
 					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/categoriesProduct/index}">Cerrar
-						sesión</a>
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Cerrar</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/categories/list}">Cancel</button>
+					</form>
 				</div>
 			</div>
 		</div>

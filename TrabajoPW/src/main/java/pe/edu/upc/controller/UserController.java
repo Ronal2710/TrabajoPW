@@ -1,7 +1,7 @@
 package pe.edu.upc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import pe.edu.upc.serviceinterface.IUserService;
 
 @Controller
 @RequestMapping("/users")
-@Secured("ROLE_ADMIN")
+
 public class UserController {
 	@Autowired
 	private IUserService uS;

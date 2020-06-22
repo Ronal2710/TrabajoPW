@@ -22,8 +22,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/img/**").permitAll().anyRequest()
-				.authenticated().and().formLogin().loginPage("/loginP").permitAll().and().logout().permitAll().and()
+		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/img/**","/vendor/**","/user/**").permitAll().anyRequest()
+				.authenticated().and().formLogin().loginPage("/loginP").permitAll().defaultSuccessUrl("/user").and().logout().permitAll().and()
 				.exceptionHandling().accessDeniedPage("/error");
 	}
 
