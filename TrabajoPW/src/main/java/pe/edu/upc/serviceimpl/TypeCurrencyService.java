@@ -53,4 +53,5 @@ public class TypeCurrencyService implements ITypeCurrencyService{
 		return cR.search(busqueda);
 	}
 
+	
 }

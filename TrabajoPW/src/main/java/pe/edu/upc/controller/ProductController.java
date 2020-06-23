@@ -125,7 +125,6 @@ public class ProductController {
 	public String listProduct(Model model) {
 		try {
 			model.addAttribute("product", new Product());
-
 			model.addAttribute("listProducts", pS.list());
 		} catch (Exception e) {
 			// TODO: handle exception

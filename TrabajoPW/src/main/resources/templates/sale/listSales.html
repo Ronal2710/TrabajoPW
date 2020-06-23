@@ -386,10 +386,13 @@
 						<thead style="background-color: black;">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col" style="color: white">Monto</th>
+								<th scope="col" style="color: white">Monto Total</th>
 								<th scope="col" style="color: white">Cantidad</th>
 								<th scope="col" style="color: white">Fecha de Venta</th>
 								<th scope="col" style="color: white">Producto</th>
+								<th scope="col" style="color: white">Usuario</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
@@ -397,13 +400,21 @@
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idSale}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.amountSale}"></td>
+									th:text="${cate.calcularMontoTotal()}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.quantitySale}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.dateSale}"></td>
+									th:text="${#dates.format(cate.dateSale,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.product.nameProduct}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.user.username}"></td>
+								<td class="text-center"><a
+									th:href="@{'/sales/irupdate/' + ${cate.idSale}}"><i
+									class="iconf fa fa-pen" style="color: blue;"></i></a></td>
+								<td class="text-center"><a
+									th:href="@{'/sales/delete/' + ${cate.idSale}}"><i
+									class="iconf fa fa-trash" style="color: gray;"></i></a></td>
 							</tr>
 						</tbody>
 					</table>

@@ -13,7 +13,8 @@ public interface ITypeCurrencyService {
 
 	public void delete(int idTypeCurrency);
 
-	Optional<TypeCurrency> searchId(int idProduct);
-
 	public List<TypeCurrency> search(String busqueda);
+
+	public Optional<TypeCurrency> searchId(int id);
+
 }

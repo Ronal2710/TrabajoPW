@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
@@ -35,7 +36,7 @@
 }
 
 .navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	(.disabled ):focus {
+	 (.disabled ):focus {
 	color: #ecdbff;
 }
 
@@ -215,7 +216,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -223,7 +224,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -231,7 +232,7 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -282,11 +283,11 @@
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
+					<div class="bg-black py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
 					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
@@ -365,7 +366,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 style="color: black" class="h3 mb-4 ">Producto en Venta</h1>
+					<h1 style="color: black" class="h3 mb-4 ">Compra</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${sale}" th:remove="tag">
@@ -376,27 +377,38 @@
 					</div>
 
 					<form th:action="@{/sales/save}" th:object="${sale}" method="post">
-
+						<!-- 						<div class="form-group row"> -->
+						<!-- 							<label style="color: black" for="product" -->
+						<!-- 								class="col-sm-2 col-form-label">Monto</label> -->
+						<!-- 							<div class="col-sm-6"> -->
+						<!-- 								<select class="form-control" required="required" th:field="*{product.idProduct}"> -->
+						<!-- 									<option th:each="c: ${listProducts}" th:value="${c.idProduct}" -->
+						<!-- 										th:text="${c.priceProduct}" -->
+						<!-- 										th:selected="(${c.idProduct} == *{product.idProduct})"></option> -->
+						<!-- 								</select> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
 						<div class="form-group row">
-							<label style="color: black" for="amount"
-								class="col-sm-2 col-form-label">Monto</label>
+							<label for="id" style="color: black"
+								class="col-sm-2 col-form-label">Código</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" required="required" th:field="*{amountSale}"
-									class="form-control"
+								<input type="text" pattern="[0-9]+" required="required"
+									th:field="*{idSale}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('amountSale')}"
-									th:errors="*{amountSale}"></small>
+									th:if="${#fields.hasErrors('idSale')}"
+									th:errors="*{idSale}"></small>
 							</div>
 						</div>
-
+						
+						
 						<div class="form-group row">
 
 							<label style="color: black" for="quantity"
 								class="col-sm-2 col-form-label">Cantidad</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" required="required" th:field="*{quantitySale}"
-									class="form-control"
+								<input type="number" pattern="[1-9]+" required="required" 
+									th:field="*{quantitySale}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('quantitySale')}"
@@ -404,32 +416,45 @@
 							</div>
 						</div>
 
-						<div class="form-group row">
+						<div class="form-group row" style="opacity: 1; display: none;">
 
-							<label style="color: black" for="date"
+							<label style="color: black" for=""
 								class="col-sm-2 col-form-label">Fecha de venta</label>
-							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" required="required"  th:field="*{dateSale}"
+							
+								<input type="date" th:field="*{dateSale}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('dateSale')}"
 									th:errors="*{dateSale}"></small>
-							</div>
+			
 						</div>
 
 						<div class="form-group row">
 							<label style="color: black" for="product"
 								class="col-sm-2 col-form-label">Producto</label>
 							<div class="col-sm-6">
-								<select class="form-control" required="required" th:field="*{product.idProduct}">
+								<select class="form-control" required="required"
+									th:field="*{product.idProduct}">
 									<option th:each="c: ${listProducts}" th:value="${c.idProduct}"
 										th:text="${c.nameProduct}"
-										th:selected="(${c.idProduct} == *{product.idProduct})"></option>
+										th:selected="(${c.idProduct	} == *{product.idProduct})"></option>
 								</select>
 							</div>
 						</div>
-				</div>
+
+						<div class="form-group row">
+							<label style="color: black" for="user"
+								class="col-sm-2 col-form-label">Usuario:</label>
+							<div class="col-sm-6">
+								<select class="form-control" required="required"
+									th:field="*{user.id}">
+									<option th:each="c: ${listUsers}" th:value="${c.id}"
+										th:text="${c.username}" th:selected="(${c.id} == *{user.id})"></option>
+								</select>
+							</div>
+						</div>
+		
 
 
 				<div class="form-group row">
@@ -439,7 +464,7 @@
 					</div>
 				</div>
 
-				</form>
+			</form>
 
 
 

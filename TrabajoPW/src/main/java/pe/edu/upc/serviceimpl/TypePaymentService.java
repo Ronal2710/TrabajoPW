@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -26,7 +27,7 @@ public class TypePaymentService implements ITypePaymentService{
 			pR.save(typePayment);
 		}
 		return rpta;
-		
+
 	}
 
 	@Override
@@ -34,6 +35,23 @@ public class TypePaymentService implements ITypePaymentService{
 		// TODO Auto-generated method stub
 		return pR.findAll();	
 	}
-	
 
+	@Override
+	public void delete(int idTypePayment) {
+		// TODO Auto-generated method stub
+		pR.deleteById(idTypePayment);
+	}
+
+	@Override
+	public Optional<TypePayment> searchId(int id) {
+		// TODO Auto-generated method stub
+		return pR.findById(id);
+	}
+
+	@Override
+	public List<TypePayment> search(String busqueda) {
+		// TODO Auto-generated method stub
+		return pR.search(busqueda);
+	}
+	
 }

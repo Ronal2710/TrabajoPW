@@ -372,7 +372,28 @@
 					<h1 style="color: black" class="h3 mb-4 ">Tipos de Moneda</h1>
 
 					<a th:href="@{/typeCurrency/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+					<form th:action="@{/typeCurrency/search}" method="post"
+						th:object="${typeCurrency}">
+						<div class="form-group">
+							<table>
 
+								<tbody>
+									<tr>
+										<td><label for="nameProduct" style="color: black"
+											class="col-sm-2 col-form-label">Buscar:</label></td>
+										<td><input type="text" class="form-control"
+											th:field="*{nameTypeCurrency}" id="nameTypeCurrency"
+											placeholder="Nombre Moneda" required="required"></input></td>
+										<td><button type="submit" class="btn btn-danger">
+												<i class="iconf fa fa-search" style="color: white;"></i>
+											</button></td>
+										<td><a href="/typeCurrency/list" class="btn btn-danger">Limpiar</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</form>
 					<hr class="sidebar-divider">
 
 					<table class="table table-bordered">
