@@ -73,8 +73,8 @@ public class TypeCurrencyController {
 
 			return "TypeCurrency/listTypeCurrency";
 		}
-
 	}
+	
 	@GetMapping("/list")
 	public String listTypeCurrency(Model model) {
 		try {
