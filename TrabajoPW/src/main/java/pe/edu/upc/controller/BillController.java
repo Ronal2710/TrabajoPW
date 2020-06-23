@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Bill;
+import pe.edu.upc.entity.CategoryProduct;
 import pe.edu.upc.serviceinterface.IBillService;
 import pe.edu.upc.serviceinterface.ITypeCardService;
 import pe.edu.upc.serviceinterface.ITypeCurrencyService;
@@ -107,6 +108,30 @@ public class BillController {
 		}
 	}
 
+
+	@RequestMapping("/delete/{id}")
+	public String deleteCategory(Model model, @PathVariable(value = "id") int id) {
+		try {
+			if (id > 0) {
+				bS.delete(id);
+				model.addAttribute("listCategories", bS.list());
+				model.addAttribute("categoryProduct", new CategoryProduct());
+				model.addAttribute("mensaje", "Se eliminó correctamente");
+
+			}
+			return "categoryProduct/listCategories";
+
+		} catch (Exception e) {
+			model.addAttribute("categoryProduct", new CategoryProduct());
+
+			System.out.println(e.getMessage());
+			model.addAttribute("mensaje", "No se puede eliminar ");
+			model.addAttribute("listCategories", bS.list());
+
+			return "categoryProduct/listCategories";
+		}
+
+	}
 
 
 }

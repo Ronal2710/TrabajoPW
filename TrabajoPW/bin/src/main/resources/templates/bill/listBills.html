@@ -183,25 +183,24 @@
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
-
 			<!-- Sidebar - Brand -->
-			<a
-				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/bills/list}">
-				<div>
-					<img th:src="@{/img/logo.png}" width="150" height="70"
-						align="middle"> </img>
+			<a class="sidebar-brand d-flex align-items-center justify-content-center"
+				th:href="@{/categoriesProduct/list}">
+				<div >
+				<img th:src="@{/img/logo.png}" width="150" height="70"
+									align="middle">
+				</img>
+	
 				</div>
-
+		
 			</a>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 
-
-
 			<!-- Nav Item - Pages Collapse Menu -->
+			
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> </a>
@@ -220,15 +219,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/rents/list}">Alquiler</a>
-					</div>
-				</div>
-
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -236,7 +227,15 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -257,17 +256,10 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
-					</div>
-				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -276,26 +268,35 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/persons/list}">Persona</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					</div>
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
-			<!-- Divider -->
-			<hr class="sidebar-divider">
-
-			<!-- Sidebar Toggler (Sidebar) -->
+						<!-- Sidebar Toggler (Sidebar) -->
 
 
 		</ul>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
-		<div
-			style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg); background-size: cover; background-repeat: no-repeat"
-			id="content-wrapper" class="d-flex flex-column">
+				<div style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg);background-size: cover ;background-repeat: no-repeat"id="content-wrapper" class="d-flex flex-column">
+
 
 			<!-- Main Content -->
 			<div id="content">
@@ -333,19 +334,19 @@
 								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
 									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
 									align="middle"></img></span>
+
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
-								<a style="color: black" class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
+								<a style="color: black" class="dropdown-item" href="#"> <i 	
+									class="fas fa-user fa-sm fa-fw mr-2"></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a style="color: black" class="dropdown-item"
-									href="products/index" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i> Cerrar
-									sesión
+								<a style="color: black" class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i 	
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
+									Cerrar sesión
 								</a>
 							</div></li>
 
@@ -377,6 +378,7 @@
 								<th scope="col" style="color: white">Type Payment</th>
 								<th scope="col" style="color: white">Type Card</th>
 								<th scope="col" style="color: white">Type Currency</th>
+								<th scope="col" style="color: white">Operacion</th>
 
 
 							</tr>
@@ -384,9 +386,9 @@
 						<tbody style="background-color: transparent;">
 							<tr th:each="cate: ${listBills}">
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.idBill}"></td>
+									th:text="${cate.idBill}"></td>	
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.dateBill}"></td>
+										th:text="${#dates.format(cate.dateBill,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.person.namePerson}"></td>
 								<td style="color: white; font-weight: bold"
@@ -399,6 +401,9 @@
 									th:text="${cate.typeCard.nameTypeCard}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.typeCurrency.nameTypeCurrency}"></td>
+								<td class="text-center"><a
+									th:href="@{'/bills/irupdate/' + ${cate.idBill}}"><i
+										class="iconf fa fa-pen" style="color: blue;"></i></a></td>
 
 							</tr>
 						</tbody>
