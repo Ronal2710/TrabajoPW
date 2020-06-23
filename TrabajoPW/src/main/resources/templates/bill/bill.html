@@ -252,16 +252,16 @@
 							</div>
 						</div>
 						
-						
-						
-						
 						<div class="form-group row">
-							<label style="color: black" for="person" class="col-sm-2 col-form-label">Person</label>
+							<label style="color: black" for="user"
+								class="col-sm-2 col-form-label">Propietario</label>
 							<div class="col-sm-6">
-								<select required="required" class="form-control" th:field="*{person.idPerson}">
-									<option th:each="c: ${listPersons}"
-										th:value="${c.idPerson}" th:text="${c.namePerson}"
-										th:selected="(${c.idPerson} == *{person.idPerson})"></option>
+								<select class="form-control" required="required"
+									th:field="*{user.id}">
+									<option th:each="c: ${listUsers}"
+										th:value="${c.id}"
+										th:text="${c.name}"
+										th:selected="(${c.id} == *{user.id})"></option>
 								</select>
 							</div>
 						</div>

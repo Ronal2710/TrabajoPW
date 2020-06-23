@@ -16,10 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Bill;
 import pe.edu.upc.serviceinterface.IBillService;
-import pe.edu.upc.serviceinterface.IPersonService;
 import pe.edu.upc.serviceinterface.ITypeCardService;
 import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 import pe.edu.upc.serviceinterface.ITypePaymentService;
+import pe.edu.upc.serviceinterface.IUserService;
 import pe.edu.upc.serviceinterface.ISaleService;
 import pe.edu.upc.serviceinterface.IRentService;
 
@@ -39,7 +39,7 @@ public class BillController {
 	@Autowired
 	private ITypeCurrencyService cuS;
 	@Autowired
-	private IPersonService pS;
+	private IUserService uS;
 	@Autowired
 	private IRentService rS;
 	@Autowired
@@ -51,7 +51,7 @@ public class BillController {
 		model.addAttribute("listTypeCard", tS.list());
 		model.addAttribute("listTypeCurrency", cuS.list());
 		model.addAttribute("listTypePayment", paS.list());
-		model.addAttribute("listPersons", pS.list());
+		model.addAttribute("listUsers", uS.list());
 		model.addAttribute("listRents", rS.list());
 		model.addAttribute("listSales", sS.list());
 		model.addAttribute("bill",new Bill());
@@ -99,7 +99,7 @@ public class BillController {
 			model.addAttribute("listTypeCard", tS.list());
 			model.addAttribute("listTypeCurrency", cuS.list());
 			model.addAttribute("listTypePayment", paS.list());
-			model.addAttribute("listPersons", pS.list());
+			model.addAttribute("listUsers", uS.list());
 			model.addAttribute("listRents", rS.list());
 			model.addAttribute("listSales", sS.list());
 			model.addAttribute("mensaje", "Se Actualizo Correctamente");

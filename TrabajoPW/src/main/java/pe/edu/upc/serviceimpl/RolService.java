@@ -26,5 +26,9 @@ public class RolService implements IRolService {
 		// TODO Auto-generated method stub
 		return rR.findAll();
 	}
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		rR.deleteById(id);
+	}
 
 }
