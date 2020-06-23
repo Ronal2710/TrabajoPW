@@ -423,7 +423,7 @@
 									th:field="*{user.id}">
 									<option th:each="c: ${listUsers}"
 										th:value="${c.id}"
-										th:text="${c.username}"
+										th:text="${c.name}"
 										th:selected="(${c.id} == *{user.id})"></option>
 								</select>
 							</div>
