@@ -67,7 +67,7 @@ public class BillController {
 		try {
 			Bill.setDateBill(dateBill);
 			bS.insert(Bill);
-			model.addAttribute("mensaje","SE INSERTO CORRECTAMENTE ");
+			model.addAttribute("mensaje","Se inserto correctamente ");
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 			return "redirect: /bills/new";
