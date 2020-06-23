@@ -220,6 +220,7 @@
 								<th  style="color:white;"scope="col">Id</th>
 								<th  style="color:white;"scope="col">Rol</th>
 								<th style="color:white;" scope="col">Usuario</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
 
 
 							</tr>
@@ -229,6 +230,9 @@
 								<td style="color:white; font-weight: bold " th:text="${r.idrol}"></td>
 								<td style="color:white; font-weight: bold "th:text="${r.rolname}"></td>
 								<td style="color:white; font-weight: bold "th:text="${r.user.username}"></td>
+									<td class="text-center"><a
+									th:href="@{'/roles/delete/' + ${r.idrol}}"><i
+										class="iconf fa fa-trash" style="color: red;"></i></a></td>
 
 							</tr>
 						</tbody>

@@ -220,7 +220,7 @@
 
 					<form th:action="@{/roles/save}" th:object="${role}" method="post">
 						<div class="form-group row">
-							<label for="idrol" class="col-sm-2 col-form-label">Código</label>
+							<label style="color: black"  for="idrol" class="col-sm-2 col-form-label">Código</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{idrol}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
@@ -229,7 +229,7 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="rolname" class="col-sm-2 col-form-label">Rol</label>
+							<label style="color: black"  for="rolname" class="col-sm-2 col-form-label">Rol</label>
 							<div class="col-sm-6">
 								<input type="text" th:field="*{rolname}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
@@ -237,7 +237,7 @@
 									th:if="${#fields.hasErrors('rolname')}" th:errors="*{rolname}"></small>
 							</div>
 						</div>
-						<div class="form-group row">
+						<div  style="color: black"  class="form-group row">
 							<label for="category">Usuario:</label>
 							<div class="col-sm-6">
 								<select class="form-control" th:field="*{user.id}">
