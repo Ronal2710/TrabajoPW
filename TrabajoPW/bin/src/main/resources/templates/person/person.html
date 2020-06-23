@@ -50,51 +50,87 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li  class="nav-item"><a class="nav-link collapsed" href="#"
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
-				aria-controls="collapseTwo">
-			</a>
+				aria-controls="collapseTwo"> </a>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a   style="color: white" class="collapse-item"
-						 th:href="@{/categoriesProduct/list}">Categories Product</a>
-					</div></div>
-					
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typePayment/list}">Payment Method</a>
+							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded" >
-						<a  style="color: white" class="collapse-item"  th:href="@{/typeUser/list}">User Type</a>
-					</div></div>
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/products/list}">Producto</a>
+					</div>
+				</div>
 				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Card Type</a>
+							th:href="@{/sales/list}">Venta</a>
 					</div>
-				</div>	
+				</div>
 				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeMoney/list}">Money Type</a>
+							th:href="@{/rents/list}">Alquiler</a>
 					</div>
-						</div>	
-			<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Person</a>
+							th:href="@{/bills/list}">Factura</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeUser/list}">Tipo de Usuario</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+					</div>
+				</div>
+
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/persons/list}">Usuario</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -185,7 +221,7 @@
 						<div  class="form-group row">
 							<label  style="color: black;" for="name" class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-6" >
-								<input type="text" th:field="*{namePerson}"
+								<input pattern="[a-zA-Z]+" required="required" type="text" th:field="*{namePerson}"
 									class="form-control" align="middle"
 									th:errorclass="'form-control alert-danger'" /> <small
 									 class="form-text text-danger"
@@ -193,21 +229,11 @@
 									th:errors="*{namePerson}"></small>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label style="color: black" for="lastname" class="col-sm-2 col-form-label">Last Name</label>
-							<div class="col-sm-6">
-								<input type="text" th:field="*{lastnamePerson}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('lastnamePerson')}"
-									th:errors="*{lastnamePerson}"></small>
-							</div>
-						</div>
+						
 								<div  class="form-group row">
 							<label style="color: black" for="mail" class="col-sm-2 col-form-label">Mail</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{mailPerson}"
+								<input required="required" type="email" th:field="*{mailPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -218,7 +244,7 @@
 								<div  class="form-group row">
 							<label style="color: black" for="dni" class="col-sm-2 col-form-label">DNI</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{dniPerson}"
+								<input pattern="[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]"  maxlength="8" required="required" type="text" th:field="*{dniPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -229,7 +255,7 @@
 						<div  class="form-group row">
 							<label style="color: black" for="direction" class="col-sm-2 col-form-label">Direction</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{directionPerson}"
+								<input  required="required" type="text" th:field="*{directionPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -240,7 +266,7 @@
 						<div  class="form-group row">
 							<label style="color: black" for="user" class="col-sm-2 col-form-label">User</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{userPerson}"
+								<input required="required" type="text" th:field="*{userPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -251,7 +277,7 @@
 						<div  class="form-group row">
 							<label style="color: black" for="password" class="col-sm-2 col-form-label">Password</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{passwordPerson}"
+								<input required="required" type="password" th:field="*{passwordPerson}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -262,7 +288,7 @@
 						<div class="form-group row">
 							<label style="color: black" for="typeUser" class="col-sm-2 col-form-label">Type User:</label>
 							<div  class="col-sm-6">
-								<select class="form-control" th:field="*{typeUser.idTypeUser}">
+								<select required="required" class="form-control" th:field="*{typeUser.idTypeUser}">
 									<option th:each="c: ${listTypeUser}"
 										th:value="${c.idTypeUser}" th:text="${c.nameTypeUser}"
 										th:selected="(${c.idTypeUser} == *{typeUser.idTypeUser})"></option>

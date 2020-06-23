@@ -1,6 +1,5 @@
 package pe.edu.upc.entity;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -8,50 +7,51 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "user_id", "rolname" }) })
 public class Rol implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long idrol;
+    @Column(name="rolname")
+	private String rolname;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-	@Column(name = "type")
-	private String type;
+
 
 	
-	
-	public Rol() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-
-	public Rol(int id, String type) {
-		super();
-		this.id = id;
-		this.type = type;
+	public Long getIdrol() {
+		return idrol;
 	}
 
-
-	public int getId() {
-		return id;
+	public void setIdrol(Long idrol) {
+		this.idrol = idrol;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public String getRolname() {
+		return rolname;
 	}
 
-	public String getType() {
-		return type;
+	public void setRolname(String rolname) {
+		this.rolname = rolname;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

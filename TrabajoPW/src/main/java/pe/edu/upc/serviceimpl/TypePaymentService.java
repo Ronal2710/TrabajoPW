@@ -2,6 +2,8 @@ package pe.edu.upc.serviceimpl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +16,16 @@ public class TypePaymentService implements ITypePaymentService{
 	
 	@Autowired
 	private ITypePaymentRepository pR;
+	
+	@Transactional
 	@Override
-	public void insert(TypePayment typePayment) {
-		pR.save(typePayment);
+	public int insert(TypePayment typePayment) {
+		int rpta=pR.searchTypePayment(typePayment.getNameTypePayment());
+		if(rpta==0)
+		{
+			pR.save(typePayment);
+		}
+		return rpta;
 		
 	}
 

@@ -215,12 +215,28 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/sales/list}">Venta</a>
+					</div>
+				</div>
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/bills/list}">Factura</a>
 					</div>
 				</div>
 
@@ -262,6 +278,18 @@
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Usuario</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					</div>
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -353,7 +381,7 @@
 							<label style="color: black" for="amount"
 								class="col-sm-2 col-form-label">Monto</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" th:field="*{amountRent}"
+								<input type="number" pattern="[1-9]+" required="required" th:field="*{amountRent}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -367,7 +395,7 @@
 							<label style="color: black" for="date"
 								class="col-sm-2 col-form-label">Fecha de Registro</label>
 							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" th:field="*{registerRent}"
+								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{registerRent}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -381,7 +409,7 @@
 							<label style="color: black" for="date"
 								class="col-sm-2 col-form-label">Fecha de venta</label>
 							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" th:field="*{startdateRent}"
+								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{startdateRent}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -395,7 +423,7 @@
 							<label style="color: black" for="date"
 								class="col-sm-2 col-form-label">Fecha de venta</label>
 							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" th:field="*{enddateRent}"
+								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{enddateRent}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -409,7 +437,7 @@
 							<label style="color: black" for="quantity"
 								class="col-sm-2 col-form-label">Cantidad</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" th:field="*{quantityRent}"
+								<input type="number" pattern="[1-9]+" required="required" th:field="*{quantityRent}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
@@ -422,7 +450,7 @@
 							<label style="color: black" for="product"
 								class="col-sm-2 col-form-label">Producto</label>
 							<div class="col-sm-6">
-								<select class="form-control" th:field="*{product.idProduct}">
+								<select class="form-control" required="required" th:field="*{product.idProduct}">
 									<option th:each="c: ${listProducts}" th:value="${c.idProduct}"
 										th:text="${c.nameProduct}"
 										th:selected="(${c.idProduct} == *{product.idProduct})"></option>

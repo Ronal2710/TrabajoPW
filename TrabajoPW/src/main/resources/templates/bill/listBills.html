@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<style type="text/css">
+.navbar {
+	background-color: #000000;
+}
+
+.navbar .navbar-brand {
+	color: #ffffff;
+}
+
+.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+	color: #ecdbff;
+}
+
+.navbar .navbar-text {
+	color: #ffffff;
+}
+
+.navbar .navbar-text a {
+	color: #ecdbff;
+}
+
+.navbar .navbar-text a:hover, .navbar .navbar-text a:focus {
+	color: #ecdbff;
+}
+
+.navbar .navbar-nav .nav-link {
+	color: #ffffff;
+	border-radius: .25rem;
+	margin: 0 0.25em;
+}
+
+.navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
+	 (.disabled ):focus {
+	color: #ecdbff;
+}
+
+.navbar .navbar-nav .nav-item.active .nav-link, .navbar .navbar-nav .nav-item.active .nav-link:hover,
+	.navbar .navbar-nav .nav-item.active .nav-link:focus, .navbar .navbar-nav .nav-item.show .nav-link,
+	.navbar .navbar-nav .nav-item.show .nav-link:hover, .navbar .navbar-nav .nav-item.show .nav-link:focus
+	{
+	color: #ecdbff;
+	background-color: #a00ddd;
+}
+
+.navbar .navbar-toggle {
+	border-color: #a00ddd;
+}
+
+.navbar .navbar-toggle:hover, .navbar .navbar-toggle:focus {
+	background-color: #a00ddd;
+}
+
+.navbar .navbar-toggle .navbar-toggler-icon {
+	color: #ffffff;
+}
+
+.navbar .navbar-collapse, .navbar .navbar-form {
+	border-color: #ffffff;
+}
+
+.navbar .navbar-link {
+	color: #ffffff;
+}
+
+.navbar .navbar-link:hover {
+	color: #ecdbff;
+}
+
+@media ( max-width : 575px) {
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+		color: #ffffff;
+	}
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+		.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus
+		{
+		color: #ecdbff;
+	}
+	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active
+		{
+		color: #ecdbff;
+		background-color: #a00ddd;
+	}
+}
+
+@media ( max-width : 767px) {
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+		color: #ffffff;
+	}
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+		.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus
+		{
+		color: #ecdbff;
+	}
+	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active
+		{
+		color: #ecdbff;
+		background-color: #a00ddd;
+	}
+}
+
+@media ( max-width : 991px) {
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+		color: #ffffff;
+	}
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+		.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus
+		{
+		color: #ecdbff;
+	}
+	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active
+		{
+		color: #ecdbff;
+		background-color: #a00ddd;
+	}
+}
+
+@media ( max-width : 1199px) {
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+		color: #ffffff;
+	}
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+		.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus
+		{
+		color: #ecdbff;
+	}
+	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active
+		{
+		color: #ecdbff;
+		background-color: #a00ddd;
+	}
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+	color: #ffffff;
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+	.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+	color: #ecdbff;
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+	color: #ecdbff;
+	background-color: #a00ddd;
+}
+</style>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>PARAKEET</title>
+
+<!-- Custom fonts for this template-->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+
+
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+			<!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center"
+				th:href="@{/categoriesProduct/list}">
+				<div >
+				<img th:src="@{/img/logo.png}" width="150" height="70"
+									align="middle">
+				</img>
+	
+				</div>
+		
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-target="#collapseTwo" aria-expanded="false"
+				aria-controls="collapseTwo"> </a>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/products/list}">Producto</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/sales/list}">Venta</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/bills/list}">Factura</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+					</div>
+				</div>
+
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/persons/list}">Persona</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					</div>
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
+					</div>
+				</div></li>
+						<!-- Sidebar Toggler (Sidebar) -->
+
+
+		</ul>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+				<div style="background-image: url(https://static.vecteezy.com/system/resources/previews/000/388/522/non_2x/background-wallpaper-with-polygons-in-gradient-colors-vector.jpg);background-size: cover ;background-repeat: no-repeat"id="content-wrapper" class="d-flex flex-column">
+
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<nav style="background-color: black"
+					class="navbar navbar-expand  topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Topbar Search -->
+
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a></li>
+
+
+
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"><img
+									th:src="@{/img/logout.png}" width="30" height="30" alt="logo"
+									align="middle"></img></span>
+
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a style="color: black" class="dropdown-item" href="#"> <i 	
+									class="fas fa-user fa-sm fa-fw mr-2"></i> Perfil
+								</a>
+								<div class="dropdown-divider"></div>
+								<a style="color: black" class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i 	
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i>
+									Cerrar sesión
+								</a>
+							</div></li>
+
+					</ul>
+
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin  Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+
+					<br></br>
+					<h1 style="color: black" class="h3 mb-4 ">Bills</h1>
+
+					<a th:href="@{/bills/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+
+					<hr class="sidebar-divider">
+
+					<table class="table table-bordered">
+						<thead style="background-color: black;">
+							<tr>
+								<th scope="col" style="color: white">Id</th>
+								<th scope="col" style="color: white">Date</th>
+								<th scope="col" style="color: white">Person</th>
+								<th scope="col" style="color: white">Sale</th>
+								<th scope="col" style="color: white">Rent</th>
+								<th scope="col" style="color: white">Type Payment</th>
+								<th scope="col" style="color: white">Type Card</th>
+								<th scope="col" style="color: white">Type Currency</th>
+								<th scope="col" style="color: white">Operacion</th>
+
+
+							</tr>
+						</thead>
+						<tbody style="background-color: transparent;">
+							<tr th:each="cate: ${listBills}">
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.idBill}"></td>	
+								<td style="color: white; font-weight: bold"
+										th:text="${#dates.format(cate.dateBill,'dd/MM/yyyy')}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.person.namePerson}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.sale.amountSale}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.rent.amountRent}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.typePayment.nameTypePayment}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.typeCard.nameTypeCard}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.typeCurrency.nameTypeCurrency}"></td>
+								<td class="text-center"><a
+									th:href="@{'/bills/irupdate/' + ${cate.idBill}}"><i
+										class="iconf fa fa-pen" style="color: blue;"></i></a></td>
+
+							</tr>
+						</tbody>
+					</table>
+
+					<p th:text="${mensaje}" class="form-text text-success"></p>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">¿Listo para
+						salir?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Seleccione "Cerrar sesión" a
+					continuación si está listo para finalizar su sesión actual.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancelar</button>
+					<a class="btn btn-primary" th:href="@{/products/index}">Cerrar
+						sesión</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

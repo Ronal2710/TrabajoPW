@@ -215,12 +215,28 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/sales/list}">Venta</a>
+					</div>
+				</div>
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/rents/list}">Alquiler</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/bills/list}">Factura</a>
 					</div>
 				</div>
 
@@ -263,8 +279,19 @@
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Usuario</a>
 					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					</div>
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+					</div>
 				</div></li>
-
 
 			<!-- Sidebar Toggler (Sidebar) -->
 
@@ -372,7 +399,6 @@
 						</div>
 
 					</form>
-					<p style="color: black" th:text="${mensaje}"></p>
 
 
 
