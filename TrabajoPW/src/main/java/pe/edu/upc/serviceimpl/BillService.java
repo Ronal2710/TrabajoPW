@@ -26,6 +26,12 @@ public class BillService implements IBillService {
 		// TODO Auto-generated method stub
 		bR.save(Bill);
 	}
+	
+
+	@Override
+	public void delete(int idBill) {
+		bR.deleteById(idBill);
+	}
 
 	@Override
 	public List<Bill> list() {

@@ -14,5 +14,6 @@ public interface IBillService {
 	public void insert(Bill Bill);
 	List<Bill> list();
 	Optional<Bill> searchId(int idBill);
+	public void delete(int idBill);
 }
 

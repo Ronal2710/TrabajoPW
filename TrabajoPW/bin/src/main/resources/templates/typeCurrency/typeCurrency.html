@@ -215,7 +215,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -223,7 +223,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -231,7 +231,7 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -279,6 +279,18 @@
 						<a style="color: white" class="collapse-item"
 							th:href="@{/persons/list}">Usuario</a>
 					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
 
@@ -317,8 +329,6 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
 						</a></li>
-
-
 
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow"><a
@@ -367,10 +377,23 @@
 						method="post">
 						<div class="form-group row">
 							<label style="color: black" for="name"
+								class="col-sm-2 col-form-label">Codigo</label>
+							<div class="col-sm-6">
+								<input type="text" pattern="[0-9]+" required="required"
+									th:field="*{idTypeCurrency}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('idTypeCurrency')}"
+									th:errors="*{idTypeCurrency}"></small>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label style="color: black" for="name"
 								class="col-sm-2 col-form-label">Tipo de Moneda</label>
 							<div class="col-sm-6">
-								<input type="text" pattern="[a-zA-Z]+" required="required" th:field="*{nameTypeCurrency}"
-									class="form-control"
+								<input type="text" pattern="[a-zA-Z]+" required="required"
+									th:field="*{nameTypeCurrency}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('nameTypeCurrency')}"
