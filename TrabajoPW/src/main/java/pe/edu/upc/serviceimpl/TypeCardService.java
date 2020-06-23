@@ -47,4 +47,10 @@ public class TypeCardService implements ITypeCardService{
 		// TODO Auto-generated method stub
 		return cR.findById(idTypeCard);
 	}
+
+	@Override
+	public List<TypeCard> findNameTypeCardFull(String nameTypeCard) {
+		// TODO Auto-generated method stub
+		return cR.findBynameTypeCard(nameTypeCard);
+	}
 }

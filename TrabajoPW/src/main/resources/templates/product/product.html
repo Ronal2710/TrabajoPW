@@ -248,13 +248,6 @@
 					</div>
 				</div>
 
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
-					</div>
-				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -277,19 +270,14 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/users/list}">Usuario</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-				</div>
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Rol</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -365,7 +353,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Producto</h1>
+					<h1 class="h3 mb-4 text-gray-800" style="color: black">Producto</h1>
 
 					<hr class="sidebar-divider">
 					<div th:object="${product}" th:remove="tag">
@@ -460,7 +448,7 @@
 							<label style="color: black" for="price"
 								class="col-sm-2 col-form-label">Precio</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" required="required"
+								<input type="number" pattern="[1-9]+" required="required" step="0.01"
 									th:field="*{priceProduct}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"

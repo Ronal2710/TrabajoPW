@@ -1,6 +1,7 @@
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Positive;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "sales")
@@ -19,29 +26,46 @@ public class Sale implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSale;
-	@Column(name = "amountSale", nullable = false)
-	private float amountSale;
+	@Positive
 	@Column(name = "quantitySale", nullable = false)
 	private int quantitySale;
-	@Column(name = "dateSale", nullable = false)
-	private String dateSale;
+	@Column(name = "dateSale")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateSale;
 	
 	@ManyToOne
 	@JoinColumn(name="idProduct")
 	private Product product;
+	
+	public Double CalcularMontoTotal() {
+		Double b;
+		b= (double) quantitySale;
+
+		return b*product.getPriceProduct();
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="id")
+	private User user;
 	
 	public Sale() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Sale(int idSale, float amountSale, int quantitySale, String dateSale, Product product) {
+	public Sale(int idSale, @Positive int quantitySale, Date dateSale, Product product, User user) {
 		super();
 		this.idSale = idSale;
-		this.amountSale = amountSale;
 		this.quantitySale = quantitySale;
 		this.dateSale = dateSale;
 		this.product = product;
+		this.user = user;
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		this.dateSale = new Date();
 	}
 
 	public int getIdSale() {
@@ -52,14 +76,6 @@ public class Sale implements Serializable{
 		this.idSale = idSale;
 	}
 
-	public float getAmountSale() {
-		return amountSale;
-	}
-
-	public void setAmountSale(float amountSale) {
-		this.amountSale = amountSale;
-	}
-
 	public int getQuantitySale() {
 		return quantitySale;
 	}
@@ -68,11 +84,11 @@ public class Sale implements Serializable{
 		this.quantitySale = quantitySale;
 	}
 
-	public String getDateSale() {
+	public Date getDateSale() {
 		return dateSale;
 	}
 
-	public void setDateSale(String dateSale) {
+	public void setDateSale(Date dateSale) {
 		this.dateSale = dateSale;
 	}
 
@@ -83,6 +99,14 @@ public class Sale implements Serializable{
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	
 }

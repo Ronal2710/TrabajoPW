@@ -387,7 +387,7 @@
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idRent}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.CalcularMonto()}"></td>
+									th:text="${cate.calcularMontoTotal()}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${#dates.format(cate.registerRent,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
@@ -449,10 +449,13 @@
 				<div class="modal-body">Seleccione "Cerrar sesión" a
 					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/rents/index}">Cerrar
-						sesión</a>
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Cerrar</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/rents/list}">Cancel</button>
+					</form>
 				</div>
 			</div>
 		</div>

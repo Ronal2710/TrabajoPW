@@ -33,7 +33,7 @@ public class Person implements Serializable{
 
 
 	public Person(int idPerson, String namePerson, String mailPerson, int dniPerson,
-			String directionPerson, String userPerson, String passwordPerson, TypeUser typeUser) {
+			String directionPerson, String userPerson, String passwordPerson) {
 		super();
 		this.idPerson = idPerson;
 		this.namePerson = namePerson;

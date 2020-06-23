@@ -1,5 +1,7 @@
 package pe.edu.upc.controller;
 
+import java.text.ParseException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
-import pe.edu.upc.entity.TypeCard;	
+import pe.edu.upc.entity.TypeCard;
+import pe.edu.upc.entity.TypeCard;
 import pe.edu.upc.serviceinterface.ITypeCardService;
 
 @Controller
@@ -53,6 +56,7 @@ public class TypeCardController {
 	@GetMapping("/list")
 	public String listTypeCard(Model model) {
 		try {
+			model.addAttribute("typeCard", new TypeCard());
 			model.addAttribute("listTypeCard", cS.list());
 			
 		} catch (Exception e) {
@@ -94,6 +98,20 @@ public class TypeCardController {
 			model.addAttribute("typeCard", objAr.get());
 			return "typeCard/typeCard";
 		}
+	}
+	
+	@RequestMapping("/search")
+	public String searchTypeCard(Model model, @Validated TypeCard category) throws ParseException {
+		List<TypeCard> listCategories;
+
+		listCategories = cS.findNameTypeCardFull(category.getNameTypeCard());
+		if (listCategories.isEmpty()) {
+
+			model.addAttribute("mensaje", "No se encontró");
+		}
+		model.addAttribute("listTypeCard", listCategories);
+		return "typeCard/listTypeCard";
+
 	}
 	
 }
