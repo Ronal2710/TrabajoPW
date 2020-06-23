@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -28,5 +29,18 @@ public class RentService implements IRentService{
 	public List<Rent> list() {
 		// TODO Auto-generated method stub
 		return rR.findAll();
+	}
+
+	@Override
+	public Optional<Rent> searchId(int idRent) {
+		// TODO Auto-generated method stub
+		return rR.findById(idRent);
+	}
+
+	@Override
+	public void delete(int idRent) {
+		// TODO Auto-generated method stub
+		rR.deleteById(idRent);;
+		
 	}
 }

@@ -220,7 +220,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -228,7 +228,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -236,7 +236,7 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -257,15 +257,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
-					</div>
-				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
@@ -282,19 +274,14 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/users/list}">Usuario</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Rol</a>
 					</div>
 				</div></li>
 			<!-- Divider -->
@@ -375,20 +362,24 @@
 					<br></br>
 					<h1 style="color: black" class="h3 mb-4 "></h1>
 
-						<h1 style="color: black" class="h3 mb-4 ">Productos en Alquiler</h1>
-						<a th:href="@{/rents/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+					<h1 style="color: black" class="h3 mb-4 ">Productos en
+						Alquiler</h1>
+					<a th:href="@{/rents/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
 					<hr class="sidebar-divider">
 
 					<table class="table table-bordered">
 						<thead style="background-color: black;">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col" style="color: white">Monto</th>
+								<th scope="col" style="color: white">Monto Total</th>
 								<th scope="col" style="color: white">Fecha de Alquiler</th>
 								<th scope="col" style="color: white">Fecha de Inicio</th>
 								<th scope="col" style="color: white">Fecha Final</th>
 								<th scope="col" style="color: white">Cantidad</th>
 								<th scope="col" style="color: white">Producto</th>
+								<th scope="col" style="color: white">Usuario</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
@@ -396,17 +387,25 @@
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idRent}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.amountRent}"></td>
+									th:text="${cate.CalcularMonto()}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.registerRent}"></td>
+									th:text="${#dates.format(cate.registerRent,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.startdateRent}"></td>
+									th:text="${#dates.format(cate.startdateRent,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.enddateRent}"></td>
+									th:text="${#dates.format(cate.enddateRent,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.quantityRent}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.product.nameProduct}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.user.username}"></td>
+								<td class="text-center"><a
+									th:href="@{'/rents/irupdate/' + ${cate.idRent}}"><i
+										class="iconf fa fa-pen" style="color: blue;"></i></a></td>
+								<td class="text-center"><a
+									th:href="@{'/rents/delete/' + ${cate.idRent}}"><i
+										class="iconf fa fa-trash" style="color: gray;"></i></a></td>
 							</tr>
 						</tbody>
 					</table>
