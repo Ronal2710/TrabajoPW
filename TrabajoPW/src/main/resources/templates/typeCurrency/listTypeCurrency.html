@@ -286,13 +286,13 @@
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 				<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
 					</div>
 					</div>
 					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>s
 				 <!-- Divider -->
@@ -380,6 +380,8 @@
 							<tr>
 								<th scope="col" style="color: white">Id</th>
 								<th scope="col" style="color: white">Nombre</th>
+								<th scope="col" style="color: white">Operación</th>
+								<th scope="col" style="color: white">Operación</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
@@ -388,6 +390,12 @@
 									th:text="${cate.idTypeCurrency}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.nameTypeCurrency}"></td>
+								<td class="text-center"><a
+									th:href="@{'/typeCurrency/irupdate/' + ${cate.idTypeCurrency}}"><i
+										class="iconf fa fa-pen" style="color: blue;"></i></a></td>
+								<td class="text-center"><a
+									th:href="@{'/typeCurrency/delete/'+${cate.idTypeCurrency}}"><i
+										class="iconf fa fa-trash" style="color: red;"></i></a></td>
 							</tr>
 						</tbody>
 					</table>

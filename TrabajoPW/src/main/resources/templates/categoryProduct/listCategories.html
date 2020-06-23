@@ -216,20 +216,52 @@
 					<h1 style="color: black"class="h3 mb-4 ">Categor&iacute;as</h1>
 
 					<a th:href="@{/categoriesProduct/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+						<form th:action="@{/categoriesProduct/search}" method="post"
+						th:object="${categoryProduct}">
 
+						<div class="form-group">
+							<table>
+								<tbody>
+									<tr>
+										<td><label for="nameCategoryProduct" style="color: black"
+											class="col-sm-2 col-form-label">Buscar:</label></td>
+										<td><input type="text" class="form-control"
+											th:field="*{nameCategoryProduct}" id="nameCategoryProduct"
+											placeholder="Nombre Categoría" required="required"
+											pattern="[a-zA-Z]+"></input></td>
+										<td><button type="submit" class="btn btn-danger">
+												<i class="iconf fa fa-search" style="color: white;"></i>
+											</button></td>
+										<td><a href="/categoriesProduct/list" class="btn btn-danger">Limpiar</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</form>
 					<hr class="sidebar-divider">
-
+					
 					<table  class="table table-bordered">
 						<thead style="background-color: black; ">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
 								<th scope="col"  style="color: white">Nombre</th>
+								<th scope="col"  style="color: white">Operacion</th>
+								<th scope="col"  style="color: white">Operacion</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
 							<tr th:each="cate: ${listCategories}">
 								<td style="color:white; font-weight: bold "  th:text="${cate.idCategoryProduct}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.nameCategoryProduct}"></td>
+								<td class="text-center"><a
+									th:href="@{'/categoriesProduct/irupdate/' + ${cate.idCategoryProduct}}"><i
+										class="iconf fa fa-pen" style="color: red;"></i></a></td>
+									
+								<td class="text-center"><a
+									th:href="@{'/categoriesProduct/delete/'+${cate.idCategoryProduct}}"><i
+										class="iconf fa fa-trash" style="color: red;"></i></a></td>
+										
 							</tr>
 						</tbody>
 					</table>

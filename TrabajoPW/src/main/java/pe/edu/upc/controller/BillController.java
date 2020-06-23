@@ -1,13 +1,18 @@
 package pe.edu.upc.controller;
 
+import java.util.Date;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Bill;
 import pe.edu.upc.serviceinterface.IBillService;
@@ -28,7 +33,7 @@ public class BillController {
 	@Autowired
 	private IBillService bS;
 	@Autowired
-	private ITypeCardService cS;
+	private ITypeCardService tS;
 	@Autowired
 	private ITypePaymentService paS;
 	@Autowired
@@ -43,7 +48,7 @@ public class BillController {
 	@GetMapping("/new")
 	public String newBill(Model model)
 	{
-		model.addAttribute("listTypeCard", cS.list());
+		model.addAttribute("listTypeCard", tS.list());
 		model.addAttribute("listTypeCurrency", cuS.list());
 		model.addAttribute("listTypePayment", paS.list());
 		model.addAttribute("listPersons", pS.list());
@@ -57,14 +62,17 @@ public class BillController {
 	@PostMapping("/save")
 	public String saveBill(@Validated Bill Bill, BindingResult result, Model model)
 	{
-		if(result.hasErrors())
-			return "bill/bill";
-		else {
+		Date dateBill = new Date();
+		try {
+			Bill.setDateBill(dateBill);
 			bS.insert(Bill);
-			model.addAttribute("listBills", bS.list());
-			return "bill/listBills";
+			model.addAttribute("mensaje","SE INSERTO CORRECTAMENTE ");
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+			return "redirect: /bills/new";
 		}
-		
+
+		return "redirect:/bills/list";
 	}
 	
 	@GetMapping("/list")
@@ -79,6 +87,26 @@ public class BillController {
 		
 		
 	}
+	
+	@RequestMapping("/irupdate/{id}")
+	public String irUpdate(@PathVariable int id, Model model, RedirectAttributes objRedir) {
+		Optional<Bill> objAr = bS.searchId(id);
+		if (objAr == null) {
+			objRedir.addFlashAttribute("mensaje", "Ocurrió un error");
+			return "redirect:/bills/list";
+		} else {
+			model.addAttribute("bill", objAr.get());
+			model.addAttribute("listTypeCard", tS.list());
+			model.addAttribute("listTypeCurrency", cuS.list());
+			model.addAttribute("listTypePayment", paS.list());
+			model.addAttribute("listPersons", pS.list());
+			model.addAttribute("listRents", rS.list());
+			model.addAttribute("listSales", sS.list());
+			model.addAttribute("mensaje", "Se Actualizo Correctamente");
+			return "bill/bill";
+		}
+	}
+
 
 
 }

@@ -378,6 +378,7 @@
 								<th scope="col" style="color: white">Type Payment</th>
 								<th scope="col" style="color: white">Type Card</th>
 								<th scope="col" style="color: white">Type Currency</th>
+								<th scope="col" style="color: white">Operacion</th>
 
 
 							</tr>
@@ -385,9 +386,9 @@
 						<tbody style="background-color: transparent;">
 							<tr th:each="cate: ${listBills}">
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.idBill}"></td>
+									th:text="${cate.idBill}"></td>	
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.dateBill}"></td>
+										th:text="${#dates.format(cate.dateBill,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.person.namePerson}"></td>
 								<td style="color: white; font-weight: bold"
@@ -400,6 +401,9 @@
 									th:text="${cate.typeCard.nameTypeCard}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.typeCurrency.nameTypeCurrency}"></td>
+								<td class="text-center"><a
+									th:href="@{'/bills/irupdate/' + ${cate.idBill}}"><i
+										class="iconf fa fa-pen" style="color: blue;"></i></a></td>
 
 							</tr>
 						</tbody>
