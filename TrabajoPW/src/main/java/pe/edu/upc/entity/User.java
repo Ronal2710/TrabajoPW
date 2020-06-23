@@ -32,15 +32,15 @@ public class User implements Serializable {
 	private String password;
 
 	private Boolean enabled;
-	
+	@Column(name = "name", length = 80, nullable = false)
 	private String name;
-	
+	@Column(name = "number", length = 9, nullable = false)
 	private int number;
-	
+	@Column(name = "mail", length = 100, nullable = false)
 	private String mail;
-	
+	@Column(name = "dni", length =9, nullable = false)
 	private int dni;
-	
+	@Column(name = "address", length = 150, nullable = false)
 	private String address;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
