@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Bill;
+import pe.edu.upc.entity.CategoryProduct;
 import pe.edu.upc.serviceinterface.IBillService;
-import pe.edu.upc.serviceinterface.IPersonService;
 import pe.edu.upc.serviceinterface.ITypeCardService;
 import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 import pe.edu.upc.serviceinterface.ITypePaymentService;
+import pe.edu.upc.serviceinterface.IUserService;
 import pe.edu.upc.serviceinterface.ISaleService;
 import pe.edu.upc.serviceinterface.IRentService;
 
@@ -39,7 +40,7 @@ public class BillController {
 	@Autowired
 	private ITypeCurrencyService cuS;
 	@Autowired
-	private IPersonService pS;
+	private IUserService uS;
 	@Autowired
 	private IRentService rS;
 	@Autowired
@@ -51,7 +52,7 @@ public class BillController {
 		model.addAttribute("listTypeCard", tS.list());
 		model.addAttribute("listTypeCurrency", cuS.list());
 		model.addAttribute("listTypePayment", paS.list());
-		model.addAttribute("listPersons", pS.list());
+		model.addAttribute("listUsers", uS.list());
 		model.addAttribute("listRents", rS.list());
 		model.addAttribute("listSales", sS.list());
 		model.addAttribute("bill",new Bill());
@@ -66,7 +67,7 @@ public class BillController {
 		try {
 			Bill.setDateBill(dateBill);
 			bS.insert(Bill);
-			model.addAttribute("mensaje","SE INSERTO CORRECTAMENTE ");
+			model.addAttribute("mensaje","Se inserto correctamente ");
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 			return "redirect: /bills/new";
@@ -99,7 +100,7 @@ public class BillController {
 			model.addAttribute("listTypeCard", tS.list());
 			model.addAttribute("listTypeCurrency", cuS.list());
 			model.addAttribute("listTypePayment", paS.list());
-			model.addAttribute("listPersons", pS.list());
+			model.addAttribute("listUsers", uS.list());
 			model.addAttribute("listRents", rS.list());
 			model.addAttribute("listSales", sS.list());
 			model.addAttribute("mensaje", "Se Actualizo Correctamente");
@@ -107,6 +108,30 @@ public class BillController {
 		}
 	}
 
+
+	@RequestMapping("/delete/{id}")
+	public String deleteCategory(Model model, @PathVariable(value = "id") int id) {
+		try {
+			if (id > 0) {
+				bS.delete(id);
+				model.addAttribute("listCategories", bS.list());
+				model.addAttribute("categoryProduct", new CategoryProduct());
+				model.addAttribute("mensaje", "Se eliminó correctamente");
+
+			}
+			return "categoryProduct/listCategories";
+
+		} catch (Exception e) {
+			model.addAttribute("categoryProduct", new CategoryProduct());
+
+			System.out.println(e.getMessage());
+			model.addAttribute("mensaje", "No se puede eliminar ");
+			model.addAttribute("listCategories", bS.list());
+
+			return "categoryProduct/listCategories";
+		}
+
+	}
 
 
 }

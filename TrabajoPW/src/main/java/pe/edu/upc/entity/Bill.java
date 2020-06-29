@@ -45,8 +45,8 @@ public class Bill implements Serializable{
 	private TypePayment typePayment;
 	
 	@ManyToOne
-	@JoinColumn(name="idPerson")
-	private Person person;
+	@JoinColumn(name="id")
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="idRent")
@@ -65,18 +65,46 @@ public class Bill implements Serializable{
 
 
 
+
+
+
+
 	public Bill(int idBill, Date dateBill, TypeCard typeCard, TypeCurrency typeCurrency, TypePayment typePayment,
-			Person person, Rent rent, Sale sale) {
+			User user, Rent rent, Sale sale) {
 		super();
 		this.idBill = idBill;
 		this.dateBill = dateBill;
 		this.typeCard = typeCard;
 		this.typeCurrency = typeCurrency;
 		this.typePayment = typePayment;
-		this.person = person;
+		this.user = user;
 		this.rent = rent;
 		this.sale = sale;
 	}
+
+
+
+
+
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
+
 
 
 
@@ -143,15 +171,6 @@ public class Bill implements Serializable{
 
 
 
-	public Person getPerson() {
-		return person;
-	}
-
-
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
 
 
 

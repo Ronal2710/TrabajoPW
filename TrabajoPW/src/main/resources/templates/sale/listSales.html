@@ -376,6 +376,9 @@
 								<th scope="col" style="color: white">Cantidad</th>
 								<th scope="col" style="color: white">Fecha de Venta</th>
 								<th scope="col" style="color: white">Producto</th>
+								<th scope="col" style="color: white">Usuario</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
@@ -383,13 +386,21 @@
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idSale}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.amountSale}"></td>
+									th:text="$Total{cate.CalcularMontoTotal()}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.quantitySale}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.dateSale}"></td>
+									th:text="${#dates.format(cate.dateSale,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.product.nameProduct}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${cate.user.username}"></td>
+								<td class="text-center"><a
+									th:href="@{'/sales/irupdate/' + ${cate.idSale}}"><i
+									class="iconf fa fa-pen" style="color: blue;"></i></a></td>
+								<td class="text-center"><a
+									th:href="@{'/sales/delete/' + ${cate.idSale}}"><i
+									class="iconf fa fa-trash" style="color: gray;"></i></a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -433,10 +444,13 @@
 				<div class="modal-body">Seleccione "Cerrar sesión" a
 					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/sales/index}">Cerrar
-						sesión</a>
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Cerrar</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/sales/list}">Cancel</button>
+					</form>
 				</div>
 			</div>
 		</div>

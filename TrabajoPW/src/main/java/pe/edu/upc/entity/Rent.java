@@ -56,10 +56,11 @@ public class Rent implements Serializable {
 	@JoinColumn(name = "idProduct")
 	private Product product;
 
-	public Double CalcularMonto() {
+	public Double calcularMontoTotal() {
 		Double b;
 		b = (double) quantityRent;
-		return b * product.getPriceProduct();
+		
+		return b*product.getPriceProduct();
 	}
 
 	@ManyToOne
@@ -109,14 +110,6 @@ public class Rent implements Serializable {
 	public void setIdRent(int idRent) {
 		this.idRent = idRent;
 	}
-
-//	public float getAmountRent() {
-//		return amountRent;
-//	}
-//
-//	public void setAmountRent(float amountRent) {
-//		this.amountRent = amountRent;
-//	}
 
 	public Date getRegisterRent() {
 		return registerRent;

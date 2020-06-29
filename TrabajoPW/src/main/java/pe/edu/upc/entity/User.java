@@ -32,6 +32,16 @@ public class User implements Serializable {
 	private String password;
 
 	private Boolean enabled;
+	@Column(name = "name", length = 80, nullable = false)
+	private String name;
+	@Column(name = "number", length = 9, nullable = false)
+	private int number;
+	@Column(name = "mail", length = 100, nullable = false)
+	private String mail;
+	@Column(name = "dni", length =9, nullable = false)
+	private int dni;
+	@Column(name = "address", length = 150, nullable = false)
+	private String address;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
@@ -76,5 +86,46 @@ public class User implements Serializable {
 	public void setRoles(List<Rol> roles) {
 		this.roles = roles;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public int getDni() {
+		return dni;
+	}
+
+	public void setDni(int dni) {
+		this.dni = dni;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	
 
 }

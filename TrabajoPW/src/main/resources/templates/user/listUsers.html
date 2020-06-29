@@ -213,16 +213,30 @@
 					<table  class="table table-bordered">
 						<thead class="thead-dark">
 							<tr>
+							
 								<th scope="col"style="color: white">Id</th>
+								<th scope="col"style="color: white">Nombre</th>
+								<th scope="col"style="color: white">DNI</th>
+								<th scope="col"style="color: white">Mail</th>
+								<th scope="col"style="color: white">Direccion</th>
+								<th scope="col"style="color: white">Numero</th>
 								<th scope="col"style="color: white">usuario</th>
-
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
 
 							</tr>
 						</thead>
 						<tbody>
 							<tr style="color:white; font-weight: bold " th:each="u: ${listUsers}">
 								<td style="color:white; font-weight: bold "th:text="${u.id}"></td>
+								<td style="color:white; font-weight: bold "th:text="${u.name}"></td>
+								<td style="color:white; font-weight: bold "th:text="${u.dni}"></td>
+								<td style="color:white; font-weight: bold "th:text="${u.mail}"></td>
+								<td style="color:white; font-weight: bold "th:text="${u.address}"></td>
+								<td style="color:white; font-weight: bold "th:text="${u.number}"></td>
 								<td style="color:white; font-weight: bold "th:text="${u.username}"></td>
+								<td class="text-center"><a
+									th:href="@{'/users/delete/' + ${u.id}}"><i
+										class="iconf fa fa-trash" style="color: red;"></i></a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -271,7 +285,7 @@
 							onclick="document.getElementById('logoutForm').submit();"
 							type="submit">Cerrar</button>
 						<button class="btn btn-dark" type="button" data-dismiss="modal"
-							th:href="@{/categories/list}">Cancel</button>
+							th:href="@{/users/list}">Cancel</button>
 					</form>
 				</div>
 			</div>
