@@ -112,15 +112,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
-					</div>
-				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
@@ -137,19 +129,14 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/users/list}">Usuario</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Rol</a>
 					</div>
 				</div></li>
 
@@ -238,13 +225,10 @@
 							<tr>
 								<th scope="col" style="color: white">Id</th>
 								<th scope="col"  style="color: white">Name</th>
-								
 								<th scope="col"  style="color: white">Mail</th>
 								<th scope="col"  style="color: white">DNI</th>
 								<th scope="col"  style="color: white">Direction</th>
-								<th scope="col"  style="color: white">user</th>
-								<th scope="col"  style="color: white">Password</th>
-								<th scope="col"  style="color: white">Type User</th>
+							
 								
 							</tr>
 						</thead>
@@ -252,13 +236,10 @@
 							<tr th:each="cate: ${listPersons}">
 								<td style="color:white; font-weight: bold "  th:text="${cate.idPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.namePerson}"></td>
-								
 								<td  style="color: white; font-weight: bold" th:text="${cate.mailPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.dniPerson}"></td>
 								<td  style="color: white; font-weight: bold" th:text="${cate.directionPerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.userPerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.passwordPerson}"></td>
-								<td  style="color: white; font-weight: bold" th:text="${cate.typeUser.nameTypeUser}"></td>
+						
 							</tr>
 						</tbody>
 					</table>

@@ -105,7 +105,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
@@ -122,19 +122,14 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Persona</a>
+							th:href="@{/users/list}">Usuario</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Rol</a>
 					</div>
 				</div></li>
 						<!-- Sidebar Toggler (Sidebar) -->
@@ -220,6 +215,7 @@
 								<th  style="color:white;"scope="col">Id</th>
 								<th  style="color:white;"scope="col">Rol</th>
 								<th style="color:white;" scope="col">Usuario</th>
+								<th scope="col" style="color: white">Operaci&oacute;n</th>
 
 
 							</tr>
@@ -229,6 +225,9 @@
 								<td style="color:white; font-weight: bold " th:text="${r.idrol}"></td>
 								<td style="color:white; font-weight: bold "th:text="${r.rolname}"></td>
 								<td style="color:white; font-weight: bold "th:text="${r.user.username}"></td>
+									<td class="text-center"><a
+									th:href="@{'/roles/delete/' + ${r.idrol}}"><i
+										class="iconf fa fa-trash" style="color: red;"></i></a></td>
 
 							</tr>
 						</tbody>
@@ -279,7 +278,7 @@
 							onclick="document.getElementById('logoutForm').submit();"
 							type="submit">Cerrar</button>
 						<button class="btn btn-dark" type="button" data-dismiss="modal"
-							th:href="@{/categories/list}">Cancel</button>
+							th:href="@{/roles/list}">Cancel</button>
 					</form>
 				</div>
 			</div>

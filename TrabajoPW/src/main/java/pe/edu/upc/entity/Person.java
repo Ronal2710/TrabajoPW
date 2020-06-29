@@ -6,9 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -25,12 +24,6 @@ public class Person implements Serializable{
 	private String mailPerson;
 	private int dniPerson;
 	private String directionPerson;
-	private String userPerson;
-	private String passwordPerson;
-	
-	@OneToOne
-	@JoinColumn(name="idTypeUser")
-	private TypeUser typeUser;
 	
 	
 	public Person() {
@@ -40,7 +33,7 @@ public class Person implements Serializable{
 
 
 	public Person(int idPerson, String namePerson, String mailPerson, int dniPerson,
-			String directionPerson, String userPerson, String passwordPerson, TypeUser typeUser) {
+			String directionPerson, String userPerson, String passwordPerson) {
 		super();
 		this.idPerson = idPerson;
 		this.namePerson = namePerson;
@@ -48,9 +41,7 @@ public class Person implements Serializable{
 		this.mailPerson = mailPerson;
 		this.dniPerson = dniPerson;
 		this.directionPerson = directionPerson;
-		this.userPerson = userPerson;
-		this.passwordPerson = passwordPerson;
-		this.typeUser = typeUser;
+		
 	}
 
 
@@ -107,34 +98,6 @@ public class Person implements Serializable{
 	}
 
 
-	public String getUserPerson() {
-		return userPerson;
-	}
-
-
-	public void setUserPerson(String userPerson) {
-		this.userPerson = userPerson;
-	}
-
-
-	public String getPasswordPerson() {
-		return passwordPerson;
-	}
-
-
-	public void setPasswordPerson(String passwordPerson) {
-		this.passwordPerson = passwordPerson;
-	}
-
-
-	public TypeUser getTypeUser() {
-		return typeUser;
-	}
-
-
-	public void setTypeUser(TypeUser typeUser) {
-		this.typeUser = typeUser;
-	}
 	
 	
 }

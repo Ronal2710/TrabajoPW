@@ -1,20 +1,26 @@
 package pe.edu.upc.controller;
 
+import java.util.Date;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Bill;
+import pe.edu.upc.entity.CategoryProduct;
 import pe.edu.upc.serviceinterface.IBillService;
-import pe.edu.upc.serviceinterface.IPersonService;
 import pe.edu.upc.serviceinterface.ITypeCardService;
 import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 import pe.edu.upc.serviceinterface.ITypePaymentService;
+import pe.edu.upc.serviceinterface.IUserService;
 import pe.edu.upc.serviceinterface.ISaleService;
 import pe.edu.upc.serviceinterface.IRentService;
 
@@ -28,13 +34,13 @@ public class BillController {
 	@Autowired
 	private IBillService bS;
 	@Autowired
-	private ITypeCardService cS;
+	private ITypeCardService tS;
 	@Autowired
 	private ITypePaymentService paS;
 	@Autowired
 	private ITypeCurrencyService cuS;
 	@Autowired
-	private IPersonService pS;
+	private IUserService uS;
 	@Autowired
 	private IRentService rS;
 	@Autowired
@@ -43,10 +49,10 @@ public class BillController {
 	@GetMapping("/new")
 	public String newBill(Model model)
 	{
-		model.addAttribute("listTypeCard", cS.list());
+		model.addAttribute("listTypeCard", tS.list());
 		model.addAttribute("listTypeCurrency", cuS.list());
 		model.addAttribute("listTypePayment", paS.list());
-		model.addAttribute("listPersons", pS.list());
+		model.addAttribute("listUsers", uS.list());
 		model.addAttribute("listRents", rS.list());
 		model.addAttribute("listSales", sS.list());
 		model.addAttribute("bill",new Bill());
@@ -57,14 +63,17 @@ public class BillController {
 	@PostMapping("/save")
 	public String saveBill(@Validated Bill Bill, BindingResult result, Model model)
 	{
-		if(result.hasErrors())
-			return "bill/bill";
-		else {
+		Date dateBill = new Date();
+		try {
+			Bill.setDateBill(dateBill);
 			bS.insert(Bill);
-			model.addAttribute("listBills", bS.list());
-			return "bill/listBills";
+			model.addAttribute("mensaje","Se inserto correctamente ");
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+			return "redirect: /bills/new";
 		}
-		
+
+		return "redirect:/bills/list";
 	}
 	
 	@GetMapping("/list")
@@ -78,6 +87,50 @@ public class BillController {
 		return "bill/listBills";
 		
 		
+	}
+	
+	@RequestMapping("/irupdate/{id}")
+	public String irUpdate(@PathVariable int id, Model model, RedirectAttributes objRedir) {
+		Optional<Bill> objAr = bS.searchId(id);
+		if (objAr == null) {
+			objRedir.addFlashAttribute("mensaje", "Ocurrió un error");
+			return "redirect:/bills/list";
+		} else {
+			model.addAttribute("bill", objAr.get());
+			model.addAttribute("listTypeCard", tS.list());
+			model.addAttribute("listTypeCurrency", cuS.list());
+			model.addAttribute("listTypePayment", paS.list());
+			model.addAttribute("listUsers", uS.list());
+			model.addAttribute("listRents", rS.list());
+			model.addAttribute("listSales", sS.list());
+			model.addAttribute("mensaje", "Se Actualizo Correctamente");
+			return "bill/bill";
+		}
+	}
+
+
+	@RequestMapping("/delete/{id}")
+	public String deleteCategory(Model model, @PathVariable(value = "id") int id) {
+		try {
+			if (id > 0) {
+				bS.delete(id);
+				model.addAttribute("listCategories", bS.list());
+				model.addAttribute("categoryProduct", new CategoryProduct());
+				model.addAttribute("mensaje", "Se eliminó correctamente");
+
+			}
+			return "categoryProduct/listCategories";
+
+		} catch (Exception e) {
+			model.addAttribute("categoryProduct", new CategoryProduct());
+
+			System.out.println(e.getMessage());
+			model.addAttribute("mensaje", "No se puede eliminar ");
+			model.addAttribute("listCategories", bS.list());
+
+			return "categoryProduct/listCategories";
+		}
+
 	}
 
 

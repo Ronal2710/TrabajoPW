@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -25,11 +26,22 @@ public class BillService implements IBillService {
 		// TODO Auto-generated method stub
 		bR.save(Bill);
 	}
+	
+
+	@Override
+	public void delete(int idBill) {
+		bR.deleteById(idBill);
+	}
 
 	@Override
 	public List<Bill> list() {
 		// TODO Auto-generated method stub
 		return bR.findAll();
+	}
+	@Override
+	public Optional<Bill> searchId(int idBill) {
+		// TODO Auto-generated method stub
+		return bR.findById(idBill);
 	}
 
 }

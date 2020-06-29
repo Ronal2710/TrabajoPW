@@ -3,134 +3,25 @@
 
 <head>
 
-<style type="text/css">
-.navbar {
-  background-color: #000000;
-}
-.navbar .navbar-brand {
-  color: #ffffff;
-}
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus {
-  color: #ecdbff;
-}
-.navbar .navbar-text {
-  color: #ffffff;
-}
-.navbar .navbar-text a {
-  color: #ecdbff;
-}
-.navbar .navbar-text a:hover,
-.navbar .navbar-text a:focus {
-  color: #ecdbff; 
-}
-.navbar .navbar-nav .nav-link {
-  color: #ffffff;
-  border-radius: .25rem;
-  margin: 0 0.25em;
-}
-.navbar .navbar-nav .nav-link:not(.disabled):hover,
-.navbar .navbar-nav .nav-link:not(.disabled):focus {
-  color: #ecdbff;
-}
-.navbar .navbar-nav .nav-item.active .nav-link,
-.navbar .navbar-nav .nav-item.active .nav-link:hover,
-.navbar .navbar-nav .nav-item.active .nav-link:focus,
-.navbar .navbar-nav .nav-item.show .nav-link,
-.navbar .navbar-nav .nav-item.show .nav-link:hover,
-.navbar .navbar-nav .nav-item.show .nav-link:focus {
-  color: #ecdbff;
-  background-color: #a00ddd;
-}
-.navbar .navbar-toggle {
-  border-color: #a00ddd;
-}
-.navbar .navbar-toggle:hover,
-.navbar .navbar-toggle:focus {
-  background-color: #a00ddd;
-}
-.navbar .navbar-toggle .navbar-toggler-icon {
-  color: #ffffff;
-}
-.navbar .navbar-collapse,
-.navbar .navbar-form {
-  border-color: #ffffff;
-}
-.navbar .navbar-link {
-  color: #ffffff;
-}
-.navbar .navbar-link:hover {
-  color: #ecdbff;
-}
+  <Script Language="JavaScript">
+    function DameLaFechaHora() {
+  
+      var hoy = new Date();
+      var m = new Array();
+      var an= hoy.getYear();
+      m[0]="Enero";  m[1]="Febrero";  m[2]="Marzo";
+      m[3]="Abril";   m[4]="Mayo";  m[5]="Junio";
+      m[6]="Julio";    m[7]="Agosto";   m[8]="Septiembre";
+      m[9]="Octubre";   m[10]="Noviembre"; m[11]="Diciembre";
 
-@media (max-width: 575px) {
-  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #ffffff;
-  }
-  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ecdbff;
-  }
-  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ecdbff;
-    background-color: #a00ddd;
-  }
-}
+      document.write(hoy.getDate());
+      document.write(" - ");
+      document.write(m[hoy.getMonth()]);
+      document.write(hoy.getYear());
+      
+    }
+  </Script>
 
-@media (max-width: 767px) {
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #ffffff;
-  }
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ecdbff;
-  }
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ecdbff;
-    background-color: #a00ddd;
-  }
-}
-
-@media (max-width: 991px) {
-  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #ffffff;
-  }
-  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ecdbff;
-  }
-  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ecdbff;
-    background-color: #a00ddd;
-  }
-}
-
-@media (max-width: 1199px) {
-  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #ffffff;
-  }
-  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ecdbff;
-  }
-  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ecdbff;
-    background-color: #a00ddd;
-  }
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
-  color: #ffffff;
-}
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-  color: #ecdbff;
-}
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
-  color: #ecdbff;
-  background-color: #a00ddd;
-}
-</style>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -349,28 +240,28 @@
 
 					<form th:action="@{/bills/save}" th:object="${bill}"
 						method="post">
-						
 						<div class="form-group row">
-							<label style="color: black" for="date" class="col-sm-2 col-form-label">Date</label>
+							<label style="color: black" for="id" class="col-sm-2 col-form-label">Código</label>
 							<div class="col-sm-6">
-								<input required="required" pattern="dd-mm-yyyy" type="date" th:field="*{dateBill}" 
+								<input type="text" th:field="*{idBill}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('dateBill')}"
-									th:errors="*{dateBill}"></small>
+									th:if="${#fields.hasErrors('idBill')}"
+									th:errors="*{idBill}"></small>
 							</div>
 						</div>
 						
-						
-						
 						<div class="form-group row">
-							<label style="color: black" for="person" class="col-sm-2 col-form-label">Person</label>
+							<label style="color: black" for="user"
+								class="col-sm-2 col-form-label">Propietario</label>
 							<div class="col-sm-6">
-								<select required="required" class="form-control" th:field="*{person.idPerson}">
-									<option th:each="c: ${listPersons}"
-										th:value="${c.idPerson}" th:text="${c.namePerson}"
-										th:selected="(${c.idPerson} == *{person.idPerson})"></option>
+								<select class="form-control" required="required"
+									th:field="*{user.id}">
+									<option th:each="c: ${listUsers}"
+										th:value="${c.id}"
+										th:text="${c.name}"
+										th:selected="(${c.id} == *{user.id})"></option>
 								</select>
 							</div>
 						</div>
@@ -381,7 +272,7 @@
 								<select required="required" class="form-control" th:field="*{sale.idSale}">
 									<option th:each="s: ${listSales}"
 										th:value="${s.idSale}" th:text="${s.amountSale}"
-										th:selected="(${s.idSale} == *{s.idSale})"></option>
+										th:selected="(${s.idSale} == *{sale.idSale})"></option>
 								</select>
 							</div>
 						</div>
@@ -391,7 +282,7 @@
 								<select required="required" class="form-control" th:field="*{rent.idRent}">
 									<option th:each="r: ${listRents}"
 										th:value="${r.idRent}" th:text="${r.amountRent}"
-										th:selected="(${r.idRent} == *{r.idRent})"></option>
+										th:selected="(${r.idRent} == *{rent.idRent})"></option>
 								</select>
 							</div>
 						</div>

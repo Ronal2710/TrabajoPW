@@ -47,10 +47,16 @@ public class TypeCurrencyService implements ITypeCurrencyService{
 		return cR.findById(id);
 	}
 
+//	@Override
+//	public List<TypeCurrency> search(String busqueda) {
+//		// TODO Auto-generated method stub
+//		return cR.search(busqueda);
+//	}
+
 	@Override
-	public List<TypeCurrency> search(String busqueda) {
+	public List<TypeCurrency> findNameTypeCurrencyFull(String nameTypeCurrency) {
 		// TODO Auto-generated method stub
-		return cR.search(busqueda);
+		return cR.findBynameTypeCurrency(nameTypeCurrency);
 	}
 
 }
