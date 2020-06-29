@@ -1,14 +1,22 @@
 package pe.edu.upc.controller;
 
+import java.text.ParseException;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
+import pe.edu.upc.entity.TypeCard;
 import pe.edu.upc.entity.TypeCard;
 import pe.edu.upc.serviceinterface.ITypeCardService;
 
@@ -48,11 +56,62 @@ public class TypeCardController {
 	@GetMapping("/list")
 	public String listTypeCard(Model model) {
 		try {
+			model.addAttribute("typeCard", new TypeCard());
 			model.addAttribute("listTypeCard", cS.list());
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("error", e.getMessage());
 		}
 		return "typeCard/listTypeCard";
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteTypeCard(Model model, @PathVariable(value = "id") int id) {
+		try {
+			if (id > 0) {
+				cS.delete(id);
+				model.addAttribute("listTypeCard", cS.list());
+				model.addAttribute("typeCard", new TypeCard());
+				model.addAttribute("mensaje", "Se eliminó correctamente");
+			}
+			return "typeCard/listTypeCard";
+
+		} catch (Exception e) {
+			model.addAttribute("typeCard", new TypeCard());
+
+			System.out.println(e.getMessage());
+			model.addAttribute("mensaje", "No se puede eliminar un tipo de tarjeta ya relacionado");
+			model.addAttribute("listTypeCard", cS.list());
+
+			return "typeCard/listTypeCard";
+		}
+	}
+	
+	@RequestMapping("/irupdate/{id}")
+	public String irUpdate(@PathVariable int id, Model model, RedirectAttributes objRedir) {
+		Optional<TypeCard> objAr = cS.searchId(id);
+		if (objAr == null) {
+			objRedir.addFlashAttribute("mensaje", "Ocurrió un error");
+			return "redirect:/typeCard/list";
+		} else {
+			model.addAttribute("typeCard", objAr.get());
+			return "typeCard/typeCard";
+		}
+	}
+	
+	@RequestMapping("/search")
+	public String searchTypeCard(Model model, @Validated TypeCard category) throws ParseException {
+		List<TypeCard> listCategories;
+
+		listCategories = cS.findNameTypeCardFull(category.getNameTypeCard());
+		if (listCategories.isEmpty()) {
+
+			model.addAttribute("mensaje", "No se encontró");
+		}
+		model.addAttribute("listTypeCard", listCategories);
+		return "typeCard/listTypeCard";
+
+	}
+	
 }

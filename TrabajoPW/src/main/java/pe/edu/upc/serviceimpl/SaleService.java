@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -30,5 +31,16 @@ public class SaleService implements ISaleService {
 		// TODO Auto-generated method stub
 		return sR.findAll();
 	}
+	
+	@Override
+	public Optional<Sale> searchId(int idSale) {
+		// TODO Auto-generated method stub
+		return sR.findById(idSale);
+	}
 
+	@Override
+	public void delete(int idSale) {
+		// TODO Auto-generated method stub
+		sR.deleteById(idSale);
+	}
 }

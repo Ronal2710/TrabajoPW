@@ -3,6 +3,7 @@ package pe.edu.upc.serviceinterface;
 import java.util.List;
 import java.util.Optional;
 
+import pe.edu.upc.entity.CategoryProduct;
 import pe.edu.upc.entity.TypeCurrency;
 
 public interface ITypeCurrencyService {
@@ -13,7 +14,9 @@ public interface ITypeCurrencyService {
 
 	public void delete(int idTypeCurrency);
 
-	Optional<TypeCurrency> searchId(int idProduct);
+	Optional<TypeCurrency> searchId(int idTypeCurrency);
 
-	public List<TypeCurrency> search(String busqueda);
+//	public List<TypeCurrency> search(String busqueda);
+	
+	List<TypeCurrency> findNameTypeCurrencyFull(String nameTypeCurrency);
 }

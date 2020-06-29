@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.TypeCurrency;
+import pe.edu.upc.entity.TypeCurrency;
 import pe.edu.upc.serviceinterface.ITypeCurrencyService;
 
 @Controller
@@ -73,11 +74,12 @@ public class TypeCurrencyController {
 
 			return "TypeCurrency/listTypeCurrency";
 		}
-
 	}
+	
 	@GetMapping("/list")
 	public String listTypeCurrency(Model model) {
 		try {
+			model.addAttribute("typeCurrency",new TypeCurrency());
 			model.addAttribute("listTypeCurrency",cS.list());
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -100,15 +102,16 @@ public class TypeCurrencyController {
 	}
 	
 	@RequestMapping("/search")
-	public String searchTypeCurrency(Model model, @Validated TypeCurrency typeCurrency) throws ParseException {
-		List<TypeCurrency> listTypeCurrencys;
-		model.addAttribute("typeCurrency", new TypeCurrency());
-		listTypeCurrencys = cS.search(typeCurrency.getNameTypeCurrency());
-		if (listTypeCurrencys.isEmpty()) {
-			
+	public String searchTypeCurrency(Model model, @Validated TypeCurrency category) throws ParseException {
+		List<TypeCurrency> listCategories;
+
+		listCategories = cS.findNameTypeCurrencyFull(category.getNameTypeCurrency());
+		if (listCategories.isEmpty()) {
+
 			model.addAttribute("mensaje", "No se encontró");
 		}
-		model.addAttribute("listTypeCurrency", listTypeCurrencys);
+		model.addAttribute("listTypeCurrency", listCategories);
 		return "typeCurrency/listTypeCurrency";
+
 	}
 }

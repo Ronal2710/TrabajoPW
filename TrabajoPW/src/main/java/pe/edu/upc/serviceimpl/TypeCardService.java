@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -35,4 +36,21 @@ public class TypeCardService implements ITypeCardService{
 		return cR.findAll();
 	}
 
+	@Override
+	public void delete(int idTypeCard) {
+		// TODO Auto-generated method stub
+		cR.deleteById(idTypeCard);
+	}
+
+	@Override
+	public Optional<TypeCard> searchId(int idTypeCard) {
+		// TODO Auto-generated method stub
+		return cR.findById(idTypeCard);
+	}
+
+	@Override
+	public List<TypeCard> findNameTypeCardFull(String nameTypeCard) {
+		// TODO Auto-generated method stub
+		return cR.findBynameTypeCard(nameTypeCard);
+	}
 }
