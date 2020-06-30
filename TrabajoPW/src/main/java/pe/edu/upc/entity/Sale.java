@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "Sales")
+@Table(name = "sales")
 public class Sale {
 
 	@Id

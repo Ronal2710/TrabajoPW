@@ -17,4 +17,12 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
 	
 	@Query("from Product p where p.nameProduct like %:busqueda% or p.brand.nameBrand like %:busqueda% or p.category.nameCategoryProduct like %:busqueda% or p.classproduct.nameClassProduct like %:busqueda%")
 	List<Product> search(@Param("busqueda") String busqueda);
+	
+	@Query( value="SELECT pr.name_product,sum(ide.quantity) from sales i join sale_details ide on  ide.id_sale = i.id_sale join products pr on ide.id_product = pr.id_product group by pr.name_product",
+			nativeQuery = true )
+	public List<String[]> prodXsale();
+	
+	@Query( value="SELECT pr.name_product,sum(ide.quantity) from rents i join rent_details ide on  ide.id_rent = i.id_rent join products pr on ide.id_product = pr.id_product group by pr.name_product",
+			nativeQuery = true )
+	public List<String[]> prodXrent();
 }

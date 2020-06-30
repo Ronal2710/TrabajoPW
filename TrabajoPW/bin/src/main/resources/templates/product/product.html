@@ -207,6 +207,22 @@
 							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/brands/list}">Marca</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/classProduct/list}">Tipo Producto</a>
+					</div>
+				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -215,7 +231,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -223,7 +239,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -231,7 +247,7 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-
+				
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -247,7 +263,6 @@
 							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
 					</div>
 				</div>
-
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -265,19 +280,16 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
-
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/users/list}">Usuario</a>
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
 					</div>
-				</div>
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/roles/list}">Rol</a>
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -395,12 +407,13 @@
 							<label style="color: black" for="brand"
 								class="col-sm-2 col-form-label">Marca</label>
 							<div class="col-sm-6">
-								<input type="text" required="required" th:field="*{brandProduct}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('brandProduct')}"
-									th:errors="*{brandProduct}"></small>
+								<select class="form-control" required="required"
+									th:field="*{brand.idBrand}">
+									<option th:each="c: ${listBrands}"
+										th:value="${c.idBrand}"
+										th:text="${c.nameBrand}"
+										th:selected="(${c.idBrand} == *{brand.idBrand})"></option>
+								</select>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -471,15 +484,16 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label style="color: black" for="description"
+							<label style="color: black" for="classproduct"
 								class="col-sm-2 col-form-label">Tipo de Producto</label>
 							<div class="col-sm-6">
-								<input type="text" required="required"
-									th:field="*{classProduct}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('classProduct')}"
-									th:errors="*{classProduct}"></small>
+								<select class="form-control" required="required"
+									th:field="*{classproduct.idClassProduct}">
+									<option th:each="c: ${listClassProduct}"
+										th:value="${c.idClassProduct}"
+										th:text="${c.nameClassProduct}"
+										th:selected="(${c.idClassProduct} == *{classproduct.idClassProduct})"></option>
+								</select>
 							</div>
 						</div>
 
