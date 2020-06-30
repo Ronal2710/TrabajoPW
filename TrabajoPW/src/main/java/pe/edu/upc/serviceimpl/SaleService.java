@@ -22,6 +22,7 @@ public class SaleService implements ISaleService {
 	@Override
 	public void insert(Sale sale) {
 		// TODO Auto-generated method stub
+		System.out.println(sale.getDateSale());
 		sR.save(sale);
 		
 	}

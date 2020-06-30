@@ -87,9 +87,7 @@ public class Rent implements Serializable {
 		this.product = product;
 		this.user = user;
 	}
-
-
-
+	
 	@PrePersist
 	public void prePersist() {
 		this.registerRent = new Date();

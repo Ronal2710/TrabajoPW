@@ -49,9 +49,8 @@ public class RentController {
 		}
 		
 		else {
-
+			System.out.println(rent);
 			rS.insert(rent);
-			
 			model.addAttribute("listRents",rS.list());
 			model.addAttribute("mensaje","Registrado Correctamente");
 			return "redirect:/rents/list";

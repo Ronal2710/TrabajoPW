@@ -395,12 +395,13 @@
 							<label style="color: black" for="brand"
 								class="col-sm-2 col-form-label">Marca</label>
 							<div class="col-sm-6">
-								<input type="text" required="required" th:field="*{brandProduct}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('brandProduct')}"
-									th:errors="*{brandProduct}"></small>
+								<select class="form-control" required="required"
+									th:field="*{brand.idBrand}">
+									<option th:each="c: ${listBrands}"
+										th:value="${c.idBrand}"
+										th:text="${c.nameBrand}"
+										th:selected="(${c.idBrand} == *{brand.idBrand})"></option>
+								</select>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -471,15 +472,16 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label style="color: black" for="description"
+							<label style="color: black" for="classproduct"
 								class="col-sm-2 col-form-label">Tipo de Producto</label>
 							<div class="col-sm-6">
-								<input type="text" required="required"
-									th:field="*{classProduct}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('classProduct')}"
-									th:errors="*{classProduct}"></small>
+								<select class="form-control" required="required"
+									th:field="*{classproduct.idClassProduct}">
+									<option th:each="c: ${listClassProduct}"
+										th:value="${c.idClassProduct}"
+										th:text="${c.nameClassProduct}"
+										th:selected="(${c.idClassProduct} == *{classproduct.idClassProduct})"></option>
+								</select>
 							</div>
 						</div>
 

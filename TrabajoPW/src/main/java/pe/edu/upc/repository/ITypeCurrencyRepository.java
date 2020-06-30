@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import pe.edu.upc.entity.CategoryProduct;
 import pe.edu.upc.entity.TypeCurrency;
 @Repository
 public interface ITypeCurrencyRepository extends JpaRepository<TypeCurrency, Integer>{

@@ -1,5 +1,6 @@
 package pe.edu.upc.controller;
 
+import java.awt.desktop.PrintFilesEvent;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,13 +41,16 @@ public class SaleController{
 	@PostMapping("/save")
 	public String saveSale(@Validated Sale sale, BindingResult result, Model model)
 	{
+		
 		if(result.hasErrors()) {
 
 			model.addAttribute("listProducts", pS.list()); 
 			model.addAttribute("listUsers", uS.list()); 
 			return "sale/sale";
 		}else {
+			System.out.println(sale.getQuantitySale());
 			sS.insert(sale);
+			System.out.println(sale);
 			model.addAttribute("listSales",sS.list());
 			model.addAttribute("mensaje","Registrado Correctamente");
 			return "redirect:/sales/list";

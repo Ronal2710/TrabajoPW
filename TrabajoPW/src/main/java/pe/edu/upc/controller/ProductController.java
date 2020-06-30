@@ -27,10 +27,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Product;
-//import pe.edu.upc.entity.User;
 import pe.edu.upc.serviceinterface.IUploadFileService;
 import pe.edu.upc.serviceinterface.IUserService;
+import pe.edu.upc.serviceinterface.IBrandService;
 import pe.edu.upc.serviceinterface.ICategoryProductService;
+import pe.edu.upc.serviceinterface.IClassProductService;
 import pe.edu.upc.serviceinterface.IProductService;
 
 
@@ -46,14 +47,18 @@ public class ProductController {
 	private IUserService uS;
 	@Autowired
 	private IUploadFileService uploadFileService;
-//	@Autowired
-//	private User user;
+	@Autowired
+	private IBrandService bS;
+	@Autowired
+	private IClassProductService cpS;
 
 	@GetMapping("/new")
 	public String newProduct(Model model)
 	{
 		model.addAttribute("listCategories", cS.list()); 
 		model.addAttribute("listUsers", uS.list()); 
+		model.addAttribute("listBrands", bS.list());
+		model.addAttribute("listClassProduct", cpS.list()); 
 		model.addAttribute("product",new Product());
 		return "product/product";	
 	};
@@ -64,6 +69,8 @@ public class ProductController {
 		if (result.hasErrors()) {
 			model.addAttribute("listCategories", cS.list()); 
 			model.addAttribute("listUsers", uS.list()); 
+			model.addAttribute("listBrands", bS.list());
+			model.addAttribute("listClassProduct", cpS.list()); 
 			return "product/product";
 		} else {
 			if (!foto.isEmpty()) {
@@ -157,6 +164,8 @@ public class ProductController {
 		} else {
 			model.addAttribute("listCategories", cS.list()); 
 			model.addAttribute("listUsers", uS.list()); 
+			model.addAttribute("listBrands", bS.list());
+			model.addAttribute("listClassProduct", cpS.list()); 
 			model.addAttribute("product", objAr.get());
 			return "product/product";
 		}

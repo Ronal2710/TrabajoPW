@@ -38,17 +38,17 @@ public class Sale implements Serializable{
 	@JoinColumn(name="idProduct")
 	private Product product;
 	
-	public Double CalcularMontoTotal() {
-		Double b;
-		b= (double) quantitySale;
+	public Double montototal() {
+		Double c;
+		c= (double) quantitySale;
 
-		return b*product.getPriceProduct();
+		return c*product.getPriceProduct();
 	}
 	
 	@ManyToOne
 	@JoinColumn(name="id")
 	private User user;
-	
+
 	public Sale() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -64,10 +64,10 @@ public class Sale implements Serializable{
 	}
 	
 	@PrePersist
-	public void prePersist() {
-		this.dateSale = new Date();
+	public void presPersist() {
+		this.dateSale= new Date();
 	}
-
+	
 	public int getIdSale() {
 		return idSale;
 	}
@@ -107,6 +107,7 @@ public class Sale implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	
+	
 	
 }
