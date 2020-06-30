@@ -1,18 +1,19 @@
 package pe.edu.upc.serviceinterface;
 
 import java.util.List;
-import java.util.Optional;
+
+
 
 import pe.edu.upc.entity.Sale;
 
 public interface ISaleService {
+
 	
-	public void insert(Sale sale);
+	public boolean insert(Sale Sale);
 
-	List<Sale> list();
+	Sale listarId(long id);
 
-	Optional<Sale> searchId(int idSale);
+	List<Sale> listar();
 
-	public void delete(int idSale);
-	
+
 }

@@ -109,7 +109,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
@@ -126,19 +126,14 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Persona</a>
+							th:href="@{/users/list}">Usuario</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Rol</a>
 					</div>
 				</div></li>
 						<!-- Sidebar Toggler (Sidebar) -->
@@ -256,7 +251,7 @@
 								<td  style="color: white; font-weight: bold" th:text="${cate.nameCategoryProduct}"></td>
 								<td class="text-center"><a
 									th:href="@{'/categoriesProduct/irupdate/' + ${cate.idCategoryProduct}}"><i
-										class="iconf fa fa-pen" style="color: red;"></i></a></td>
+										class="iconf fa fa-pen" style="color: blue;"></i></a></td>
 									
 								<td class="text-center"><a
 									th:href="@{'/categoriesProduct/delete/'+${cate.idCategoryProduct}}"><i
@@ -305,10 +300,13 @@
 				<div class="modal-body">Seleccione "Cerrar sesión" a
 					continuación si está listo para finalizar su sesión actual.</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" th:href="@{/categoriesProduct/index}">Cerrar
-						sesión</a>
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Cerrar</button>
+						<button class="btn btn-dark" type="button" data-dismiss="modal"
+							th:href="@{/categoriesProduct/list}">Cancel</button>
+					</form>
 				</div>
 			</div>
 		</div>

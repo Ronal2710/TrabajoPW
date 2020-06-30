@@ -255,15 +255,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
-					</div>
-				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
@@ -280,21 +272,16 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/users/list}">Usuario</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Rol</a>
 					</div>
-				</div></li>s
+				</div></li>
 				 <!-- Divider -->
 				<hr class="sidebar-divider">
 				 <!-- Sidebar Toggler (Sidebar) -->
@@ -372,7 +359,29 @@
 					<h1 style="color: black" class="h3 mb-4 ">Tipos de Moneda</h1>
 
 					<a th:href="@{/typeCurrency/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
+					<form th:action="@{/typeCurrency/search}" method="post"
+						th:object="${typeCurrency}">
 
+						<div class="form-group">
+							<table>
+								<tbody>
+									<tr>
+										<td><label for="nameTypeCurrency" style="color: black"
+											class="col-sm-2 col-form-label">Buscar:</label></td>
+										<td><input type="text" class="form-control"
+											th:field="*{nameTypeCurrency}" id="nameTypeCurrency"
+											placeholder="Nombre Divisa" required="required"
+											pattern="[a-zA-Z]+"></input></td>
+										<td><button type="submit" class="btn btn-danger">
+												<i class="iconf fa fa-search" style="color: white;"></i>
+											</button></td>
+										<td><a href="/typeCurrency/list" class="btn btn-danger">Limpiar</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</form>
 					<hr class="sidebar-divider">
 
 					<table class="table table-bordered">
