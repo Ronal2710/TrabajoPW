@@ -18,7 +18,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,7 +35,21 @@ public class Rent {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date requestDate;// cuando se pidio
-
+	
+	@NotNull(message = "La fecha es obligatoria")
+	@Future(message = "La fecha debe estar en el futuro")
+	@Column(name = "startDate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date startDate;
+	
+	@NotNull(message = "La fecha es obligatoria")
+	@Future(message = "La fecha debe estar en el futuro")
+	@Column(name = "endDate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date endDate;
+	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idRent", nullable = true)
 	private List<RentDetails> rentDetails;
@@ -86,6 +101,22 @@ public class Rent {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 	
 	

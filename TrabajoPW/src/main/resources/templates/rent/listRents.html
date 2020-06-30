@@ -56,7 +56,7 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
+		<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-target="#collapseTwo" aria-expanded="false"
 				aria-controls="collapseTwo"> </a>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -66,7 +66,7 @@
 							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -74,7 +74,7 @@
 							th:href="@{/brands/list}">Marca</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -90,7 +90,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -98,7 +98,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -106,12 +106,20 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/bills/list}">Factura</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/sales/reports}">Reportes</a>
 					</div>
 				</div>
 
@@ -141,14 +149,16 @@
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/users/list}">Usuarios</a>
 					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 			<!-- Divider -->
@@ -238,26 +248,31 @@
 						<thead style="background-color: black;">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col" style="color: white">User</th>
+								<th scope="col" style="color: white">Usuario</th>
 								<th scope="col" style="color: white">Dia creado</th>
+								<th scope="col" style="color: white">Dia de Inicio</th>
+								<th scope="col" style="color: white">Dia Fin</th>
 								<th scope="col" class="text-center">Ver detalle</th>
-								
+
 							</tr>
 						</thead>
 						<tbody style="background-color: transparent;">
 							<tr th:each="cate: ${listRents}">
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idRent}"></td>
-									
+
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.user.name}"></td>
-									
+									th:text="${cate.user.username}"></td>
+
 								<td style="color: white; font-weight: bold"
-									th:text="${#dates.format(cate.requestDate,'dd/MM/yyyy')}"></td>	
-															
--							<td style="color: white; font-weight: bold"><a
-										th:href="@{'/rents/detail/' + ${cate.idRent}}"
-										class="btn btn-danger">Detalle</a></td>
+									th:text="${#dates.format(cate.requestDate,'dd/MM/yyyy')}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${#dates.format(cate.startDate,'dd/MM/yyyy')}"></td>
+								<td style="color: white; font-weight: bold"
+									th:text="${#dates.format(cate.endDate,'dd/MM/yyyy')}"></td>
+								<td style="color: white; font-weight: bold"><a
+									th:href="@{'/rents/detail/' + ${cate.idRent}}"
+									class="btn btn-danger">Detalle</a></td>
 						</tbody>
 					</table>
 

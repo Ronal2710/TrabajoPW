@@ -212,10 +212,26 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
+							th:href="@{/brands/list}">Marca</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/classProduct/list}">Tipo Producto</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -223,7 +239,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -231,7 +247,7 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -244,7 +260,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
+							th:href="@{/sales/reports}">Reportes</a>
 					</div>
 				</div>
 
@@ -252,7 +268,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
+							th:href="@{/typePayment/list}">M&eacute;todo de Pago</a>
 					</div>
 				</div>
 
@@ -272,24 +288,18 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
-
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
+							th:href="@{/users/list}">Usuarios</a>
 					</div>
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
-					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 

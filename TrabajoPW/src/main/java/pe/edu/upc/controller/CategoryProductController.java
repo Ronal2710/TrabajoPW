@@ -53,7 +53,7 @@ public class CategoryProductController {
 			
 			cS.insert(category);
 			model.addAttribute("listCategories",cS.list());
-			model.addAttribute("mensaje","Se Registro Correctamente");
+			model.addAttribute("mensaje","Se registró Correctamente");
 			return "categoryProduct/listCategories";
 				}
 			}
