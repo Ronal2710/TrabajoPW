@@ -25,7 +25,7 @@ public class RentDetails {
 	@JoinColumn(name = "idProduct", nullable = false)
 	private Product product;
 
-	@Positive(message = "El monto debe de ser positivo")
+	@Positive(message = "La cantidad debe de ser positivo")
 	@Column(name = "quantity", nullable = false)
 	private int quantity;
 

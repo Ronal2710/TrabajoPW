@@ -62,7 +62,7 @@
 							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -70,7 +70,7 @@
 							th:href="@{/brands/list}">Marca</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -86,7 +86,7 @@
 							th:href="@{/products/list}">Producto</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -94,7 +94,7 @@
 							th:href="@{/sales/list}">Venta</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
@@ -102,12 +102,20 @@
 							th:href="@{/rents/list}">Alquiler</a>
 					</div>
 				</div>
-				
+
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/bills/list}">Factura</a>
+					</div>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/sales/reports}">Reportes</a>
 					</div>
 				</div>
 
@@ -137,14 +145,16 @@
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-				<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/users/list}">Usuarios</a>
 					</div>
-					</div>
-					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item"
+							th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 			<!-- Divider -->
@@ -229,7 +239,7 @@
 					<div class="content container">
 						<div class="creportes d-flex justify-content-around">
 							<div class="cproyecto ">
-								<h3  style="color: black" class="tproyecto ">Productos Venta</h3>
+								<h3  style="color: black" class="tproyecto ">Productos Vendidos</h3>
 								<p   style="color: black"class="dproyecto ">Lista de la cantidad de veces que un
 									producto fue vendido </p>
 								<a  style="color: white"class="lnikp " th:href="@{/products/reporte1}">Ver
@@ -237,9 +247,9 @@
 							</div>
 								<div class="creportes d-flex justify-content-around">
 							<div class="cproyecto ">
-								<h3  style="color: black" class="tproyecto ">Productos Rent</h3>
+								<h3  style="color: black" class="tproyecto ">Productos Alquilados</h3>
 								<p style="color: black" class="dproyecto ">Lista de la cantidad de veces que un
-									producto fue rentado</p>
+									producto fue alquilado</p>
 								<a  style="color: white" class="lnikp " th:href="@{/products/reporte3}">Ver
 									Reporte</a>
 							</div>

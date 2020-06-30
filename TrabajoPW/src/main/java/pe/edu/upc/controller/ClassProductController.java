@@ -49,7 +49,7 @@ public class ClassProductController {
 			
 			cS.insert(classpro);
 			model.addAttribute("listClassProduct",cS.list());
-			model.addAttribute("mensaje","Se Registro Correctamente");
+			model.addAttribute("mensaje","Se registró Correctamente");
 			return "classProduct/listClassProduct";
 				}
 			}
