@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.entity.Sale;
 
 @Repository
-public interface ISaleRepository extends JpaRepository<Sale, Integer> {
+public interface ISaleRepository extends JpaRepository<Sale, Long> {
 	
 }

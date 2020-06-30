@@ -376,38 +376,51 @@
 					</div>
 
 					<form th:action="@{/rents/save}" th:object="${rent}" method="post">
-
+						
 						<div class="form-group row">
-							<label style="color: black" for="amount"
-								class="col-sm-2 col-form-label">Monto</label>
+							<label style="color: black" for="id"
+								class="col-sm-2 col-form-label">Codigo</label>
 							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" required="required" th:field="*{amountRent}"
+								<input type="text" pattern="[0-9]+" required="required" th:field="*{idRent}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('amountRent')}"
-									th:errors="*{amountRent}"></small>
+									th:if="${#fields.hasErrors('idRent')}"
+									th:errors="*{idRent}"></small>
 							</div>
 						</div>
+						
+<!-- 						<div class="form-group row"> -->
+<!-- 							<label style="color: black" for="amount" -->
+<!-- 								class="col-sm-2 col-form-label">Monto</label> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<input type="number" pattern="[1-9]+" required="required" th:field="*{amountRent}" -->
+<!-- 									class="form-control" -->
+<!-- 									th:errorclass="'form-control alert-danger'" /> <small -->
+<!-- 									class="form-text text-danger" -->
+<!-- 									th:if="${#fields.hasErrors('amountRent')}" -->
+<!-- 									th:errors="*{amountRent}"></small> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 
-						<div class="form-group row">
+<!-- 						<div class="form-group row"> -->
 
-							<label style="color: black" for="date"
-								class="col-sm-2 col-form-label">Fecha de Registro</label>
-							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{registerRent}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('registerRent')}"
-									th:errors="*{registerRent}"></small>
-							</div>
-						</div>
+<!-- 							<label style="color: black" for="date" -->
+<!-- 								class="col-sm-2 col-form-label">Fecha de Registro</label> -->
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{registerRent}" -->
+<!-- 									class="form-control" -->
+<!-- 									th:errorclass="'form-control alert-danger'" /> <small -->
+<!-- 									class="form-text text-danger" -->
+<!-- 									th:if="${#fields.hasErrors('registerRent')}" -->
+<!-- 									th:errors="*{registerRent}"></small> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
 						<div class="form-group row">
 
 							<label style="color: black" for="date"
-								class="col-sm-2 col-form-label">Fecha de venta</label>
+								class="col-sm-2 col-form-label">Fecha de Inicio</label>
 							<div class="col-sm-6">
 								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{startdateRent}"
 									class="form-control"
@@ -421,7 +434,7 @@
 						<div class="form-group row">
 
 							<label style="color: black" for="date"
-								class="col-sm-2 col-form-label">Fecha de venta</label>
+								class="col-sm-2 col-form-label">Fecha Final</label>
 							<div class="col-sm-6">
 								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{enddateRent}"
 									class="form-control"
@@ -454,6 +467,18 @@
 									<option th:each="c: ${listProducts}" th:value="${c.idProduct}"
 										th:text="${c.nameProduct}"
 										th:selected="(${c.idProduct} == *{product.idProduct})"></option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label style="color: black" for="product"
+								class="col-sm-2 col-form-label">Usuario</label>
+							<div class="col-sm-6">
+								<select class="form-control" required="required" th:field="*{user.id}">
+									<option th:each="c: ${listUsers}" th:value="${c.id}"
+										th:text="${c.username}"
+										th:selected="(${c.id} == *{user.id})"></option>
 								</select>
 							</div>
 						</div>
