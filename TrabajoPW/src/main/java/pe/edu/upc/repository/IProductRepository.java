@@ -15,6 +15,6 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
 	@Query("select count(p.nameProduct) from Product p where UPPER(p.nameProduct)=:nameProduct or LOWER(p.nameProduct)=:nameProduct")
 	public int searchProduct(@Param("nameProduct") String nombre);
 	
-	@Query("from Product p where p.nameProduct like %:busqueda% or p.brandProduct like %:busqueda% or p.category.nameCategoryProduct like %:busqueda% or p.classProduct like %:busqueda%")
+	@Query("from Product p where p.nameProduct like %:busqueda% or p.brand.nameBrand like %:busqueda% or p.category.nameCategoryProduct like %:busqueda% or p.classproduct.nameClassProduct like %:busqueda%")
 	List<Product> search(@Param("busqueda") String busqueda);
 }

@@ -1,103 +1,83 @@
 package pe.edu.upc.entity;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Positive;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "sales")
-public class Sale implements Serializable{
+@Table(name = "Sales")
+public class Sale {
 
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idSale;
-	@Positive
-	@Column(name = "quantitySale", nullable = false)
-	private int quantitySale;
-	@Column(name = "dateSale")
+	private long idSale;
+
+	@Column(name = "requestDate")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateSale;
-	
-	@ManyToOne
-	@JoinColumn(name="idProduct")
-	private Product product;
-	
-	public Double CalcularMontoTotal() {
-		Double b;
-		b= (double) quantitySale;
+	private Date requestDate;// cuando se pidio
 
-		return b*product.getPriceProduct();
-	}
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "idSale", nullable = true)
+	private List<SaleDetails> saleDetails;
 	
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name = "id")
 	private User user;
-	
-	public Sale() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public Sale(int idSale, @Positive int quantitySale, Date dateSale, Product product, User user) {
-		super();
-		this.idSale = idSale;
-		this.quantitySale = quantitySale;
-		this.dateSale = dateSale;
-		this.product = product;
-		this.user = user;
-	}
-	
 	@PrePersist
 	public void prePersist() {
-		this.dateSale = new Date();
+		this.requestDate = new Date();
 	}
 
-	public int getIdSale() {
+	public Double getTotal() {
+		return saleDetails.stream().collect(Collectors.summingDouble(SaleDetails::calcularSubTotal));
+	}
+
+	public void addDetailSaleation(SaleDetails item) {
+		this.saleDetails.add(item);
+	}
+
+	public long getIdSale() {
 		return idSale;
 	}
 
-	public void setIdSale(int idSale) {
+	public void setIdSale(long idSale) {
 		this.idSale = idSale;
 	}
 
-	public int getQuantitySale() {
-		return quantitySale;
+	public Date getRequestDate() {
+		return requestDate;
 	}
 
-	public void setQuantitySale(int quantitySale) {
-		this.quantitySale = quantitySale;
+	public void setRequestDate(Date requestDate) {
+		this.requestDate = requestDate;
 	}
 
-	public Date getDateSale() {
-		return dateSale;
+	public List<SaleDetails> getSaleDetails() {
+		return saleDetails;
 	}
 
-	public void setDateSale(Date dateSale) {
-		this.dateSale = dateSale;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setSaleDetails(List<SaleDetails> SaleDetails) {
+		this.saleDetails = SaleDetails;
 	}
 
 	public User getUser() {
@@ -107,6 +87,7 @@ public class Sale implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 	
+	
+
 }

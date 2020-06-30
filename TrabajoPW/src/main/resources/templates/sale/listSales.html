@@ -3,152 +3,6 @@
 
 <head>
 
-<style type="text/css">
-.navbar {
-	background-color: #000000;
-}
-
-.navbar .navbar-brand {
-	color: #ffffff;
-}
-
-.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-	color: #ecdbff;
-}
-
-.navbar .navbar-text {
-	color: #ffffff;
-}
-
-.navbar .navbar-text a {
-	color: #ecdbff;
-}
-
-.navbar .navbar-text a:hover, .navbar .navbar-text a:focus {
-	color: #ecdbff;
-}
-
-.navbar .navbar-nav .nav-link {
-	color: #ffffff;
-	border-radius: .25rem;
-	margin: 0 0.25em;
-}
-
-.navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	 (.disabled ):focus {
-	color: #ecdbff;
-}
-
-.navbar .navbar-nav .nav-item.active .nav-link, .navbar .navbar-nav .nav-item.active .nav-link:hover,
-	.navbar .navbar-nav .nav-item.active .nav-link:focus, .navbar .navbar-nav .nav-item.show .nav-link,
-	.navbar .navbar-nav .nav-item.show .nav-link:hover, .navbar .navbar-nav .nav-item.show .nav-link:focus
-	{
-	color: #ecdbff;
-	background-color: #a00ddd;
-}
-
-.navbar .navbar-toggle {
-	border-color: #a00ddd;
-}
-
-.navbar .navbar-toggle:hover, .navbar .navbar-toggle:focus {
-	background-color: #a00ddd;
-}
-
-.navbar .navbar-toggle .navbar-toggler-icon {
-	color: #ffffff;
-}
-
-.navbar .navbar-collapse, .navbar .navbar-form {
-	border-color: #ffffff;
-}
-
-.navbar .navbar-link {
-	color: #ffffff;
-}
-
-.navbar .navbar-link:hover {
-	color: #ecdbff;
-}
-
-@media ( max-width : 575px) {
-	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-@media ( max-width : 767px) {
-	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-@media ( max-width : 991px) {
-	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-@media ( max-width : 1199px) {
-	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
-	color: #ffffff;
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-	.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-	color: #ecdbff;
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
-	color: #ecdbff;
-	background-color: #a00ddd;
-}
-</style>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -187,7 +41,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				th:href="@{/sales/list}">
+				th:href="@{/Sales/list}">
 				<div>
 					<img th:src="@{/img/logo.png}" width="150" height="70"
 						align="middle"> </img>
@@ -210,6 +64,22 @@
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
 							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/brands/list}">Marca</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/classProduct/list}">Tipo Producto</a>
 					</div>
 				</div>
 
@@ -257,7 +127,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeCard/list}">Tipo de Tarjeta</a>
+							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
 
@@ -269,19 +139,16 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
-
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/users/list}">Usuario</a>
+				<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
 					</div>
-				</div>
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					</div>
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/roles/list}">Rol</a>
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 			<!-- Divider -->
@@ -342,9 +209,8 @@
 									class="fas fa-user fa-sm fa-fw mr-2 "></i> Perfil
 								</a>
 								<div class="dropdown-divider"></div>
-								<a style="color: black" class="dropdown-item"
-									href="products/index" data-toggle="modal"
-									data-target="#logoutModal"> <i
+								<a style="color: black" class="dropdown-item" href="Sales/index"
+									data-toggle="modal" data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 "></i> Cerrar
 									sesión
 								</a>
@@ -361,47 +227,37 @@
 					<!-- Page Heading -->
 
 					<br></br>
-					<h1 style="color: black" class="h3 mb-4 ">Productos en Venta</h1>
+					<h1 style="color: black" class="h3 mb-4 "></h1>
 
-
+					<h1 style="color: black" class="h3 mb-4 ">Productos en
+						Alquiler</h1>
 					<a th:href="@{/sales/new/}" class="btn btn-secondary btn-xs">Nuevo</a>
-
 					<hr class="sidebar-divider">
 
 					<table class="table table-bordered">
 						<thead style="background-color: black;">
 							<tr>
 								<th scope="col" style="color: white">Id</th>
-								<th scope="col" style="color: white">Monto</th>
-								<th scope="col" style="color: white">Cantidad</th>
-								<th scope="col" style="color: white">Fecha de Venta</th>
-								<th scope="col" style="color: white">Producto</th>
-								<th scope="col" style="color: white">Usuario</th>
-								<th scope="col" style="color: white">Operaci&oacute;n</th>
-								<th scope="col" style="color: white">Operaci&oacute;n</th>
+								<th scope="col" style="color: white">User</th>
+								<th scope="col" style="color: white">Dia creado</th>
+								<th scope="col" class="text-center">Ver detalle</th>
+								
 							</tr>
 						</thead>
-						<tbody style="background-color: transparent;">
+						<tbody style="background-color: transpaSale;">
 							<tr th:each="cate: ${listSales}">
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.idSale}"></td>
+									
 								<td style="color: white; font-weight: bold"
-									th:text="$Total{cate.CalcularMontoTotal()}"></td>
+									th:text="${cate.user.name}"></td>
+									
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.quantitySale}"></td>
-								<td style="color: white; font-weight: bold"
-									th:text="${#dates.format(cate.dateSale,'dd/MM/yyyy')}"></td>
-								<td style="color: white; font-weight: bold"
-									th:text="${cate.product.nameProduct}"></td>
-								<td style="color: white; font-weight: bold"
-									th:text="${cate.user.username}"></td>
-								<td class="text-center"><a
-									th:href="@{'/sales/irupdate/' + ${cate.idSale}}"><i
-									class="iconf fa fa-pen" style="color: blue;"></i></a></td>
-								<td class="text-center"><a
-									th:href="@{'/sales/delete/' + ${cate.idSale}}"><i
-									class="iconf fa fa-trash" style="color: gray;"></i></a></td>
-							</tr>
+									th:text="${#dates.format(cate.requestDate,'dd/MM/yyyy')}"></td>	
+															
+-							<td style="color: white; font-weight: bold"><a
+										th:href="@{'/sales/detail/' + ${cate.idSale}}"
+										class="btn btn-danger">Detalle</a></td>
 						</tbody>
 					</table>
 
