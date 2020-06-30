@@ -53,5 +53,15 @@ public class ProductService implements IProductService {
 		// TODO Auto-generated method stub
 		pR.deleteById(idProduct);
 	}
+	
+	@Override
+	public List<String[]> prodXsale() {
+		return pR.prodXsale();
+	}
+	
+	@Override
+	public List<String[]> prodXrent() {
+		return pR.prodXrent();
+	}
 
 }

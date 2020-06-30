@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Positive;
 
 @Entity
-@Table(name = "SaleDetails")
+@Table(name = "saleDetails")
 public class SaleDetails {
 
 	@Id

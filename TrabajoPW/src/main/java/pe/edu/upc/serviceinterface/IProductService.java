@@ -15,4 +15,8 @@ public interface IProductService {
 	public List<Product> search(String busqueda);
 	
 	public void delete(int idProduct);
+	
+	public List<String[]> prodXsale();
+	
+	public List<String[]> prodXrent();
 }
