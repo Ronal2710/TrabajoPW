@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -200,5 +201,16 @@ public class ProductController {
 		model.addAttribute("product", product.get());
 
 		return "product/view";
+	}
+	
+	@RequestMapping("/reporte1")
+	public String productosXsale(Map<String, Object> model) {
+		model.put("listProdxSale", pS.prodXsale());
+		return "reports/productosSales";
+	}
+	@RequestMapping("/reporte3")
+	public String productosXrent(Map<String, Object> model) {
+		model.put("listProdxRent", pS.prodXrent());
+		return "reports/productosRents";
 	}
 }

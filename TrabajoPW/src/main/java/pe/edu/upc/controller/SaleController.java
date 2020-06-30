@@ -43,7 +43,12 @@ public class SaleController {
 	private IUserService uS;
 	
 	
-
+	@RequestMapping("/reports")
+	public String Report()
+	{
+		return "reports/reports";
+	}
+	
 	
 	@RequestMapping("/new")
 	public String irRegistrar(Model model) {

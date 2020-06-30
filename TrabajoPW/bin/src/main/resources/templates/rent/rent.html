@@ -3,152 +3,7 @@
 
 <head>
 
-<style type="text/css">
-.navbar {
-	background-color: #000000;
-}
 
-.navbar .navbar-brand {
-	color: #ffffff;
-}
-
-.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-	color: #ecdbff;
-}
-
-.navbar .navbar-text {
-	color: #ffffff;
-}
-
-.navbar .navbar-text a {
-	color: #ecdbff;
-}
-
-.navbar .navbar-text a:hover, .navbar .navbar-text a:focus {
-	color: #ecdbff;
-}
-
-.navbar .navbar-nav .nav-link {
-	color: #ffffff;
-	border-radius: .25rem;
-	margin: 0 0.25em;
-}
-
-.navbar .navbar-nav .nav-link:not (.disabled ):hover, .navbar .navbar-nav .nav-link:not
-	 (.disabled ):focus {
-	color: #ecdbff;
-}
-
-.navbar .navbar-nav .nav-item.active .nav-link, .navbar .navbar-nav .nav-item.active .nav-link:hover,
-	.navbar .navbar-nav .nav-item.active .nav-link:focus, .navbar .navbar-nav .nav-item.show .nav-link,
-	.navbar .navbar-nav .nav-item.show .nav-link:hover, .navbar .navbar-nav .nav-item.show .nav-link:focus
-	{
-	color: #ecdbff;
-	background-color: #a00ddd;
-}
-
-.navbar .navbar-toggle {
-	border-color: #a00ddd;
-}
-
-.navbar .navbar-toggle:hover, .navbar .navbar-toggle:focus {
-	background-color: #a00ddd;
-}
-
-.navbar .navbar-toggle .navbar-toggler-icon {
-	color: #ffffff;
-}
-
-.navbar .navbar-collapse, .navbar .navbar-form {
-	border-color: #ffffff;
-}
-
-.navbar .navbar-link {
-	color: #ffffff;
-}
-
-.navbar .navbar-link:hover {
-	color: #ecdbff;
-}
-
-@media ( max-width : 575px) {
-	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-@media ( max-width : 767px) {
-	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-@media ( max-width : 991px) {
-	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-@media ( max-width : 1199px) {
-	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
-		color: #ffffff;
-	}
-	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-		.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus
-		{
-		color: #ecdbff;
-	}
-	.navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active
-		{
-		color: #ecdbff;
-		background-color: #a00ddd;
-	}
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
-	color: #ffffff;
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-	.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-	color: #ecdbff;
-}
-
-.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
-	color: #ecdbff;
-	background-color: #a00ddd;
-}
-</style>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -207,6 +62,22 @@
 							th:href="@{/categoriesProduct/list}">Categor&iacute;a</a>
 					</div>
 				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/brands/list}">Marca</a>
+					</div>
+				</div>
+				
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+					data-parent="#accordionSidebar">
+					<div class="bg-black py-2 collapse-inner rounded">
+						<a style="color: white" class="collapse-item"
+							th:href="@{/classProduct/list}">Tipo Producto</a>
+					</div>
+				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
@@ -252,14 +123,6 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
 						<a style="color: white" class="collapse-item"
-							th:href="@{/typeUser/list}">Tipo de Usuario</a>
-					</div>
-				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
 							th:href="@{/tpyeCard/list}">Tipo de Tarjeta</a>
 					</div>
 				</div>
@@ -272,24 +135,16 @@
 							th:href="@{/typeCurrency/list}">Tipo de Moneda</a>
 					</div>
 				</div>
-
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-					data-parent="#accordionSidebar">
-					<div class="bg-black py-2 collapse-inner rounded">
-						<a style="color: white" class="collapse-item"
-							th:href="@{/persons/list}">Usuario</a>
-					</div>
-				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 				<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/users/list}">Usuarios</a>
+						<a style="color: white" class="collapse-item" th:href="@{/users/list}">Usuarios</a>
 					</div>
 					</div>
 					<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 					data-parent="#accordionSidebar">
 					<div class="bg-black py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{/roles/list}">Roles</a>
+						<a style="color: white" class="collapse-item" th:href="@{/roles/list}">Roles</a>
 					</div>
 				</div></li>
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -390,106 +245,37 @@
 							</div>
 						</div>
 						
-<!-- 						<div class="form-group row"> -->
-<!-- 							<label style="color: black" for="amount" -->
-<!-- 								class="col-sm-2 col-form-label">Monto</label> -->
-<!-- 							<div class="col-sm-6"> -->
-<!-- 								<input type="number" pattern="[1-9]+" required="required" th:field="*{amountRent}" -->
-<!-- 									class="form-control" -->
-<!-- 									th:errorclass="'form-control alert-danger'" /> <small -->
-<!-- 									class="form-text text-danger" -->
-<!-- 									th:if="${#fields.hasErrors('amountRent')}" -->
-<!-- 									th:errors="*{amountRent}"></small> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-
-<!-- 						<div class="form-group row"> -->
-
-<!-- 							<label style="color: black" for="date" -->
-<!-- 								class="col-sm-2 col-form-label">Fecha de Registro</label> -->
-<!-- 							<div class="col-sm-6"> -->
-<!-- 								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{registerRent}" -->
-<!-- 									class="form-control" -->
-<!-- 									th:errorclass="'form-control alert-danger'" /> <small -->
-<!-- 									class="form-text text-danger" -->
-<!-- 									th:if="${#fields.hasErrors('registerRent')}" -->
-<!-- 									th:errors="*{registerRent}"></small> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-						
-						<div class="form-group row">
-
-							<label style="color: black" for="date"
-								class="col-sm-2 col-form-label">Fecha de Inicio</label>
+					<div class="form-group row">
+							<label style="color: black" for="user"
+								class="col-sm-2 col-form-label">Propietario</label>
 							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{startdateRent}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('startdateRent')}"
-									th:errors="*{startdateRent}"></small>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-
-							<label style="color: black" for="date"
-								class="col-sm-2 col-form-label">Fecha Final</label>
-							<div class="col-sm-6">
-								<input type="date" pattern="dd-mm-yyyy" required="required" th:field="*{enddateRent}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('enddateRent')}"
-									th:errors="*{enddateRent}"></small>
-							</div>
-						</div>
-
-						<div class="form-group row">
-
-							<label style="color: black" for="quantity"
-								class="col-sm-2 col-form-label">Cantidad</label>
-							<div class="col-sm-6">
-								<input type="number" pattern="[1-9]+" required="required" th:field="*{quantityRent}"
-									class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('quantityRent')}"
-									th:errors="*{quantityRent}"></small>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label style="color: black" for="product"
-								class="col-sm-2 col-form-label">Producto</label>
-							<div class="col-sm-6">
-								<select class="form-control" required="required" th:field="*{product.idProduct}">
-									<option th:each="c: ${listProducts}" th:value="${c.idProduct}"
-										th:text="${c.nameProduct}"
-										th:selected="(${c.idProduct} == *{product.idProduct})"></option>
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group row">
-							<label style="color: black" for="product"
-								class="col-sm-2 col-form-label">Usuario</label>
-							<div class="col-sm-6">
-								<select class="form-control" required="required" th:field="*{user.id}">
-									<option th:each="c: ${listUsers}" th:value="${c.id}"
-										th:text="${c.username}"
+								<select class="form-control" required="required"
+									th:field="*{user.id}">
+									<option th:each="c: ${listUsers}"
+										th:value="${c.id}"
+										th:text="${c.name}"
 										th:selected="(${c.id} == *{user.id})"></option>
 								</select>
 							</div>
 						</div>
-				</div>
+					
+						<div class="form-group row">
 
-
+							
+									<div class="alert alert-danger"
+										th:if="${#fields.hasErrors('requestDate')}"
+										th:errors="*{requestDate}"></div>
+								</div>
+						</div>
+												
 				<div class="form-group row">
 					<div class="col-sm-6">
-						<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-						<a href="/rents/list" class="btn btn-danger">Cancelar</a>
-					</div>
+					
+					<button type="submit" class="btnadd btn btn-secondary">Crear
+									Renta</button>
+								<a href="/rents/list" class="btncancel btn btn-danger">Cancelar</a>
+								
+						</div>
 				</div>
 
 				</form>

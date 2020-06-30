@@ -42,5 +42,8 @@ public class SaleService implements ISaleService{
 		return sR.findAll();
 	}
 
-	
+//	@Override
+//	public Optional<Sale> fetchBySaleIdWhithSaleDetailsWithProduct(Long id) {
+//		return sR.fetchBySaleIdWhithSaleDetailsWithProduct(id);
+//	}
 }
