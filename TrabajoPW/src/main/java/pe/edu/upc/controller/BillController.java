@@ -53,6 +53,9 @@ public class BillController {
 		model.addAttribute("listTypeCurrency", cuS.list());
 		model.addAttribute("listTypePayment", paS.list());
 		model.addAttribute("listUsers", uS.list());
+		model.addAttribute("listRents", rS.listar());
+		model.addAttribute("listSales", sS.listar());
+		
 	
 		model.addAttribute("bill",new Bill());
 		return "bill/bill";
@@ -100,6 +103,9 @@ public class BillController {
 			model.addAttribute("listTypeCurrency", cuS.list());
 			model.addAttribute("listTypePayment", paS.list());
 			model.addAttribute("listUsers", uS.list());
+			model.addAttribute("listRents", rS.listar());
+			model.addAttribute("listSales", sS.listar());
+			
 		
 			model.addAttribute("mensaje", "Se Actualizo Correctamente");
 			return "bill/bill";

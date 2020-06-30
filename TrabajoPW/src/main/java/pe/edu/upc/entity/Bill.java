@@ -69,6 +69,24 @@ public class Bill implements Serializable{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public Bill(int idBill, Date dateBill, TypeCard typeCard, TypeCurrency typeCurrency, TypePayment typePayment,
 			User user, Rent rent, Sale sale) {
 		super();
@@ -81,6 +99,24 @@ public class Bill implements Serializable{
 		this.rent = rent;
 		this.sale = sale;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -174,9 +210,24 @@ public class Bill implements Serializable{
 
 
 
+
+
+
+
+
+
 	public Rent getRent() {
 		return rent;
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -186,9 +237,27 @@ public class Bill implements Serializable{
 
 
 
+
+
+
+
+
+
+
+
+
 	public Sale getSale() {
 		return sale;
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -196,6 +265,5 @@ public class Bill implements Serializable{
 		this.sale = sale;
 	}
 
-	
 	
 }

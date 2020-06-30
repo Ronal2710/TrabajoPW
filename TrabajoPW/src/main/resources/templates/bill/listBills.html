@@ -380,12 +380,13 @@
 							<tr>
 								<th scope="col" style="color: white">Id</th>
 								<th scope="col" style="color: white">Date</th>
-								<th scope="col" style="color: white">Person</th>
+								<th scope="col" style="color: white">User</th>
 								<th scope="col" style="color: white">Sale</th>
 								<th scope="col" style="color: white">Rent</th>
 								<th scope="col" style="color: white">Type Payment</th>
 								<th scope="col" style="color: white">Type Card</th>
 								<th scope="col" style="color: white">Type Currency</th>
+								<th scope="col" style="color: white">Operacion</th>
 								<th scope="col" style="color: white">Operacion</th>
 
 
@@ -398,11 +399,11 @@
 								<td style="color: white; font-weight: bold"
 										th:text="${#dates.format(cate.dateBill,'dd/MM/yyyy')}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.person.namePerson}"></td>
+									th:text="${cate.user.username}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.sale.amountSale}"></td>
+									th:text="${cate.sale.idSale}"></td>
 								<td style="color: white; font-weight: bold"
-									th:text="${cate.rent.amountRent}"></td>
+									th:text="${cate.rent.idRent}"></td>
 								<td style="color: white; font-weight: bold"
 									th:text="${cate.typePayment.nameTypePayment}"></td>
 								<td style="color: white; font-weight: bold"
